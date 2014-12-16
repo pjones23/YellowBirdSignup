@@ -116,9 +116,6 @@
 				    <p>Want to move up to the first round for early access? Be sure to share your unique url with family and friends.</p>
 					<input id="uniqueURL" placeholder="your unique url" disabled />
                         <ul>
-                            <!--
-                            <a id="TwitterShare" href="javascript:window.open('https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.robinhood.com%2F%3Fref%3DMxmEd3&amp;text=YellowBird+is+a+gamified+stock+market+education+platform.+Reserve+your+spot+today+at&amp;via=getyellowbird', '_blank', 'width=550,height=500');void(0);"><li><button><img src="images/twitter.png" class="share twitter"></button></li></a>
--->
                             <a id="share_twitter"><li><button><img src="images/twitter.png" class="share twitter"></button></li></a>
 
                             <a id="share_facebook"><li><button><img src="images/facebook.png" class="share facebook" ></button></li></a>
