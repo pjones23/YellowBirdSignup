@@ -29,7 +29,7 @@ if (isset($_POST['action'])) {
     }
 
     $action = $_POST['action'];
-    if($action = "add"){
+    if($action == "add"){
         if (isset($_POST['email'])) {
             $email = (string)$_POST['email'];
             $response = addToSubscriberList($email);
@@ -39,7 +39,7 @@ if (isset($_POST['action'])) {
             echo json_encode(array('status' => 'FAILURE', 'message' => 'POST data (email) not set'));
         }
     }
-    elseif($action = "increment"){
+    elseif($action == "increment"){
         if (isset($_POST['refcode'])) {
             $refCode = (string)$_POST['refcode'];
             $response = incrementRefCount($refCode);

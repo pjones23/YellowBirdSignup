@@ -118,12 +118,12 @@
                         <ul>
                             <a id="share_twitter"><li><button><img src="images/twitter.png" class="share twitter"></button></li></a>
 
-                            <a id="share_facebook"><li><button><img src="images/facebook.png" class="share facebook" ></button></li></a>
+                            <a id="share_facebook"><li><button><img src="images/facebook.png" class="share facebook"></button></li></a>
                             
                             <a id="share_email"><li><button><img src="images/email.png" class="share email"></button></li></a>
                         </ul>
                         <div>
-                <button class="md-close">×</button>
+                            <button class="md-close">×</button>
                         </div>    
 			     </div>
 		  </div>
@@ -134,7 +134,8 @@
         
         <section id="sign-up">
             <p>Want to be in the first draft class?</p>
-            <form onsubmit="event.preventDefault(); signup();">
+
+            <form onsubmit="event.preventDefault(); signup(<?php if (isset($_GET["ref"])) { echo("'".$_GET["ref"]."'"); } ?>);">
             <input type="email" id="email" class="transparent big" placeholder="Trade Your Email" required/>
                 <button id="submit">JOIN</button>
                 <button id="hiddenSubmit" class="md-trigger" data-modal="modal-1" style="display: none;"></button>

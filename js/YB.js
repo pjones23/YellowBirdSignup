@@ -4,10 +4,10 @@
 
 var yellowBirdURL = "https://www.beta.yellowbird.io/";
 
-function signup(){
+function signup(reference){
     // Get the email from the input;
     var email = document.getElementById("email").value;
-    console.log(email);
+
     // add email to the YellowBird list of subscribers
     var info = addSubscriber(email);
     if(info.status == "SUCCESS") { // populate reference code and open modal
@@ -29,6 +29,11 @@ function signup(){
         var mailBtn = document.getElementById('share_email');
         var mailHREFText = "mailto:?body=YellowBird%20is%20a%20free%20educational%20platform%20that %20teaches%20users%20how%20to%20invest%20in %20the%20stock%20market.%20" + yellowBirdURL +"?ref="+ info.refCode + ";subject=Stock%20market%20education—gamified!";
         mailBtn.href = mailHREFText;
+
+        // Increment the reference counter if a reference code was used
+        if(reference != undefined){
+            var increment = incrementRefCounter(reference);
+        }
 
         // open modal
         $('#hiddenSubmit').click();
