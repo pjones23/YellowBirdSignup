@@ -112,15 +112,18 @@
             
 				<h3>Share</h3>
 				<div>
-                    <h2>You are currently in round <strong>3</strong>&nbsp;.</h2>
+                    <h2>You are currently in round <strong>1</strong>&nbsp;.</h2>
 				    <p>Want to move up to the first round for early access? Be sure to share your unique url with family and friends.</p>
 					<input id="uniqueURL" placeholder="your unique url" disabled />
                         <ul>
-                            <a href="javascript:window.open('https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.robinhood.com%2F%3Fref%3DMxmEd3&amp;text=YellowBird+is+a+gamified+stock+market+education+platform.+Reserve+your+spot+today+at&amp;via=getyellowbird', '_blank', 'width=550,height=500');void(0);"><li><button><img src="images/twitter.png" class="share twitter"></button></li></a>
+                            <!--
+                            <a id="TwitterShare" href="javascript:window.open('https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.robinhood.com%2F%3Fref%3DMxmEd3&amp;text=YellowBird+is+a+gamified+stock+market+education+platform.+Reserve+your+spot+today+at&amp;via=getyellowbird', '_blank', 'width=550,height=500');void(0);"><li><button><img src="images/twitter.png" class="share twitter"></button></li></a>
+-->
+                            <a id="share_twitter"><li><button><img src="images/twitter.png" class="share twitter"></button></li></a>
+
+                            <a id="share_facebook"><li><button><img src="images/facebook.png" class="share facebook" ></button></li></a>
                             
-                            <a href="javascript:window.open('https://www.facebook.com/sharer/sharer.php?u=http://www.beta.yellowbird.io/?ref=es', '_blank', 'width=550,height=500');void(0);"><li><button><img src="images/facebook.png" class="share facebook" ></button></li></a>
-                            
-                            <a href="mailto:?body=YellowBird%20is%20a%20free%20educational%20platform%20that %20teaches%20users%20how%20to%20invest%20in %20the%20stock%20market.%20https%3A%2F%2Fwww.robinhood.com%2F%3Fref%3DMxmEd3&amp;subject=Stock%20market%20education—gamified!" id="share_email"><li><button><img src="images/email.png" class="share email"></button></li></a>
+                            <a id="share_email"><li><button><img src="images/email.png" class="share email"></button></li></a>
                         </ul>
                         <div>
                 <button class="md-close">×</button>
