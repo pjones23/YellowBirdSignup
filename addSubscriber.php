@@ -85,6 +85,8 @@ function isEmailUnique($email)
     Checks if email exist in the database
     */
     $unique = true;
+    $refCode = null;
+    $refCount = null;
     global $conn;
     $email = $conn->real_escape_string($email);
     $query = sprintf("CALL IsEmail('%s')", $email);
@@ -95,6 +97,10 @@ function isEmailUnique($email)
         if ($res = $conn->store_result()) {
             if ($res->num_rows > 0) {
                 $unique = false;
+                $result = $res->fetch_assoc();
+                $email = $result["email"];
+                $refCode = $result["refcode"];
+                $refCount = $result["refCount"];
             }
             $res->free();
         } else {
@@ -104,7 +110,7 @@ function isEmailUnique($email)
         }
     } while ($conn->more_results() && $conn->next_result());
 
-    return $unique;
+    return array("unique" => $unique, "email" => $email, "refCode" => $refCode, "refCount" => $refCount);
 }
 
 function createRefCode($email)
@@ -153,7 +159,7 @@ function createSubscriber($email, $refCode, $createDate)
 function addToSubscriberList($email)
 {
     $uniqueEmail = isEmailUnique($email);
-    if ($uniqueEmail) {
+    if ($uniqueEmail["unique"]) {
         $refCode = createRefCode($email);
         $createDate = date("Y-m-d H:i:s");
         $successfulCreation = createSubscriber($email, $refCode, $createDate);
@@ -170,7 +176,7 @@ function addToSubscriberList($email)
     } else {
         // echo email already exists
         $response = array('status' => 'FAILURE',
-            'message' => 'Email already exists');
+            'message' => 'Email already exists', "email" => $uniqueEmail["email"], "refCode" => $uniqueEmail["refCode"], "refCount" => $uniqueEmail["refCount"]);
     }
     return $response;
 }

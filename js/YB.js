@@ -22,6 +22,10 @@ function signup(reference){
     }
     else{
         // Check if the user already exists and open up a modal showing the refCode and round number
+        populateShareModal(info, null);
+
+        // open modal
+        $('#hiddenSubmit').click();
     }
 
 }

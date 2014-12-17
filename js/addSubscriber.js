@@ -5,6 +5,7 @@
 function addSubscriber(email){
     var status = null;
     var refCode = null;
+    var refCount = null;
     var message = null;
     $.ajax({
         url : "addSubscriber.php",
@@ -20,10 +21,9 @@ function addSubscriber(email){
             console.log("Data Success");
             console.log(data);
             status = data.status;
-            if(status == "SUCCESS"){
-                refCode = data.refCode;
-            }
-            else{
+            refCode = data.refCode;
+            refCount = data.refCount;
+            if(status == "FAILURE"){
                 message = data.message;
             }
         },
@@ -35,7 +35,7 @@ function addSubscriber(email){
         }
     });
 
-    return {"status" : status, "email" : email, "refCode" : refCode, "message" : message};
+    return {"status" : status, "email" : email, "refCode" : refCode, "refCount" : refCount, "message" : message};
 }
 
 function incrementRefCounter(refCode){
