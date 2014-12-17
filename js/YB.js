@@ -2,7 +2,7 @@
  * Created by Perron on 12/16/2014.
  */
 
-var yellowBirdURL = "https://www.beta.yellowbird.io/";
+var yellowBirdURL = "www.beta.yellowbird.io/";
 
 function signup(reference){
     // Get the email from the input;
@@ -17,18 +17,25 @@ function signup(reference){
 
         // populate Twitter share href
         var twitterBtn = document.getElementById('share_twitter');
-        var twitterHREFText = "javascript:window.open('https://twitter.com/intent/tweet?url="+ yellowBirdURL +"?ref="+ info.refCode +";text=YellowBird+is+a+gamified+stock+market+education+platform.+Reserve+your+spot+today+at&amp;via=getyellowbird', '_blank', 'width=550,height=500');void(0);"
-        twitterBtn.href = twitterHREFText;
+        twitterBtn.onclick = function(){
+            window.open('https://twitter.com/intent/tweet?url=' + yellowBirdURL + '?ref=' + info.refCode +';text=YellowBird+is+a+gamified+stock+market+education+platform.+Reserve+your+spot+today+at+' + yellowBirdURL + '?ref=' + info.refCode +'&amp;via=getyellowbird', '_blank', 'width=550,height=500');
+        };
 
         // populate Facebook share href
         var fbBtn = document.getElementById('share_facebook');
-        var fbHREFText = "javascript:window.open('https://www.facebook.com/sharer/sharer.php?u="+ yellowBirdURL +"?ref="+ info.refCode +"', '_blank', 'width=550,height=500');void(0);"
-        fbBtn.href = fbHREFText;
+        fbBtn.onclick = function() {
+            window.open('https://www.facebook.com/sharer/sharer.php?u='+ yellowBirdURL +'?ref='+ info.refCode +'', '_blank', 'width=550,height=500');
+        };
 
         // populate mail share href
         var mailBtn = document.getElementById('share_email');
-        var mailHREFText = "mailto:?body=YellowBird%20is%20a%20free%20educational%20platform%20that %20teaches%20users%20how%20to%20invest%20in %20the%20stock%20market.%20" + yellowBirdURL +"?ref="+ info.refCode + ";subject=Stock%20market%20education—gamified!";
-        mailBtn.href = mailHREFText;
+
+        mailBtn.onclick = function () {
+            var subject = "Stock market education—gamified!";
+            var body = "YellowBird is a free educational platform that teaches users how to invest in the stock market. " + yellowBirdURL + "?ref=" + info.refCode;
+            // brings up default mail client
+            document.location.href = "mailto:?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+        }
 
         // Increment the reference counter if a reference code was used
         if(reference != undefined){
