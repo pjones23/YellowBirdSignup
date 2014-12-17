@@ -8,6 +8,12 @@ function signup(reference){
     // Get the email from the input;
     var email = document.getElementById("email").value;
 
+    // add email to MailChimp YellowBird List
+    var mailChimpInfo = addSubscriberToMailChimp(email);
+    if(mailChimpInfo.status != "SUCCESS"){
+        console.log("Failed to insert into MailChimp YellowBird list.");
+    }
+
     // add email to the YellowBird list of subscribers
     var info = addSubscriber(email);
     if(info.status == "SUCCESS") { // populate reference code and open modal

@@ -65,3 +65,30 @@ function incrementRefCounter(refCode){
 
     return {"status" : status};
 }
+
+function addSubscriberToMailChimp(email){
+    var status = null;
+    $.ajax({
+        url : "mailChimpSubscribe.php",
+        data : {
+            'email' : email
+        },
+        context : document.body,
+        async : false,
+        type : 'POST',
+        dataType : "json",
+        success : function(data) {
+            console.log("Data Success");
+            console.log(data);
+            status = "SUCCESS";
+        },
+        error : function(jqXHR, textStatus, errorThrown) {
+            console.log("Status: " + textStatus);
+            console.log("Response Text: " + jqXHR.responseText)
+            console.log("Error: " + errorThrown);
+            status = textStatus;
+        }
+    });
+
+    return {"status" : status};
+}
