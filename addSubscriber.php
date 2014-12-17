@@ -8,17 +8,7 @@
 
 if (isset($_POST['action'])) {
 
-    $servername = "localhost";
-    $username = "perron";
-    $password = "perrondb";
-    $database = "yellowbirddb";
-
-    /*
-    $servername = "ydb.yellowbird.io";
-    $username = "yellowbirdsvc";
-    $password = "YBsvc2014";
-    $database = "betayellowbirddb";
-    */
+    require_once('config/config.php');
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $database);

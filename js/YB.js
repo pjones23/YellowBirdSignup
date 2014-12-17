@@ -2,8 +2,6 @@
  * Created by Perron on 12/16/2014.
  */
 
-var yellowBirdURL = "www.beta.yellowbird.io/";
-
 function signup(reference){
     // Get the email from the input;
     var email = document.getElementById("email").value;

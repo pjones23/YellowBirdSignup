@@ -7,13 +7,7 @@
  */
 
 require_once('MailChimp.php');
-
-$mailChimpAPI = '01347cf80be05a96e87c7908b8ef0485-us6';
-/*
-$mailChimpDataCenter = 'us6';
-$mailChimpEndPoint = 'https://' + $mailChimpDataCenter + '.api.mailchimp.com/2.0/';
-*/
-$yellowBirdListID = '8e591b77f5';
+require_once('config/config.php');
 
 if (isset($_POST['email'])) {
     $email = (string)$_POST['email'];

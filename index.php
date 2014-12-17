@@ -227,6 +227,8 @@
         <script src="js/retina.js"></script>
 		<script src="js/cssParser.js"></script>
 		<script src="js/css-filters-polyfill.js"></script>
+        <script id="configScript"></script>
+        <script src="js/loadConfig.js"></script>
         <script src="js/addSubscriber.js"></script>
         <script src="js/YB.js"></script>
     </body>
