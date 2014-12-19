@@ -38,7 +38,7 @@ function populateShareModal(info, reference, newSubscription){
         shareMessageParagraph.innerHTML = "Want to move up to the first round for early access? Be sure to share your unique url with family and friends.";
     }
     else{
-        shareMessageParagraph.innerHTML = "Hey, you've already signed up. Thanks again and don't forget to share.";
+        shareMessageParagraph.innerHTML = "Hey, you've already signed up. Thanks again and don't forget to share. We have limited spots!";
     }
 
     // populate reference field
