@@ -113,7 +113,7 @@
 				<h3>Share</h3>
 				<div>
                     <h2>You are currently in round <strong>1</strong>&nbsp;.</h2>
-				    <p>Want to move up to the first round for early access? Be sure to share your unique url with family and friends.</p>
+				    <p id="share_message_body"></p>
 					<input id="uniqueURL" placeholder="your unique url" disabled />
                         <ul>
                             <a id="share_twitter"><li><button><img src="images/twitter.png" class="share twitter"></button></li></a>

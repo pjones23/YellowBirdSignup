@@ -15,14 +15,14 @@ function signup(reference){
     // add email to the YellowBird list of subscribers
     var info = addSubscriber(email);
     if(info.status == "SUCCESS") { // populate reference code and open modal
-        populateShareModal(info, reference);
+        populateShareModal(info, reference, true);
 
         // open modal
         $('#hiddenSubmit').click();
     }
     else{
         // Check if the user already exists and open up a modal showing the refCode and round number
-        populateShareModal(info, undefined);
+        populateShareModal(info, undefined, false);
 
         // open modal
         $('#hiddenSubmit').click();
@@ -30,7 +30,17 @@ function signup(reference){
 
 }
 
-function populateShareModal(info, reference){
+function populateShareModal(info, reference, newSubscription){
+
+    // populate message
+    var shareMessageParagraph = document.getElementById('share_message_body');
+    if(newSubscription == true){
+        shareMessageParagraph.innerHTML = "Want to move up to the first round for early access? Be sure to share your unique url with family and friends.";
+    }
+    else{
+        shareMessageParagraph.innerHTML = "Hey, you've already signed up. Thanks again and don't forget to share.";
+    }
+
     // populate reference field
     var refCodeField = document.getElementById('uniqueURL');
     refCodeField.value = yellowBirdURL +"?ref="+ info.refCode;
