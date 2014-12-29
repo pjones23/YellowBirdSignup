@@ -6,50 +6,75 @@
  * Time: 10:34 AM
  */
 
-require_once('swiftmailer/lib/swift_required.php');
-require_once('config/config.php');
+if (isset($_POST['email'])) {
+    if (isset($_POST['refcode'])) {
 
-// Create the message
-$message = Swift_Message::newInstance();
+        require_once('swiftmailer/lib/swift_required.php');
+        require_once('config/config.php');
 
-// Set the From address with an associative array
-$message->setFrom(array($emailSender => $emailSenderName));
-$message->setSender(array($emailSender => $emailSenderName));
+        $email = $_POST['email'];
+        $refCode = $_POST['refcode'];
 
-// Set the To addresses with an associative array
-$message->setTo(array('pjones35@gatech.edu'));
+        // Create the message
+        $message = Swift_Message::newInstance();
 
-// Give the message a subject
-$message->setSubject('Welcome to YellowBird');
+        // Set the From address with an associative array
+        $message->setFrom(array($emailSender => $emailSenderName));
+        $message->setSender(array($emailSender => $emailSenderName));
 
-// Give the message a body
-$HTMLBody = getHTMLBody($message);
-$message->setBody($HTMLBody, 'text/html');
+        // Set the To addresses with an associative array
+        $message->setTo(array($email));
 
-// Add alternative parts with addPart()
-$message->addPart('My amazing body in plain text', 'text/plain');
+        // Give the message a subject
+        $message->setSubject('Welcome to YellowBird');
 
-// Create the Transport
-$transport = Swift_SmtpTransport::newInstance($emailSMTPServer, $emailSMTPServerPort);
-$transport->setUsername($emailSender);
-$transport->setPassword($emailSenderPassword);
+        // Give the message a body
+        $HTMLBody = getHTMLBody($message, $refCode);
+        $message->setBody($HTMLBody, 'text/html');
 
-// Create the Mailer using your created Transport
-$mailer = Swift_Mailer::newInstance($transport);
+        // Add alternative parts with addPart()
+        $textBody = getPlainBody($refCode);
+        $message->addPart($textBody, 'text/plain');
 
-// Send the message
-$result = $mailer->send($message);
+        // Create the Transport
+        $transport = Swift_SmtpTransport::newInstance($emailSMTPServer, $emailSMTPServerPort);
+        $transport->setUsername($emailSender);
+        $transport->setPassword($emailSenderPassword);
 
-echo $result;
+        // Create the Mailer using your created Transport
+        $mailer = Swift_Mailer::newInstance($transport);
 
-function getHTMLBody($message){
+        // Send the message
+        $result = $mailer->send($message);
 
+        echo $result;
+    } else {
+        echo json_encode(array('status' => 'FAILURE', 'message' => 'POST data (refcode) not set'));
+    }
+} else {
+    echo json_encode(array('status' => 'FAILURE', 'message' => 'POST data (email) not set'));
+}
+
+function getHTMLBody($message, $refCode)
+{
+
+    // embed images
     $headerImage = $message->embed(Swift_Image::fromPath('images/wordmark@2x.png'));
     $twitterShareImage = $message->embed(Swift_Image::fromPath('images/twitter.png'));
     $faceBookShareImage = $message->embed(Swift_Image::fromPath('images/facebook.png'));
     $mailShareImage = $message->embed(Swift_Image::fromPath('images/email.png'));
     $smallTwitterImage = $message->embed(Swift_Image::fromPath('images/socialLinks_twitter.png'));
     $smallFaceBookImage = $message->embed(Swift_Image::fromPath('images/socialLinks_facebook.png'));
+
+    // create hrefs
+    global $yellowBirdURL;
+
+    $twitterHREF = "https://twitter.com/intent/tweet?url=" . $yellowBirdURL . "?ref=" . $refCode . ";text=YellowBird+is+a+gamified+stock+market+education+platform.+Reserve+your+spot+today+at+" . $yellowBirdURL . "?ref=" . $refCode . "&amp;via=getyellowbird";
+    $faceBookHREF = "https://www.facebook.com/sharer/sharer.php?u=" . $yellowBirdURL . "?ref=" . $refCode;
+    $mailHREFsubject = "Stock market education—gamified!";
+    $mailHREFbody = "YellowBird is a free educational platform that teaches users how to invest in the stock market. " . $yellowBirdURL . "?ref=" . $refCode;
+    // brings up default mail client
+    $mailHREF = "mailto:?subject=" . rawurlencode($mailHREFsubject) . "&body=" . rawurlencode($mailHREFbody);
 
     $HTMLBody = '<html>';
     $HTMLBody = $HTMLBody . '<head>';
@@ -103,7 +128,7 @@ function getHTMLBody($message){
     $HTMLBody = $HTMLBody . '<!-- // BEGIN HERO BLOCK -->';
     $HTMLBody = $HTMLBody . '<table align="center" border="0" id="logoContainer"></table>';
     $HTMLBody = $HTMLBody . '<tr>';
-    $HTMLBody = $HTMLBody . '<td align="center" class="wordmark"><a href="www.yellowbird.io"><img src="'. $headerImage .'" alt="YellowBird wordmark" height="43" width="285" id="heroImage" /></a>';
+    $HTMLBody = $HTMLBody . '<td align="center" class="wordmark"><a href="' . $yellowBirdURL . '"><img src="' . $headerImage . '" alt="YellowBird wordmark" height="43" width="285" id="heroImage" /></a>';
     $HTMLBody = $HTMLBody . '</td>';
     $HTMLBody = $HTMLBody . '</tr>';
     $HTMLBody = $HTMLBody . '</table>';
@@ -138,16 +163,16 @@ function getHTMLBody($message){
     $HTMLBody = $HTMLBody . '<td align="center"><p>Want to stay in the first round? Be sure to share your unique url with your family and friends. Others want your spot!</p></td>';
     $HTMLBody = $HTMLBody . '</tr>';
     $HTMLBody = $HTMLBody . '<tr>';
-    $HTMLBody = $HTMLBody . '<td align="center" valign="top" id="referenceURL"><strong>www.yellowbird.io/?ref=</strong></td>';
+    $HTMLBody = $HTMLBody . '<td align="center" valign="top" id="referenceURL"><strong>' . $yellowBirdURL . '?ref=' . $refCode . '</strong></td>';
     $HTMLBody = $HTMLBody . '</tr>';
     $HTMLBody = $HTMLBody . '</table>';
     $HTMLBody = $HTMLBody . '<!-- // End Reference Block -->';
     $HTMLBody = $HTMLBody . '<!-- // Share Reference Block -->';
     $HTMLBody = $HTMLBody . '<table border="0" id="shareContainer">';
     $HTMLBody = $HTMLBody . '<tr>';
-    $HTMLBody = $HTMLBody . '<td align="left" valign="middle" id="twitter"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.robinhood.com%2F%3Fref%3DMxmEd3&amp;text=YellowBird+is+a+gamified+stock+market+education+platform.+Reserve+your+spot+today+at&amp;via=getyellowbird"><img src="' . $twitterShareImage . '" class="social twitter"></a></td>';
-    $HTMLBody = $HTMLBody . '<td align="center" valign="middle" id="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=www.yellowbird.io/?ref=alphonso_jordan7"><img src="' . $faceBookShareImage . '" class="social facebook"></a></td>';
-    $HTMLBody = $HTMLBody . '<td align="right" valign="middle" id="email"><a href="mailto:?body=YellowBird%20is%20a%20free%20educational%20platform%20that %20teaches%20users%20how%20to%20invest%20in %20the%20stock%20market.%20https%3A%2F%2Fwww.robinhood.com%2F%3Fref%3DMxmEd3&amp;subject=Stock%20market%20educationâ€”gamified!" id="share_email"><img src="' . $mailShareImage . '" class="social email"></a></td>';
+    $HTMLBody = $HTMLBody . '<td align="left" valign="middle" id="twitter"><a href="' . $twitterHREF . '"><img src="' . $twitterShareImage . '" class="social twitter"></a></td>';
+    $HTMLBody = $HTMLBody . '<td align="center" valign="middle" id="facebook"><a href="' . $faceBookHREF . '"><img src="' . $faceBookShareImage . '" class="social facebook"></a></td>';
+    $HTMLBody = $HTMLBody . '<td align="right" valign="middle" id="email"><a href="' . $mailHREF . '" id="share_email"><img src="' . $mailShareImage . '" class="social email"></a></td>';
     $HTMLBody = $HTMLBody . '</tr>';
     $HTMLBody = $HTMLBody . '</table>';
     $HTMLBody = $HTMLBody . '<!-- // End Share Reference Block -->';
@@ -159,7 +184,7 @@ function getHTMLBody($message){
     $HTMLBody = $HTMLBody . '</tr>';
     $HTMLBody = $HTMLBody . '<tr>';
     $HTMLBody = $HTMLBody . '<td align="center" valign="top">';
-    $HTMLBody = $HTMLBody . '<a href="http://www.twitter.com/getyellowbird"><img src="' . $smallTwitterImage .'" class="socialLink"</a>';
+    $HTMLBody = $HTMLBody . '<a href="http://www.twitter.com/getyellowbird"><img src="' . $smallTwitterImage . '" class="socialLink"</a>';
     $HTMLBody = $HTMLBody . '<a href="http://www.facebook.com/yellowbirdapp"><img src="' . $smallFaceBookImage . '" class="socialLink"</a>';
     $HTMLBody = $HTMLBody . '</td>';
     $HTMLBody = $HTMLBody . '</tr>';
@@ -172,5 +197,42 @@ function getHTMLBody($message){
     return $HTMLBody;
 }
 
+function getPlainBody($refCode)
+{
+    // create hrefs
+    global $yellowBirdURL;
+
+    $twitterHREF = "https://twitter.com/intent/tweet?url=" . $yellowBirdURL . "?ref=" . $refCode . ";text=YellowBird+is+a+gamified+stock+market+education+platform.+Reserve+your+spot+today+at+" . $yellowBirdURL . "?ref=" . $refCode . "&amp;via=getyellowbird";
+    $faceBookHREF = "https://www.facebook.com/sharer/sharer.php?u=" . $yellowBirdURL . "?ref=" . $refCode;
+
+    $textBody = "Welcome to YellowBird!";
+    $textBody = $textBody . "\n";
+    $textBody = $textBody . "\n";
+    $textBody = $textBody . "Thank you for joining!";
+    $textBody = $textBody . "\n";
+    $textBody = $textBody . "We're excited that you're joining us in our mission to make stock market education easy for everyone. Due to limited invites, we're giving out accounts in rounds.";
+    $textBody = $textBody . "\n";
+    $textBody = $textBody . "\n";
+    $textBody = $textBody . "Your current round is 1.";
+    $textBody = $textBody . "\n";
+    $textBody = $textBody . "\n";
+    $textBody = $textBody . "Want to stay in the first round? Be sure to share your unique url with your family and friends. Others want your spot!";
+    $textBody = $textBody . "\n";
+    $textBody = $textBody . $yellowBirdURL . "?ref=" . $refCode;
+    $textBody = $textBody . "\n";
+    $textBody = $textBody . "\n";
+    $textBody = $textBody . "Share on Twitter. " . $twitterHREF;
+    $textBody = $textBody . "\n";
+    $textBody = $textBody . "Share on Facebook. " . $faceBookHREF;
+    $textBody = $textBody . "\n";
+    $textBody = $textBody . "\n";
+    $textBody = $textBody . "Â© 2014 YellowBird Financial, Inc. Made in Atlanta.";
+    $textBody = $textBody . "\n";
+    $textBody = $textBody . "http://www.twitter.com/getyellowbird";
+    $textBody = $textBody . "\n";
+    $textBody = $textBody . "http://www.facebook.com/yellowbirdapp";
+
+    return $textBody;
+}
 
 ?>
