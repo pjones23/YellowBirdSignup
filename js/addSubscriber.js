@@ -92,3 +92,31 @@ function addSubscriberToMailChimp(email){
 
     return {"status" : status};
 }
+
+function sendAddConfirmEmail(email, refCode){
+    var status = null;
+    $.ajax({
+        url : "email.php",
+        data : {
+            'email' : email,
+            'refcode' : refCode
+        },
+        context : document.body,
+        async : false,
+        type : 'POST',
+        dataType : "json",
+        success : function(data) {
+            console.log("Data Success");
+            console.log(data);
+            status = data;
+        },
+        error : function(jqXHR, textStatus, errorThrown) {
+            console.log("Status: " + textStatus);
+            console.log("Response Text: " + jqXHR.responseText)
+            console.log("Error: " + errorThrown);
+            status = textStatus;
+        }
+    });
+
+    return {"status" : status};
+}

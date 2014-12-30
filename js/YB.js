@@ -15,14 +15,22 @@ function signup(reference){
     // add email to the YellowBird list of subscribers
     var info = addSubscriber(email);
     if(info.status == "SUCCESS") { // populate reference code and open modal
-        populateShareModal(info, reference, true);
+        populateShareModal(info, true);
+
+        // Increment the reference counter if a reference code was used
+        if(reference != undefined){
+            var increment = incrementRefCounter(reference);
+        }
+
+        // sent the email
+        sendAddConfirmEmail(email, info.refCode);
 
         // open modal
         $('#hiddenSubmit').click();
     }
     else{
         // Check if the user already exists and open up a modal showing the refCode and round number
-        populateShareModal(info, undefined, false);
+        populateShareModal(info, false);
 
         // open modal
         $('#hiddenSubmit').click();
@@ -30,7 +38,7 @@ function signup(reference){
 
 }
 
-function populateShareModal(info, reference, newSubscription){
+function populateShareModal(info, newSubscription){
 
     // populate message
     var shareMessageParagraph = document.getElementById('share_message_body');
@@ -65,10 +73,5 @@ function populateShareModal(info, reference, newSubscription){
         var body = "YellowBird is a free educational platform that teaches users how to invest in the stock market. " + yellowBirdURL + "?ref=" + info.refCode;
         // brings up default mail client
         document.location.href = "mailto:?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-    }
-
-    // Increment the reference counter if a reference code was used
-    if(reference != undefined){
-        var increment = incrementRefCounter(reference);
     }
 }

@@ -47,7 +47,12 @@ if (isset($_POST['email'])) {
         // Send the message
         $result = $mailer->send($message);
 
-        echo $result;
+        if($result > 0){
+            echo json_encode(array('status' => 'SUCCESS', 'message' => 'email sent to ' . $email));
+        }
+        else {
+            echo json_encode(array('status' => 'FAILURE', 'message' => 'email not sent to ' . $email));
+        }
     } else {
         echo json_encode(array('status' => 'FAILURE', 'message' => 'POST data (refcode) not set'));
     }
