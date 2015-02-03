@@ -1,234 +1,219 @@
 <!doctype html>
-<html>
+<html ng-app="YellowBird">
 <head>
-<meta charset="UTF-8">
-<meta name="keywords" content="fantasy football, stock market, investing, trading, stocks, market, sports, education, learning" />
-<meta name="author" content="YellowBird" />
-<meta name="viewport" content="width=device-width, initial-scale=1">  
-<link href="coming.css" rel="stylesheet" type="text/css" />
-<link href="fonts/ss-standard.css" rel="stylesheet" />
-<link href="fonts/ss-social-regular.css" rel="stylesheet" type="text/css"/>
-<meta property="og:image"content="http://yellowbird.io/images/symbol.png" />
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript" src="//use.typekit.net/bmq6jcj.js"></script>
-<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-<title>YellowBird | Gamified Investor Education</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="fantasy, stock market, investing, trading, stocks, market, sports, education, learning, finance, millenials, investment, learning " />
+    <meta name="description" content="Slide and push menus that are initially hidden off screen, and transition into view with CSS transitions." />
+    <meta name="author" content="YellowBird" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--
+    <link href="css/default.css" rel="stylesheet" type="text/css" />
+    <link href="css/component.css" rel="stylesheet" type="text/css" />
+    -->
+    <link href="css/global.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/tooltipster.css" />
+    <link href="fonts/ss-social-regular.css" rel="stylesheet" type="text/css"/>
+    <meta property="og:image" content="http://yellowbird.io/images/symbol.png" />
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="//use.typekit.net/bmq6jcj.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery.tooltipster.min.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    <title>YellowBird | Gamified Investor Education</title>
 </head>
-    
-    <body class="cbp-spmenu-push">
-    <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>    
+
+<body>
+
+<!-- How It Works Modal
+---------------------------------------------------->
 
 <!-- Header
----------------------------------------------------->      
-        
-      <header>
+---------------------------------------------------->
+<div id="container">
+    <header>
+        <nav>
             <a href="index.html"><img src="images/wordmark.png" class="logo_wordmark desktop" alt="yellowBird logo"></a>
-            <a href="index.html"><img src="images/symbol.png" class="logo_symbol mobile" alt="yellowBird logo"></a>
-<!--
-            <nav class="site-nav desktop">
-                <a class="nav-link" href="mission.html">Mission</a>
-                <a class="nav-link" href="about.html">Team</a>
-                <a class="nav-link" href="https://medium.com/@yellowbird">Blog</a>
-                <a class="nav-link" href="contact.html">Contact</a>
-            </nav>
--->
-            
-            <nav class="mobile-nav">
-            <a href="#sign-up">
-            <div class="signup-btn"><h4>Get Early Access</h4></div>
-            </a>
-            <div>  
-            <button id="showRightPush" class="mobile"></button></div>
-            </nav>
-          </header>
-          
-        <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
-                <div class="push_close"><a href="#"><img src="images/push_close.svg"></a></div>
-                <a href="about.html"><h4>About Us</h4></a>
-                <a href="https://medium.com/@YellowBird"><h4>Our Blog</h4></a>
-<!--
-                <a href="initiative.html"><h4>Dividend Program</h4></a>
-                <a href="jobs.html"><h4>Jobs</h4></a>
-
-                <a href="terms.html"><h4>Terms of Service</h4></a>-->
-                <a href="terms.html"><h4>Legal</h4></a>
-                <a href="contact.html"><h4>Contact Us</h4></a>
-                <ul>
-                    <li><a href="https://www.twitter.com/getyellowbird"><img src="images/twitter.png" class="twitter-small"></a></li>
-                    <li><a href="http://www.facebook.com/yellowbirdapp"><img src="images/facebook.png" class="facebook-small"></a></li>
-                    <li><a href="mailto:info@yellowbird.io"><img src="images/email.png" class="email-small"></a></li>
-                </ul>
-               
+            <button class="button rounded right md-trigger" data-modal="modal-1">Get Early Access</button>
         </nav>
- 
-<!-- How It Works Modal
-----------------------------------------------------> 
-        
-<aside class="cbp-spmenu cbp-spmenu-horizontal cbp-spmenu-top" id="cbp-spmenu-s3">
-    <div id="close"><img src="images/black_close.svg"></div>
-    <h3>The more you learn, the more trading features you unlock. More features lead to a better performance in duel simulator.</h3>
-    <img class="how-it-works" src="images/how-it-works.png">
-</aside>  
 
-<!-- Main Content
-----------------------------------------------------> 
-        
-        <section class="overview main">
-        <div>
-            <img src="images/ingredients.png" class="ingredients">
-            <b>A new approach to investment education.</b>
-            <h3>1 part learning, 1 part trading. All parts fun. All parts free!</h3>
-                <a><button id="showTop">
-                    <h4>How It Works</h4>
-                </button></a>
-        </div>    
-        </section> 
-        
-<!-- How It Works (Mobile)
----------------------------------------------------->  
-        
-        <section class="container-mobile">
-            <h2>How It Works</h2>
-            <h3>The more you learn, the more trading features you unlock. More features lead to a better performance in duel simulator.</h3>
-            <img class="how-it-works-mobile" src="images/How-It-Works-Mobile.png">
-<!--
-            <div class="learning"></div>
-            <div class="playing"></div>
--->
-        </section>
-        
-<!-- Sign Up Modal
-----------------------------------------------------> 
+        <!-- End Header
+        ---------------------------------------------------->
 
-		<div class="md-modal md-effect-1" id="modal-1">
-			<div class="md-content">
-            
-				<h3>Share</h3>
-				<div>
-                    <h2>You are currently in round <strong>1</strong>&nbsp;.</h2>
-				    <p id="share_message_body"></p>
-					<input id="uniqueURL" placeholder="your unique url" disabled />
-                        <ul>
-                            <a id="share_twitter"><li><button><img src="images/twitter.png" class="share twitter"></button></li></a>
+        <!-- Main Content
+        ---------------------------------------------------->
+        <div class="main-container">
+            <section class="main-question">
+                <h1>What Can Investing Do For You?</h1>
+            </section>
+            <section class="interaction-container clearfix">
+                <article class="first-container">
+                    <aside>
+                        <div class="circle">1</div>
+                        <h2>What’s It Worth?</h2>
+                        <p>What can investing do for you? Let’s find out.<br> What was the last thing you purchased worth more than $50 USD?</p></aside>
+                    <form onsubmit="event.preventDefault();">
+                        <input id="companyText" type="text" placeholder="Chipotle, Nike Air Maxes">
+                        <button type="submit" class="short rounded green" onclick="productLookup()">Go</button>
+                    </form>
+                    <p><a href="#" class="tooltip" title="This is my link's tooltip message!">Need Help?</a></p>
+                </article>
 
-                            <a id="share_facebook"><li><button><img src="images/facebook.png" class="share facebook"></button></li></a>
-                            
-                            <a id="share_email"><li><button><img src="images/email.png" class="share email"></button></li></a>
-                        </ul>
-                        <div>
-                            <button class="md-close">×</button>
-                        </div>    
-			     </div>
-		  </div>
+
+                <article class="iphone-container clearfix">
+                    <img src="images/iphone-stock.png" class="center">
+                    <div id="#" class="iphone-shell">
+
+                        <!----- Stock Information ---->
+                        <div class="stock-info">
+                            <div id="#" class="symbol">Symbol</div>
+                            <div id="#" class="price">Price
+                                <div id="#" class="price-change">Change</div>
+                            </div>
+
+                            <!----- Duration ---->
+                            <ul id="duration">
+                                <a href="#"><li id="#">1d</li></a>
+                                <a href="#"><li id="#" class="active">1w</li></a>
+                                <a href="#"><li id="#">1m</li></a>
+                                <a href="#"><li id="#">1y</li></a>
+                                <a href="#"><li id="#">2y</li></a>
+                                <a href="#"><li id="#">4y</li></a>
+                            </ul>
+                        </div>
+
+                        <!----- Value Information ---->
+                        <div class="value-info">
+                            <ul>
+                                <li>Initial Investment<span id="initial" class="info">$50</span></li>
+                                <li>Your New Value<span id="new" class="info">$200</span></li>
+                                <li>Year % Growth<span id="growth" class="info">200</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="second-container right">
+                    <aside>
+                        <div class="circle">2</div>
+                        <h2>Adjust The Time Frame</h2>
+                        <p>See what that investment does over different periods of time.</p></aside></article>
+
+            </section>
+            <section class="cta-container clearfix center">
+                <div class="circle center">3</div>
+                <h2>Want To Learn How?</h2>
+                <p>See how we give you the tools necessary to becoming a great investor. Then Sign Up for Early Access! </p>
+                <a><button class="button rounded left dark-grey md-trigger" data-modal="modal-12">How The App Works</button></a>
+                <button class="button rounded right green md-trigger" data-modal="modal-1">I Want Early Access</button>
+            </section>
+
+            <!-- End Main Content
+            ---------------------------------------------------->
+
+            <!-- Modals
+            ---------------------------------------------------->
+
+            <div class="md-modal md-effect-1" id="modal-1"> <!-- Sign up -->
+                <div class="md-content">
+                    <h1>Early Access</h1>
+                    <p>Sign up for early access to the YellowBird platform.                   <p>
+                    <form onsubmit="event.preventDefault();">
+                        <input type="email" class="transparent big" placeholder="Trade Your Email" required>
+                        <button id="submit" onclick="location.href='refer-a-friend.html'" class="short rounded right green">Go</button></form>
+                    <div>
+                        <button class="md-close">×</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md-modal-full md-effect-12" id="modal-12">
+                <article class="how-it-works">
+                    <aside class="#"><img src="images/gamified.png" class="features"><h3>The Gamified Method</h3><p>A curriculum that includes a variety of question & answer challenges and interactive methods...</p></aside>
+                    <aside class="#"><img src="images/gamified.png" class="features"><h3>Ditch The Traditional</h3><p>No more overcrowded classrooms, mountains of books, and hour-long videos.</p></aside>
+                    <aside class="#"><img src="images/gamified.png" class="features">
+                        <h3>Your Own Pace</h3><p>Learn at your own pace and whereever you are: the bed, the bus, walking to class, a Chipotle line.</p></aside>
+                </article>
+                <div>
+                    <button class="md-close">×</button>
+                </div>
+            </div>
+
+            <div class="md-overlay"></div>
+
+            <!-- End Modal
+            ---------------------------------------------------->
+
+            <!-- Footer
+            ---------------------------------------------------->
+
+            <footer>
+                <!--
+                            <div class="footer_text">
+                                <ul>
+                                    <li><a href="jobs.html">Work</a></li>
+                                    <li><a href="about.html">Team</a></li>
+                                    <li><a href="http://www.medium.com/yellowbird">Blog</a></li>
+                                    <li><a href="privacy.html">Privacy</a></li>
+                                    <li><a href="terms.html">Terms</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+                            </div>
+                -->
+
+                <div class="copyright">
+                    <p>© 2015 YellowBird Financial, Inc. Homegrown in Atlanta.</p>
+                </div>
+
+            </footer>
         </div>
+</div>
+<!-- End Footer
+---------------------------------------------------->
 
-<!-- Sign Up
----------------------------------------------------->  
-        
-        <section id="sign-up">
-            <p>Want to be in the first draft class?</p>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="//use.typekit.net/bmq6jcj.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.0.min.js"></script>
+<script type="text/javascript" src="js/jquery.tooltipster.min.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script
+<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
+<script src="js/classie.js"></script>
+<script src="js/modernizr.custom.js"></script>
 
-            <form onsubmit="event.preventDefault(); signup(<?php if (isset($_GET["ref"])) { echo("'".$_GET["ref"]."'"); } ?>);">
-            <input type="email" id="email" class="transparent big" placeholder="Trade Your Email" required/>
-                <button id="submit">JOIN</button>
-                <button id="hiddenSubmit" class="md-trigger" data-modal="modal-1" style="display: none;"></button>
-            </form>
-            <div class="main clearfix">
-			</div>
-		<div class="md-overlay"></div>
-        </section>      
-       
-<!-- Footer
----------------------------------------------------->   
-    
-        <footer>
-<!--
-            <div class="footer_text">
-                <ul>
-                    <li><a href="jobs.html">Work</a></li>
-                    <li><a href="about.html">Team</a></li>
-                    <li><a href="http://www.medium.com/yellowbird">Blog</a></li>
-                    <li><a href="privacy.html">Privacy</a></li>
-                    <li><a href="terms.html">Terms</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
--->
-            
-            <div class="copyright">
-                <p>© 2014 YellowBird Financial, Inc. Homegrown in Atlanta.</p>  
-            </div>
+<script>
+    var menuRight = document.getElementById( 'cbp-spmenu-s2' ),
+        menuTop = document.getElementById( 'cbp-spmenu-s3' ),
+        body = document.body;
+</script>
+<script>
+    $('a').click(function(){
+        $('html, body').animate({
+            scrollTop: $( $(this).attr('href') ).offset().top
+        }, 500); // determines the speed of the scroll
+        return false;
+    });
+</script>
+<!-- classie.js by @desandro: https://github.com/desandro/classie -->
+<script src="js/modalEffects.js"></script>
 
-        </footer>
-       
-<!-- Footer ---------------------------------------------> 
-                
-        <!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
-		<script src="js/classie.js"></script>
-		<script>
-			var menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-                menuTop = document.getElementById( 'cbp-spmenu-s3' ),
-				showRightPush = document.getElementById( 'showRightPush' ),
-                showTop = document.getElementById( 'showTop' ),                   closeTop = document.getElementById('close'),
-				body = document.body;
+<!-- for the blur effect -->
+<!-- by @derSchepp https://github.com/Schepp/CSS-Filters-Polyfill -->
+<script>
+    // this is important for IEs
+    var polyfilter_scriptpath = '/js/';
+</script>
+<script src="js/retina.js"></script>
+<script src="js/cssParser.js"></script>
+<script src="js/css-filters-polyfill.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.tooltip').tooltipster();
+    });
+</script>
+<script id="configScript"></script>
+<script src="js/loadConfig.js"></script>
+<script src="js/addSubscriber.js"></script>
+<script src="js/YB.js"></script>
+<script src="js/quote.js"></script>
 
-			showRightPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toleft' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRightPush' );
-			};
-            showTop.onclick = function() {
-                classie.toggle( this, 'active' );
-                classie.toggle( menuTop, 'cbp-spmenu-open' );
-                disableOther( 'showTop' );
-            };
-            
-            closeTop.onclick = function() {
-                classie.toggle( this, 'active' );
-                classie.toggle( menuTop, 'cbp-spmenu-open' );
-                disableOther( 'showTop' );
-            };
-
-			function disableOther( button ) {
-				if( button !== 'showRightPush' ) {
-					classie.toggle( showRightPush, 'disabled' );
-				}
-                if( button !== 'showTop' ) {
-                    classie.toggle( showTop, 'disabled' );
-                }
-			}
-		</script>
-        <script>
-            $('a').click(function(){
-            $('html, body').animate({
-                scrollTop: $( $(this).attr('href') ).offset().top
-            }, 500); // determines the speed of the scroll
-            return false;
-        });		
-        </script>
-        <script type="text/javascript" src="js/retina.js"></script>
-        <!-- classie.js by @desandro: https://github.com/desandro/classie -->
-		<script src="js/modalEffects.js"></script>
-
-		<!-- for the blur effect -->
-		<!-- by @derSchepp https://github.com/Schepp/CSS-Filters-Polyfill -->
-		<script>
-			// this is important for IEs
-			var polyfilter_scriptpath = '/js/';
-		</script>
-        <script src="js/retina.js"></script>
-		<script src="js/cssParser.js"></script>
-		<script src="js/css-filters-polyfill.js"></script>
-        <script id="configScript"></script>
-        <script src="js/loadConfig.js"></script>
-        <script src="js/addSubscriber.js"></script>
-        <script src="js/YB.js"></script>
-    </body>
+</body>
+</html>
