@@ -11,11 +11,6 @@
 <meta property="og:image" content="http://yellowbird.io/images/symbol.png" />
 <link href="fonts/ss-social-regular.css" rel="stylesheet" type="text/css"/>
 <meta property="og:image" content="http://yellowbird.io/images/symbol.png" />
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.0.min.js"></script>
-<script type="text/javascript" src="js/jquery.tooltipster.min.js"></script>     
-<script type="text/javascript" src="//use.typekit.net/bmq6jcj.js"></script>     
-<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 <title>YellowBird | Gamified Investor Education</title>
 </head>
     
@@ -24,7 +19,7 @@
 ---------------------------------------------------->  
     
 <header>
-    <a href="landing.html"><button class="go-back">Go Back</button></a>
+    <a href="/"><button class="go-back">Go Back</button></a>
 </header>
     <section class="thanks-container"><h1>Thanks For Signing Up</h1> </section>
     <section class="main-container">
@@ -33,7 +28,7 @@
             <h3>Invest In Your Friends Too</h3>
             <h1>Invite Your Friends to <br>Gain Early Access &amp; Exclusive Benefits!</h1>
 <p>Share your unique url via twitter, facebook, and/or email. Earn benefits for each friend who signs up!</p>
-            <input type="text" placeholder="yellowbird.io/?ref=">
+            <input id="uniqueURL" placeholder="your unique url" disabled type="text" >
             <ul class="social-media-links">
                 <li class="circle twitter"><img src="images/twitter.png"></li>
                 <li class="circle facebook"><img src="images/facebook.png"></li>
@@ -85,11 +80,34 @@
         </footer>
        </div>
 <!-- End Footer
----------------------------------------------------->   
+---------------------------------------------------->
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery.tooltipster.min.js"></script>
+    <script type="text/javascript" src="//use.typekit.net/bmq6jcj.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <script src="js/retina.js"></script>
+
+    <script id="configScript"></script>
+    <script src="js/loadConfig.js"></script>
+    <script src="js/addSubscriber.js"></script>
+    <script src="js/YB.js"></script>
+
     <script>
         $(document).ready(function() {
             $('.tooltip').tooltipster();
+            var email = "<?php if (isset($_POST["email"])) { echo($_POST["email"]); } ?>";
+            var ref = "<?php if (isset($_POST["ref"])) { echo($_POST["ref"]); } ?>";
+
+            console.log(email);
+            console.log(ref);
+            $(window).load(function() {
+                // this code will run after all other $(document).ready() scripts
+                // have completely finished, AND all page elements are fully loaded.
+                signup(email, ref);
+            });
+
+
         });
     </script>
 </body>

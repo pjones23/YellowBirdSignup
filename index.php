@@ -14,11 +14,6 @@
     <link rel="stylesheet" type="text/css" href="css/tooltipster.css" />
     <link href="fonts/ss-social-regular.css" rel="stylesheet" type="text/css"/>
     <meta property="og:image" content="http://yellowbird.io/images/symbol.png" />
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script type="text/javascript" src="//use.typekit.net/bmq6jcj.js"></script>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.0.min.js"></script>
-    <script type="text/javascript" src="js/jquery.tooltipster.min.js"></script>
-    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <title>YellowBird | Gamified Investor Education</title>
 </head>
 
@@ -56,6 +51,10 @@
                         <button type="submit" class="short rounded green" onclick="productLookup()">Go</button>
                     </form>
                     <p><a href="#" class="tooltip" title="This is my link's tooltip message!">Need Help?</a></p>
+                    <div id="companyDialog" title="Choose company">
+                        <ul id="companyList" style="list-style-type:none">
+                        </ul>
+                    </div>
                 </article>
 
 
@@ -117,9 +116,10 @@
                 <div class="md-content">
                     <h1>Early Access</h1>
                     <p>Sign up for early access to the YellowBird platform.                   <p>
-                    <form onsubmit="event.preventDefault();">
-                        <input type="email" class="transparent big" placeholder="Trade Your Email" required>
-                        <button id="submit" onclick="location.href='refer-a-friend.html'" class="short rounded right green">Go</button></form>
+                    <form action="refer-a-friend.php" method="post">
+                        <input id="email" name="email" type="email" class="transparent big" placeholder="Trade Your Email" required>
+                        <input id="ref" name="ref" type="hidden" value="<?php if (isset($_GET["ref"])) { echo($_GET["ref"]); } ?>">
+                        <button id="submit" class="short rounded right green">Go</button></form>
                     <div>
                         <button class="md-close">×</button>
                     </div>
@@ -173,6 +173,7 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript" src="//use.typekit.net/bmq6jcj.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.0.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="js/jquery.tooltipster.min.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script
 <!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
@@ -183,6 +184,9 @@
     var menuRight = document.getElementById( 'cbp-spmenu-s2' ),
         menuTop = document.getElementById( 'cbp-spmenu-s3' ),
         body = document.body;
+    $("#companyDialog").dialog({
+        autoOpen: false
+    });
 </script>
 <script>
     $('a').click(function(){
@@ -209,10 +213,7 @@
         $('.tooltip').tooltipster();
     });
 </script>
-<script id="configScript"></script>
-<script src="js/loadConfig.js"></script>
-<script src="js/addSubscriber.js"></script>
-<script src="js/YB.js"></script>
+
 <script src="js/quote.js"></script>
 
 </body>

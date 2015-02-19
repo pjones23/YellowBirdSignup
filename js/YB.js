@@ -2,9 +2,7 @@
  * Created by Perron on 12/16/2014.
  */
 
-function signup(reference){
-    // Get the email from the input;
-    var email = document.getElementById("email").value;
+function signup(email, reference){
 
     // add email to MailChimp YellowBird List
     var mailChimpInfo = addSubscriberToMailChimp(email);
@@ -15,10 +13,10 @@ function signup(reference){
     // add email to the YellowBird list of subscribers
     var info = addSubscriber(email);
     if(info.status == "SUCCESS") { // populate reference code and open modal
-        populateShareModal(info, true);
+        populateRefPage(info, true);
 
         // Increment the reference counter if a reference code was used
-        if(reference != undefined){
+        if(reference != undefined && reference != null && reference != ""){
             var increment = incrementRefCounter(reference);
         }
 
@@ -30,7 +28,7 @@ function signup(reference){
     }
     else{
         // Check if the user already exists and open up a modal showing the refCode and round number
-        populateShareModal(info, false);
+        populateRefPage(info, false);
 
         // open modal
         $('#hiddenSubmit').click();
@@ -38,8 +36,9 @@ function signup(reference){
 
 }
 
-function populateShareModal(info, newSubscription){
+function populateRefPage(info, newSubscription){
 
+    /*
     // populate message
     var shareMessageParagraph = document.getElementById('share_message_body');
     if(newSubscription == true){
@@ -48,6 +47,7 @@ function populateShareModal(info, newSubscription){
     else{
         shareMessageParagraph.innerHTML = "Hey, you've already signed up. Thanks again and don't forget to share. We have limited spots!";
     }
+    */
 
     // populate reference field
     var refCodeField = document.getElementById('uniqueURL');
