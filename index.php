@@ -13,6 +13,7 @@
     <link href="css/global.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="css/tooltipster.css" />
     <link href="fonts/ss-social-regular.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
     <meta property="og:image" content="http://yellowbird.io/images/symbol.png" />
     <title>YellowBird | Gamified Investor Education</title>
 </head>
@@ -173,7 +174,7 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript" src="//use.typekit.net/bmq6jcj.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.0.min.js"></script>
-<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.js"></script>
 <script type="text/javascript" src="js/jquery.tooltipster.min.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script
 <!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
@@ -187,14 +188,36 @@
     $("#companyDialog").dialog({
         autoOpen: false
     });
-</script>
-<script>
+
     $('a').click(function(){
         $('html, body').animate({
             scrollTop: $( $(this).attr('href') ).offset().top
         }, 500); // determines the speed of the scroll
         return false;
     });
+
+    // Add autocomplete functionality
+
+    $(function() {
+
+        $('#companyText').autocomplete({
+            source: "companyLookup.php",
+            minLength: 2,
+            select: function( event, ui ) {
+                /*
+                log( ui.item ?
+                "Selected: " + ui.item.value + " aka " + ui.item.id :
+                "Nothing selected, input was " + this.value );
+                */
+                console.log("Attempted Select");
+            },
+            search: function( event, ui ){
+                console.log("Attempted Search");
+            }
+
+        });
+    });
+
 </script>
 <!-- classie.js by @desandro: https://github.com/desandro/classie -->
 <script src="js/modalEffects.js"></script>
