@@ -23,31 +23,26 @@ function signup(email, reference){
         // sent the email
         sendAddConfirmEmail(email, info.refCode);
 
-        // open modal
-        $('#hiddenSubmit').click();
     }
     else{
         // Check if the user already exists and open up a modal showing the refCode and round number
         populateRefPage(info, false);
 
-        // open modal
-        $('#hiddenSubmit').click();
     }
 
 }
 
 function populateRefPage(info, newSubscription){
 
-    /*
-    // populate message
-    var shareMessageParagraph = document.getElementById('share_message_body');
+    // populate heading message
+    var shareMessageHeading = document.getElementById('signup_heading');
     if(newSubscription == true){
-        shareMessageParagraph.innerHTML = "Want to move up to the first round for early access? Be sure to share your unique url with family and friends.";
+        shareMessageHeading.innerHTML = "Thanks For Signing Up";
     }
     else{
-        shareMessageParagraph.innerHTML = "Hey, you've already signed up. Thanks again and don't forget to share. We have limited spots!";
+        shareMessageHeading.innerHTML = "Welcome Back, Check Your Progress";
     }
-    */
+
 
     // populate reference field
     var refCodeField = document.getElementById('uniqueURL');
@@ -74,4 +69,12 @@ function populateRefPage(info, newSubscription){
         // brings up default mail client
         document.location.href = "mailto:?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
     }
+
+    // populate the number of friends who have joined using the supplied reference code
+    var totalReferences = 0;
+    if(info.refCount != null && info.refCount != undefined){
+        totalReferences = info.refCount;
+    }
+    var joinedCount = document.getElementById('joined_count');
+    joinedCount.text = totalReferences;
 }

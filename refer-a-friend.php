@@ -21,7 +21,7 @@
 <header>
     <a href="/"><button class="go-back">Go Back</button></a>
 </header>
-    <section class="thanks-container"><h1>Thanks For Signing Up</h1> </section>
+    <section class="thanks-container"><h1 id="signup_heading"></h1> </section>
     <section class="main-container">
         <article class="iphone-learning-container"><img src="images/iphone-stock.png" class="center" alt="image of YellowBird's education app"></article>
         <article class="refer-container">
@@ -30,9 +30,11 @@
 <p>Share your unique url via twitter, facebook, and/or email. Earn benefits for each friend who signs up!</p>
             <input id="uniqueURL" placeholder="your unique url" disabled type="text" >
             <ul class="social-media-links">
-                <li class="circle twitter"><img src="images/twitter.png"></li>
-                <li class="circle facebook"><img src="images/facebook.png"></li>
-                <li class="circle email"><img src="images/email.png"></li>
+
+                <a id="share_twitter"><li class="circle twitter"><img src="images/twitter.png"></li></a>
+                <a id="share_facebook"><li class="circle facebook"><img src="images/facebook.png"></li></a>
+                <a id="share_email"><li class="circle email"><img src="images/email.png"></li></a>
+
             </ul>
         </article>
     </section>
@@ -51,7 +53,7 @@
                     <td class="border-cell"><h4>50</h4>Round 1 Access, 500 Pts. &amp; a YellowBird Tee</td>
                 </tr>
             </table>
-            <p><span id="joined"><a href="#">6</a></span> friends have joined &nbsp;&nbsp;|&nbsp;&nbsp; <a href="#" class="tooltip" title="Points are the digital dollars you will use when you start trading on the YellowBird Stock Simulator. They're pretty important!">What are these points about?</a></p>
+            <p><span id="joined"><a id="joined_count"></a></span> friends have joined &nbsp;&nbsp;|&nbsp;&nbsp; <a href="#" class="tooltip" title="Points are the digital dollars you will use when you start trading on the YellowBird Stock Simulator. They're pretty important!">What are these points about?</a></p>
         </article>
     </section>
     
@@ -74,7 +76,7 @@
 -->
             
             <div class="copyright">
-                <p>© 2014 YellowBird Financial, Inc. Homegrown in Atlanta.</p>  
+                <p>© 2015 YellowBird Financial, Inc. Homegrown in Atlanta.</p>
             </div>
 
         </footer>
