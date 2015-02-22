@@ -7,75 +7,20 @@ function productLookup(){
     console.log(searchText);
     var status = null;
     $.ajax({
-        url : "quote.php",
+        url : "quoteLookup.php",
         data : {
-            'action' : "productlookup",
-            'search' : searchText
+            'symbol' : searchText
         },
         context : document.body,
         async : false,
         type : 'GET',
-        dataType : "xml",
+        dataType : "json",
         success : function(data) {
             console.log(data);
-            status = data;
-            var xml = $(data);
-            var products = xml.find('Product');
-            console.log(products.length);
-            var companyList = document.getElementById('companyList');
-            if(products.length > 0){
-                products.each(function(){
-                    // Get the company name
-                    var companyName = $(this).find('companyName').text();
-                    // Get the company symbol
-                    var symbol = $(this).find('symbol').text();
-                    var companyInfo = companyName + " (symbol: " + symbol + ")";
-                    var companyItem = document.createElement('li');
-                    companyItem.innerHTML = "<a companyName='"+ companyName +"' symbol='"+ symbol +"' onclick='quoteLookup(this)'>" + companyInfo + "</a>";
-                    companyList.appendChild(companyItem);
-                });
-            }
-        },
-        error : function(jqXHR, textStatus, errorThrown) {
-            console.log("Status: " + textStatus);
-            console.log("Response Text: " + jqXHR.responseText)
-            console.log("Error: " + errorThrown);
-            status = textStatus;
-        }
-    });
+            // Populate quote info with data
+            populateQuoteDetails(data);
 
-    $('#companyDialog').dialog("open");
 
-    return {"status" : status};
-}
-
-function quoteLookup(companyElement){
-    console.log(companyElement);
-    var companyName = companyElement.getAttribute("companyName");
-    var symbol = companyElement.getAttribute("symbol");
-    getQuote(symbol);
-}
-
-function populateQuoteDetails(){
-
-}
-
-function getQuote(searchText){
-    console.log(searchText);
-    var status = null;
-    $.ajax({
-        url : "quote.php",
-        data : {
-            'action' : "quote",
-            'search' : searchText
-        },
-        context : document.body,
-        async : false,
-        type : 'GET',
-        dataType : "xml",
-        success : function(data) {
-            console.log(data);
-            status = data;
         },
         error : function(jqXHR, textStatus, errorThrown) {
             console.log("Status: " + textStatus);
@@ -86,4 +31,15 @@ function getQuote(searchText){
     });
 
     return {"status" : status};
+}
+
+function populateQuoteDetails(info){
+    // Populate stock info with data
+    var symbol = document.getElementById('symbol');
+    var price = document.getElementById('price');
+    var change = info.change + ' (' + info.percentChange + ')';
+
+    symbol.innerHTML = info.symbol;
+    price.innerHTML = info.ask + '<div id="change" class="price-change">' + change + '</div>';
+
 }

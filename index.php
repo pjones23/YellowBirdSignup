@@ -52,10 +52,6 @@
                         <button type="submit" class="short rounded green" onclick="productLookup()">Go</button>
                     </form>
                     <p><a href="#" class="tooltip" title="This is my link's tooltip message!">Need Help?</a></p>
-                    <div id="companyDialog" title="Choose company">
-                        <ul id="companyList" style="list-style-type:none">
-                        </ul>
-                    </div>
                 </article>
 
 
@@ -65,9 +61,9 @@
 
                         <!----- Stock Information ---->
                         <div class="stock-info">
-                            <div id="#" class="symbol">Symbol</div>
-                            <div id="#" class="price">Price
-                                <div id="#" class="price-change">Change</div>
+                            <div id="symbol" class="symbol">Symbol</div>
+                            <div id="price" class="price">Price
+                                <div id="change" class="price-change">Change</div>
                             </div>
 
                             <!----- Duration ---->
@@ -86,7 +82,7 @@
                             <ul>
                                 <li>Initial Investment<span id="initial" class="info">$50</span></li>
                                 <li>Your New Value<span id="new" class="info">$200</span></li>
-                                <li>Year % Growth<span id="growth" class="info">200</span></li>
+                                <li>Year % Growth<span id="growth" class="info">300</span></li>
                             </ul>
                         </div>
                     </div>
@@ -204,12 +200,7 @@
             source: "companyLookup.php",
             minLength: 2,
             select: function( event, ui ) {
-                /*
-                log( ui.item ?
-                "Selected: " + ui.item.value + " aka " + ui.item.id :
-                "Nothing selected, input was " + this.value );
-                */
-                console.log("Attempted Select");
+                productLookup();
             },
             search: function( event, ui ){
                 console.log("Attempted Search");
