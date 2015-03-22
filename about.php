@@ -34,8 +34,8 @@
     
     <nav>
         <ul>
-            <a href="index.html"><div class="header-logo"></div></a>
-            <a href="about.html"><li>About</li></a>
+            <a href="index.php"><div class="header-logo"></div></a>
+            <a href="about.php"><li>About</li></a>
             <a href="http://www.medium.com/@yellowbird"><li>Blog</li></a>
             
         </ul>    

@@ -33,8 +33,8 @@
     
     <nav>
         <ul>
-            <a href="index.html"><div class="header-logo"></div></a>
-            <a href="about.html"><li>About</li></a>
+            <a href="index.php"><div class="header-logo"></div></a>
+            <a href="about.php"><li>About</li></a>
             <a href="http://www.medium.com/@yellowbird"><li>Blog</li></a>
             
         </ul>    
@@ -60,7 +60,7 @@
 ----------------------------------------------------> 
 <div class="main-container">
     
-<!--<a href="index.html" class="go-back"><img src="images/ylwb_back-arrow.svg"></a>-->
+<!--<a href="index.php" class="go-back"><img src="images/ylwb_back-arrow.svg"></a>-->
     
 <!--
 <section class="main-question">
@@ -170,7 +170,7 @@
             <p>Sign up for early access to the YellowBird platform.<p>
             <form onsubmit="event.preventDefault();">
                 <input type="email" class="transparent" placeholder="Trade Your Email" required>
-                <button id="submit" onclick="location.href='refer-a-friend.html'" class="button_green--long">Go</button></form>
+                <button id="submit" onclick="location.href='refer-a-friend.php'" class="button_green--long">Go</button></form>
              
 	</div>
 </div>   
@@ -199,40 +199,7 @@
         <!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
 		<script src="js/classie.js"></script>
         <script src="js/modernizr.custom.js"></script>
-		<script>
-			var menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-                menuTop = document.getElementById( 'cbp-spmenu-s3' ),
-				showRightPush = document.getElementById( 'showRightPush' ),
-                showTop = document.getElementById( 'showTop' ),                   closeTop = document.getElementById('close'),
-				body = document.body;
 
-			showRightPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toleft' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRightPush' );
-			};
-            showTop.onclick = function() {
-                classie.toggle( this, 'active' );
-                classie.toggle( menuTop, 'cbp-spmenu-open' );
-                disableOther( 'showTop' );
-            };
-            
-            closeTop.onclick = function() {
-                classie.toggle( this, 'active' );
-                classie.toggle( menuTop, 'cbp-spmenu-open' );
-                disableOther( 'showTop' );
-            };
-
-			function disableOther( button ) {
-				if( button !== 'showRightPush' ) {
-					classie.toggle( showRightPush, 'disabled' );
-				}
-                if( button !== 'showTop' ) {
-                    classie.toggle( showTop, 'disabled' );
-                }
-			}
-		</script>
         <script>
             $('a').click(function(){
             $('html, body').animate({

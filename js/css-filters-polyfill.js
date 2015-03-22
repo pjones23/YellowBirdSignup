@@ -537,7 +537,7 @@
 					properties['filtersW3C'] = ['grayscale(' + amount + ')'];
 					
 					// Firefox
-					// https://dvcs.w3.org/hg/FXTF/raw-file/tip/filters/index.html
+					// https://dvcs.w3.org/hg/FXTF/raw-file/tip/filters/index.php
 					var svg_fe1 = polyfilter._create_svg_element('feColorMatrix',{
 						type:	'matrix',
 						values:	(0.2126 + 0.7874 * (1 - amount)) + ' ' 
@@ -572,7 +572,7 @@
 					properties['filtersW3C'] = ['sepia(' + amount + ')'];
 					
 					// Firefox
-					// https://dvcs.w3.org/hg/FXTF/raw-file/tip/filters/index.html
+					// https://dvcs.w3.org/hg/FXTF/raw-file/tip/filters/index.php
 					var svg_fe1 = polyfilter._create_svg_element('feColorMatrix',{
 						type:	'matrix',
 						values:	(0.393 + 0.607 * (1 - amount)) + ' ' 
@@ -607,7 +607,7 @@
 					properties['filtersW3C'] = ['blur(' + amount + 'px)'];
 					
 					// Firefox
-					// https://dvcs.w3.org/hg/FXTF/raw-file/tip/filters/index.html
+					// https://dvcs.w3.org/hg/FXTF/raw-file/tip/filters/index.php
 					var svg_fe1 = polyfilter._create_svg_element('feGaussianBlur',{
 						'in':			'SourceGraphic',
 						stdDeviation: amount
@@ -633,7 +633,7 @@
 					properties['filtersW3C'] = ['invert(' + amount + ')'];
 					
 					// Firefox
-					// https://dvcs.w3.org/hg/FXTF/raw-file/tip/filters/index.html
+					// https://dvcs.w3.org/hg/FXTF/raw-file/tip/filters/index.php
 					var svg_fe1 = polyfilter._create_svg_element('feComponentTransfer',{});
 					var svg_fe1sub = polyfilter._create_svg_element('feFuncR',{
 						type:	'table',
@@ -674,7 +674,7 @@
 					properties['filtersWebKit'] = ['brightness(' + (amount - 100) + '%)'];
 					
 					// Firefox
-					// https://dvcs.w3.org/hg/FXTF/raw-file/tip/filters/index.html
+					// https://dvcs.w3.org/hg/FXTF/raw-file/tip/filters/index.php
 					var svg_fe1 = polyfilter._create_svg_element('feComponentTransfer',{});
 					var svg_fe1sub = polyfilter._create_svg_element('feFuncR',{
 						type:	'linear',
@@ -716,7 +716,7 @@
 					properties['filtersW3C'] = ['drop-shadow(' + offsetX + 'px ' + offsetY + 'px ' + radius + 'px ' + color + ')'];
 					
 					// Firefox
-					// https://dvcs.w3.org/hg/FXTF/raw-file/tip/filters/index.html
+					// https://dvcs.w3.org/hg/FXTF/raw-file/tip/filters/index.php
 					var svg_fe1 = polyfilter._create_svg_element('feGaussianBlur',{
 						'in':		'SourceAlpha',
 						stdDeviation: radius
