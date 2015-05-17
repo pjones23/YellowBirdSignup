@@ -167,10 +167,15 @@
         </div> 
         
         <h1>Early Access</h1>
-            <p>Sign up for early access to the YellowBird platform.<p>
-            <form onsubmit="event.preventDefault();">
-                <input type="email" class="transparent" placeholder="Trade Your Email" required>
-                <button id="submit" onclick="location.href='refer-a-friend.php'" class="button_green--long">Go</button></form>
+
+        <p>Sign up for early access to the YellowBird platform.<p>
+
+        <form action="refer-a-friend.php<?php if (isset($_GET["ref"])) { echo("?ref=".$_GET["ref"]); } ?>" method="post">
+
+            <input id="email" name="email" type="email" class="transparent" placeholder="Trade Your Email" required>
+            <input id="ref" name="ref" type="hidden" value="<?php if (isset($_GET["ref"])) { echo($_GET["ref"]); } ?>">
+            <button id="submit" class="button_green--long">Go</button>
+        </form>
              
 	</div>
 </div>   
