@@ -26,30 +26,16 @@ if (isset($_GET['symbol'])){
         echo "<response><status>FAILURE</status><message>Search term is empty.</message></response>";
     }
     else {
-        $url = "http://finance.yahoo.com/d/quotes.csv?s=".$search."&f=sb2b3jkc6p2";
+        $url = "http://dev.markitondemand.com/Api/v2/Quote/json?symbol=".$search;
         $info = file_get_contents($url);
-        $parsedInfo = explode(",", $info);
+        $quote = json_decode($info);
 
-        $symbol = trim($parsedInfo[0]);
-        $askPrice = trim($parsedInfo[1]);
-        $bidPrice = trim($parsedInfo[2]);
-        $week52low = trim($parsedInfo[3]);
-        $week52high = trim($parsedInfo[4]);
-        $change = trim($parsedInfo[5]);
-        $percentChange = trim($parsedInfo[6]);
+        $symbol = $quote->Symbol;
+        $price = $quote->LastPrice;
+        $change = $quote->Change;
+        $percentChange = $quote->ChangePercent;
 
-        // Remove unnecessary double quotes from request reply
-        $symbol = str_replace('"', "", $symbol);
-        $askPrice = str_replace('"', "", $askPrice);
-        $bidPrice = str_replace('"', "", $bidPrice);
-        $week52low = str_replace('"', "", $week52low);
-        $week52high = str_replace('"', "", $week52high);
-        $change = str_replace('"', "", $change);
-        $percentChange = str_replace('"', "", $percentChange);
-
-
-        $quote = array("symbol" => $symbol, "ask" => $askPrice, "bid" => $bidPrice, "52wklow" => $week52low,
-            "52wkhigh" => $week52high, "change" => $change, "percentChange" => $percentChange);
+        $quote = array("symbol" => $symbol, "price" => $price, "change" => $change, "percentChange" => $percentChange);
 
 
         echo json_encode($quote);

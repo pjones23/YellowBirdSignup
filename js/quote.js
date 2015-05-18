@@ -41,7 +41,7 @@ function populateQuoteDetails(info){
     var change = info.change + ' (' + info.percentChange + ')';
 
     symbol.innerHTML = info.symbol;
-    price.innerHTML = info.ask + '<div id="change" class="price-change">' + change + '</div>';
+    price.innerHTML = info.price + '<div id="change" class="price-change">' + change + '</div>';
 
     // Retrieve the graph from yahoo finance
     /*

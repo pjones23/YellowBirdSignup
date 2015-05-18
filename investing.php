@@ -10,8 +10,6 @@
 <link rel="stylesheet" type="text/css" href="css/tooltipster.css" />  
 <link href="fonts/ss-social-regular.css" rel="stylesheet" type="text/css"/>
 <meta property="og:image" content="http://yellowbird.io/images/symbol.png" />
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.0.min.js"></script>
-<script type="text/javascript" src="js/jquery.tooltipster.min.js"></script> 
     
 <!--- Typekit --->
 <script src="//use.typekit.net/ykc6jnz.js"></script>
@@ -83,7 +81,7 @@
         
         <form>
             
-            <input type="text" class="store" placeholder="Chipotle, Nike Air Maxes">
+            <input id="companyText" type="text" class="store" placeholder="Chipotle, Nike Air Maxes">
             
             <!--  <button type="submit" class="short rounded light--yellow">Go</button>-->
             
@@ -105,8 +103,8 @@
             
             <!----- Stock Information ---->
             <div class="stock-info">
-            <div id="#" class="symbol">Symbol</div>
-            <div id="#" class="price">Price
+            <div id="symbol" class="symbol">Symbol</div>
+            <div id="price" class="price">Price
                 <div id="#" class="price-change">Change</div>
             </div>
             </div> 
@@ -199,9 +197,16 @@
     
     
 <!-- End Footer
----------------------------------------------------->   
-                
-        <!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
+---------------------------------------------------->
+
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script type="text/javascript" src="//use.typekit.net/bmq6jcj.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.0.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui.js"></script>
+        <script type="text/javascript" src="js/jquery.tooltipster.min.js"></script>
+        <script src="js/quote.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script
+    <!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
 		<script src="js/classie.js"></script>
         <script src="js/modernizr.custom.js"></script>
 
@@ -229,6 +234,21 @@
         $(document).ready(function() {
             $('.tooltip').tooltipster();
         });
-    </script>
+
+        // Add autocomplete functionality
+        $(function() {
+            $('#companyText').autocomplete({
+                source: "companyLookup.php",
+                minLength: 2,
+                select: function( event, ui ) {
+                    productLookup();
+                },
+                search: function( event, ui ){
+                    console.log("Attempted Search");
+                }
+            });
+        });
+
+        </script>
     </body>  
-    </html>
+</html>

@@ -16,24 +16,24 @@ if (isset($_GET['term'])){
         echo "<response><status>FAILURE</status><message>Search term is empty.</message></response>";
     }
     else {
-        $url = "https://www.google.com/finance/match?matchtype=matchall&q=".$search;
+        $url = "http://dev.markitondemand.com/Api/v2/Lookup/json?input=".$search;
         $info = file_get_contents($url);
         $jsonDecodedInfo = json_decode($info);
-        $results = $jsonDecodedInfo->matches;
 
         $companyArray = [];
 
-        foreach($results as $company){
+        foreach($jsonDecodedInfo as $company){
             //print($company->n." (".$company->t.") Exhange Market: ".$company->e."\n");
-            if($company->n != null && $company->n != "" && $company->t != null && $company->t != "") {
-                if($company->e == "NYSE" || $company->e == "NASDAQ") {
+            if($company->Name != null && $company->Name != "" && $company->Symbol != null && $company->Symbol != "") {
+                if($company->Exchange == "NYSE" || $company->Exchange == "NASDAQ") {
                     // Filter only New York Stock Exchange (NSYE) & NASDAQ
-                    $companyItem = ["label" => $company->n . " (" . $company->t . ")", "value" => $company->t];
+                    $companyItem = ["label" => $company->Name . " (" . $company->Symbol . ")", "value" => $company->Symbol];
                     array_push($companyArray, $companyItem);
                 }
             }
         }
         echo json_encode($companyArray);
+
     }
 }
 else{
