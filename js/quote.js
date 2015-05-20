@@ -19,6 +19,7 @@ function productLookup(){
             console.log(data);
             // Populate quote info with data
             if(data.symbol != null && data.symbol != "") {
+                createStockChart(data);
                 populateQuoteDetails(data);
             }
 
@@ -60,3 +61,75 @@ function populateQuoteDetails(info){
     //chart.src = "http://chart.finance.yahoo.com/z?s="+info.symbol+"&t=1d&q=l&z=s";
 
 }
+
+function createStockChart(info){
+
+    /*
+     Params vary for each Type.
+     The following Types accept Params.
+     For the other types, Params should be null or an empty array.
+     "sma": [period], "price": ["ohlc"] for open/high/low/close, ["c"] for close only.
+     */
+    var Element = { "Symbol":info.symbol, "Type":"price", "Params":["c"] };
+    var InteractiveChartDataInput = { "Normalized":false, "NumberOfDays":33, "DataPeriod":"Day", "Elements":[Element]};
+
+    console.log(Element);
+    console.log(InteractiveChartDataInput);
+
+    var encodedJSONObject = JSON.stringify(InteractiveChartDataInput);
+
+    console.log(encodedJSONObject);
+
+    $.ajax({
+        url : "chartLookup.php",
+        data : {
+            'parameters' : encodedJSONObject
+        },
+        context : document.body,
+        async : false,
+        type : 'GET',
+        dataType : "json",
+        success : function(data) {
+            console.log(data);
+            drawChart(data, info.symbol);
+        },
+        error : function(jqXHR, textStatus, errorThrown) {
+            console.log("Status: " + textStatus);
+            console.log("Response Text: " + jqXHR.responseText)
+            console.log("Error: " + errorThrown);
+            status = textStatus;
+        }
+    });
+}
+
+function drawChart(chartData, symbol){
+
+    var dataObject = {
+        rangeSelector: {
+            selected: 1,
+            inputEnabled: $('#container').width() > 480
+        },
+
+        title: {
+            text: symbol + ' Stock Price'
+        },
+
+        series: [{
+            name: symbol,
+            data: chartData,
+            tooltip: {
+                valueDecimals: 2
+            }
+        }]
+
+        ,
+
+        chart: {
+            renderTo: 'container'
+        }
+
+    };
+
+    var chart = new Highcharts.StockChart(dataObject);
+}
+

@@ -107,7 +107,8 @@
             <div id="price" class="price">Price
                 <div id="#" class="price-change">Change</div>
             </div>
-            </div> 
+            </div>
+            <div id="container" style="height: 400px; min-width: 310px"></div>
                
             <!----- Value Information ---->
             
@@ -203,6 +204,9 @@
         <script type="text/javascript" src="//use.typekit.net/bmq6jcj.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.0.min.js"></script>
         <script type="text/javascript" src="js/jquery-ui.js"></script>
+        <script src="http://code.highcharts.com/stock/highstock.js"></script>
+        <script src="http://code.highcharts.com/stock/modules/exporting.js"></script>
+
         <script type="text/javascript" src="js/jquery.tooltipster.min.js"></script>
         <script src="js/quote.js"></script>
         <script type="text/javascript">try{Typekit.load();}catch(e){}</script
