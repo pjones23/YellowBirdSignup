@@ -71,7 +71,7 @@ function createStockChart(info){
      "sma": [period], "price": ["ohlc"] for open/high/low/close, ["c"] for close only.
      */
     var Element = { "Symbol":info.symbol, "Type":"price", "Params":["c"] };
-    var InteractiveChartDataInput = { "Normalized":false, "NumberOfDays":33, "DataPeriod":"Day", "Elements":[Element]};
+    var InteractiveChartDataInput = { "Normalized":false, "NumberOfDays":1000, "DataPeriod":"Day", "Elements":[Element]};
 
     console.log(Element);
     console.log(InteractiveChartDataInput);
@@ -103,15 +103,19 @@ function createStockChart(info){
 }
 
 function drawChart(chartData, symbol){
-
     var dataObject = {
+
+        global: {
+            useUTC: true
+        },
+
         rangeSelector: {
-            selected: 1,
-            inputEnabled: $('#container').width() > 480
+            selected: 0,
+            inputEnabled: $('#container').width() > 300
         },
 
         title: {
-            text: symbol + ' Stock Price'
+            text: null
         },
 
         series: [{
@@ -121,11 +125,11 @@ function drawChart(chartData, symbol){
                 valueDecimals: 2
             }
         }]
-
         ,
 
         chart: {
-            renderTo: 'container'
+            renderTo: 'container',
+            type: 'line'
         }
 
     };

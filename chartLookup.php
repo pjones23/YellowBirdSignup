@@ -21,7 +21,10 @@ if (isset($_GET['parameters'])){
         $dates = $chartInfo->Dates;
         $unixDates = array();
         foreach($dates as $date){
-            array_push($unixDates, strtotime($date." GMT"));
+            // strtotime converts the date to unix time
+            // x1000 converts the unix time to epoch
+            $epoch = strtotime($date." GMT") * 1000;
+            array_push($unixDates, $epoch);
         }
         $closingPrices = $chartInfo->Elements[0]->DataSeries->close->values;
 
