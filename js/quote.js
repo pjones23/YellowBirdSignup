@@ -62,6 +62,10 @@ function populateQuoteDetails(info){
 
 }
 
+function changeValue(info){
+
+}
+
 function createStockChart(info){
 
     /*
@@ -120,7 +124,11 @@ function drawChart(chartData, symbol){
             buttons: [{
                 type: 'day',
                 count: 1,
-                text: '1D'
+                text: '1D',
+                dataGrouping: {
+                    forced: true,
+                    units: [['hour', [24]]]
+                }
             }, {
                 type: 'month',
                 count: 1,
@@ -184,5 +192,66 @@ function drawChart(chartData, symbol){
     };
 
     var chart = new Highcharts.StockChart(options);
+    createInvestment(chart, null);
+
+    $(".highcharts-button").click(function(){
+        createInvestment(chart, this);
+    });
+
+}
+
+function createInvestment(chart, button){
+    var currentDataPoints = chart.series[0].points;
+
+    if(button == null){
+        // Show the data points for the default, which is 1 day
+        var firstPoint = currentDataPoints[currentDataPoints.length - 2];
+        var lastPoint = currentDataPoints[currentDataPoints.length - 1];
+    }
+    else {
+        var textElement = $(button).children("text")[0];
+        var timeRange = $(textElement).text();
+        switch (timeRange) {
+            case "1D":
+                var firstPoint = currentDataPoints[currentDataPoints.length - 2];
+                var lastPoint = currentDataPoints[currentDataPoints.length - 1];
+                break;
+            default: // 1 month, 1 year, or 4 years
+                var firstPoint = currentDataPoints[0];
+                var lastPoint = currentDataPoints[currentDataPoints.length - 1];
+        };
+    }
+
+    /*
+     console.log(currentDataPoints);
+     console.log(firstPoint);
+     console.log(new Date(firstPoint.x).toGMTString());
+     console.log(firstPoint.y);
+     */
+    var initialCost = firstPoint.y;
+    /*
+     console.log(lastPoint);
+     console.log(new Date(lastPoint.x).toGMTString());
+     console.log(lastPoint.y);
+     */
+    var finalCost = lastPoint.y;
+    // get percentage change
+    var costChange = finalCost - initialCost;
+    var percentChange = costChange/initialCost;
+    var prettyPercentChange = (percentChange * 100).toFixed(2);
+    //console.log("cost change: " + costChange);
+
+    var initialInvestment = 50;
+    var newInvestment = initialInvestment + (initialInvestment * percentChange);
+    var prettyNewInvestment = newInvestment.toFixed(2);
+    /*
+     console.log("initial investment: " + initialInvestment);
+     console.log("new investment: " + prettyNewInvestment);
+     console.log("percent change: " + prettyPercentChange);
+     */
+    $("#initial").text("$" + initialInvestment);
+    $("#new").text("$" + prettyNewInvestment);
+    $("#growth").text(prettyPercentChange + "%");
+
 }
 

@@ -126,8 +126,8 @@
 
                 <ul>
                     <li>Initial Investment<span id="initial" class="info">$50</span></li>
-                    <li>Your New Value<span id="new" class="info">$200</span></li>
-                    <li>% Growth<span id="growth" class="info">300%</span></li>
+                    <li>Your New Value<span id="new" class="info">-</span></li>
+                    <li>% Growth<span id="growth" class="info">-</span></li>
                 </ul>
                 </div>
         </div>
