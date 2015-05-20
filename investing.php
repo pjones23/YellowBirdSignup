@@ -94,8 +94,8 @@
         
     </article>
     
-    
     <article class="iphone-container clearfix">
+        
         
         <img src="images/iphone-stock.png" style="width:250px; height: auto" class="center">
         
@@ -103,32 +103,33 @@
             
             <!----- Stock Information ---->
             <div class="stock-info">
-            <div id="symbol" class="symbol">Symbol</div>
-            <div id="price" class="price">Price
-                <div id="#" class="price-change">Change</div>
+                <div id="symbol" class="symbol">Symbol</div>
+                <div id="price" class="price">Price
+                    <div id="#" class="price-change">Change</div>
+                </div>
+                <div id="container" style="height: 200px; min-width: 10px"></div>
             </div>
-            </div>
-            <div id="container" style="height: 400px; min-width: 310px"></div>
                
             <!----- Value Information ---->
             
             <div class="value-info">
               
-            <!----- Duration ---->    
-                
-            <ul id="duration">
-                <a href="#"><li id="#" class="active">1d</li></a>
-                <a href="#"><li id="#">1m</li></a>
-                <a href="#"><li id="#">1y</li></a>
-                <a href="#"><li id="#">Max</li></a>
-            </ul>     
-                
+            <!----- Duration ---->
+                <!--
+                <ul id="duration">
+                    <a href="#"><li id="#" class="active">1d</li></a>
+                    <a href="#"><li id="#">1m</li></a>
+                    <a href="#"><li id="#">1y</li></a>
+                    <a href="#"><li id="#">Max</li></a>
+                </ul>
+                -->
+
                 <ul>
                     <li>Initial Investment<span id="initial" class="info">$50</span></li>
                     <li>Your New Value<span id="new" class="info">$200</span></li>
                     <li>% Growth<span id="growth" class="info">300%</span></li>
                 </ul>
-            </div>
+                </div>
         </div>
         
         <div class="notes_right">Stock Symbol</div>
@@ -204,9 +205,7 @@
         <script type="text/javascript" src="//use.typekit.net/bmq6jcj.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.0.min.js"></script>
         <script type="text/javascript" src="js/jquery-ui.js"></script>
-        <script src="http://code.highcharts.com/stock/highstock.js"></script>
-        <script src="http://code.highcharts.com/stock/modules/exporting.js"></script>
-
+        <script type="text/javascript" src="js/highstock.js"></script>
         <script type="text/javascript" src="js/jquery.tooltipster.min.js"></script>
         <script src="js/quote.js"></script>
         <script type="text/javascript">try{Typekit.load();}catch(e){}</script

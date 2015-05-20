@@ -71,7 +71,8 @@ function createStockChart(info){
      "sma": [period], "price": ["ohlc"] for open/high/low/close, ["c"] for close only.
      */
     var Element = { "Symbol":info.symbol, "Type":"price", "Params":["c"] };
-    var InteractiveChartDataInput = { "Normalized":false, "NumberOfDays":1000, "DataPeriod":"Day", "Elements":[Element]};
+    // Number of Days is 1461 to go back 4 years (365.25 * 4)
+    var InteractiveChartDataInput = { "Normalized":false, "NumberOfDays":1461, "DataPeriod":"Day", "Elements":[Element]};
 
     console.log(Element);
     console.log(InteractiveChartDataInput);
@@ -103,15 +104,46 @@ function createStockChart(info){
 }
 
 function drawChart(chartData, symbol){
-    var dataObject = {
 
-        global: {
-            useUTC: true
-        },
+    Highcharts.setOptions({
+        lang: {
+            rangeSelectorZoom :""
+        }
+    });
 
+    var options = {
         rangeSelector: {
+            allButtonsEnabled: true,
             selected: 0,
-            inputEnabled: $('#container').width() > 300
+            inputEnabled: false, // Old value: $('#container').width() > 300
+
+            buttons: [{
+                type: 'day',
+                count: 1,
+                text: '1D'
+            }, {
+                type: 'month',
+                count: 1,
+                text: '1M'
+            }, {
+                type: 'year',
+                count: 1,
+                text: '1Y'
+            }, /*{
+                type: 'ytd',
+                text: 'YTD'
+            }, {
+                type: 'all',
+                text: 'all'
+            },*/ {
+                type: 'year',
+                count: 4,
+                text: '4Y',
+                dataGrouping: {
+                    forced: true,
+                    units: [['day', [1]]]
+                }
+            }]
         },
 
         title: {
@@ -124,8 +156,25 @@ function drawChart(chartData, symbol){
             tooltip: {
                 valueDecimals: 2
             }
-        }]
-        ,
+        }],
+
+        navigation: {
+            buttonOptions: {
+                enabled: false
+            }
+        },
+
+        navigator: {
+            enabled: false
+        },
+
+        scrollbar: {
+            enabled: false
+        },
+
+        credits: {
+            enabled: false
+        },
 
         chart: {
             renderTo: 'container',
@@ -134,6 +183,6 @@ function drawChart(chartData, symbol){
 
     };
 
-    var chart = new Highcharts.StockChart(dataObject);
+    var chart = new Highcharts.StockChart(options);
 }
 
