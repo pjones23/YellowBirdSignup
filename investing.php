@@ -5,9 +5,9 @@
 <meta name="keywords" content="fantasy, stock market, investing, trading, stocks, market, sports, education, learning, finance, millenials, investment, learning " />
 <meta name="description" content="Slide and push menus that are initially hidden off screen, and transition into view with CSS transitions." />    
 <meta name="author" content="YellowBird" />  
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <link href="css/global.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css" href="css/tooltipster.css" />  
+<link rel="stylesheet" type="text/css" href="css/tooltipster.css" />
 <link href="fonts/ss-social-regular.css" rel="stylesheet" type="text/css"/>
 <meta property="og:image" content="http://yellowbird.io/images/symbol.png" />
     
@@ -102,14 +102,16 @@
         <div id="#" class="iphone-shell">
             
             <!----- Stock Information ---->
-            <div class="stock-info">
+            <div id="stock-info" class="stock-info">
+                <!--
                 <div id="symbol" class="symbol">Symbol</div>
                 <div id="price" class="price">Price
                     <div id="#" class="price-change">Change</div>
                 </div>
-                <div id="container" style="height: 200px; min-width: 10px"></div>
+                -->
+                <div id="container" style="height: 200px; min-width: 10px;"></div>
             </div>
-               
+
             <!----- Value Information ---->
             
             <div class="value-info">

@@ -4,7 +4,6 @@
 
 function productLookup(){
     var searchText = $("#companyText").val();
-    console.log(searchText);
     var status = null;
     $.ajax({
         url : "quoteLookup.php",
@@ -20,7 +19,6 @@ function productLookup(){
             // Populate quote info with data
             if(data.symbol != null && data.symbol != "") {
                 createStockChart(data);
-                populateQuoteDetails(data);
             }
 
         },
@@ -33,37 +31,6 @@ function productLookup(){
     });
 
     return {"status" : status};
-}
-
-function populateQuoteDetails(info){
-    // Populate stock info with data
-    var symbol = document.getElementById('symbol');
-    var price = document.getElementById('price');
-    var change = info.change + ' (' + info.percentChange + ')';
-
-    symbol.innerHTML = info.symbol;
-    price.innerHTML = info.price + '<div id="change" class="price-change">' + change + '</div>';
-
-    // Retrieve the graph from yahoo finance
-    /*
-     Yahoo Finance API lets you retrieve graphs of stocks.
-
-     The main url is http://chart.finance.yahoo.com/z?s=<company symbol>&t=1d&q=l&z=s
-
-     For options to use, please refer to https://code.google.com/p/yahoo-finance-managed/wiki/miscapiImageDownload
-
-     The result is a picture, so you just have to write (for eg in HTML):
-
-     <img src="http://chart.finance.yahoo.com/z?s=<company symbol>&t=1d&q=l&z=s"/>
-     */
-
-    //var chart = document.getElementById('chart');
-    //chart.src = "http://chart.finance.yahoo.com/z?s="+info.symbol+"&t=1d&q=l&z=s";
-
-}
-
-function changeValue(info){
-
 }
 
 function createStockChart(info){
@@ -83,8 +50,6 @@ function createStockChart(info){
 
     var encodedJSONObject = JSON.stringify(InteractiveChartDataInput);
 
-    console.log(encodedJSONObject);
-
     $.ajax({
         url : "chartLookup.php",
         data : {
@@ -96,7 +61,7 @@ function createStockChart(info){
         dataType : "json",
         success : function(data) {
             console.log(data);
-            drawChart(data, info.symbol);
+            drawChart(data, info);
         },
         error : function(jqXHR, textStatus, errorThrown) {
             console.log("Status: " + textStatus);
@@ -107,7 +72,7 @@ function createStockChart(info){
     });
 }
 
-function drawChart(chartData, symbol){
+function drawChart(chartData, info){
 
     Highcharts.setOptions({
         lang: {
@@ -155,11 +120,17 @@ function drawChart(chartData, symbol){
         },
 
         title: {
-            text: null
+            text: info.symbol + " " + info.price
         },
 
+        /*
+        subtitle: {
+            text: info.change + " " + info.percentChange
+        },
+        */
+
         series: [{
-            name: symbol,
+            name: info.symbol,
             data: chartData,
             tooltip: {
                 valueDecimals: 2
@@ -186,7 +157,8 @@ function drawChart(chartData, symbol){
 
         chart: {
             renderTo: 'container',
-            type: 'line'
+            type: 'line',
+            backgroundColor: 'rgba(200, 200, 255, 0)'
         }
 
     };
@@ -252,6 +224,15 @@ function createInvestment(chart, button){
     $("#initial").text("$" + initialInvestment);
     $("#new").text("$" + prettyNewInvestment);
     $("#growth").text(prettyPercentChange + "%");
+
+    if(costChange > 0){
+        //$(".iphone-shell").css("background-color", "lightgreen");
+        $(".stock-info").css("background-color", "lightgreen");
+    }
+    else{
+        //$(".iphone-shell").css("background-color", "tomato");
+        $(".stock-info").css("background-color", "tomato");
+    }
 
 }
 

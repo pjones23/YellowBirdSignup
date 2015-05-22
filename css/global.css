@@ -29,6 +29,57 @@ body {
     background-color: #fff166;
 }
 
+.ui-autocomplete {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    float: left;
+    display: none;
+    min-width: 160px;
+    _width: 160px;
+    padding: 4px 0;
+    margin: 2px 0 0 0;
+    list-style: none;
+    background-color: #ffffff;
+    border-color: #ccc;
+    border-color: rgba(0, 0, 0, 0.2);
+    border-style: solid;
+    border-width: 1px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    *border-right-width: 2px;
+    *border-bottom-width: 2px;
+}
+
+.ui-menu-item > a.ui-corner-all {
+    display: block;
+    padding: 3px 15px;
+    clear: both;
+    font-weight: normal;
+    line-height: 18px;
+    color: #555555;
+    white-space: nowrap;
+}
+
+.ui-state-hover, .ui-state-active {
+   color: #ffffff;
+   text-decoration: none;
+   background-color: #0088cc;
+   border-radius: 0px;
+   -webkit-border-radius: 0px;
+   -moz-border-radius: 0px;
+   background-image: none;
+}
+
+
 
 /*  ===================================================
     01. Mobile
@@ -349,7 +400,7 @@ body {
         margin-right:auto;
         width: 199px;
         height: 352px;
-        background-color:tomato;
+        background-color:white;
         border: 1px solid black;
 /*        opacity: .4;*/
     }
@@ -357,6 +408,9 @@ body {
         width:100%;
         float: left;
         padding: 10px 7px 0 7px;
+        border-bottom-color: #000000;
+        border-bottom-style: solid;
+        border-bottom-width: thin;
     }
     .symbol {
         width: 50%;
@@ -373,11 +427,11 @@ body {
     }
     .value-info {
         width: 100%;
-        position: absolute;
+        /*position: absolute;*/
         bottom: 0;
-        height: 168px;
-        background-color: white;
-        float: left;
+        height: 165px;
+        background-color: transparent;
+        /*float: left;*/
         padding: 0 10px;
     }
     .value-info ul {
