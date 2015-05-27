@@ -17,6 +17,25 @@
 
 <!--- Title --->    
 <title>YellowBird | What Can Investing Do For You?</title>
+
+    <style>
+        #res {
+            margin: 0px;
+            padding-left: 0px;
+            width: 150px;
+        }
+
+        #res li {
+            list-style-type: none;
+        }
+
+        #res li:hover {
+            background: #110D3B;
+            color: #FFF;
+            cursor: pointer;
+        }
+    </style>
+
 </head>
     
 <body class="light--green"> 
@@ -79,9 +98,9 @@
         
             <p>Where was the last placed you purchased something worth more than $50?</p></aside>
         
-        <form>
+        <form autocomplete="off" onsubmit="event.preventDefault();">
             
-            <input id="companyText" type="text" class="store" placeholder="Chipotle, Nike Air Maxes">
+            <input id="companyText" type="text" class="store" placeholder="Chipotle, Apple, Nike" autocomplete="off">
             
             <!--  <button type="submit" class="short rounded light--yellow">Go</button>-->
             
@@ -203,57 +222,121 @@
 <!-- End Footer
 ---------------------------------------------------->
 
-        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-        <script type="text/javascript" src="//use.typekit.net/bmq6jcj.js"></script>
-        <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.0.min.js"></script>
-        <script type="text/javascript" src="js/jquery-ui.js"></script>
-        <script type="text/javascript" src="js/highstock.js"></script>
-        <script type="text/javascript" src="js/jquery.tooltipster.min.js"></script>
-        <script src="js/quote.js"></script>
-        <script type="text/javascript">try{Typekit.load();}catch(e){}</script
-    <!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
-		<script src="js/classie.js"></script>
-        <script src="js/modernizr.custom.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="//use.typekit.net/bmq6jcj.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.0.min.js"></script>
+<script type="text/javascript" src="js/highstock.js"></script>
+<script type="text/javascript" src="js/jquery.tooltipster.min.js"></script>
+<script src="js/quote.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script
+<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
+<script src="js/classie.js"></script>
+<script src="js/modernizr.custom.js"></script>
 
-        <script>
-            $('a').click(function(){
-            $('html, body').animate({
-                scrollTop: $( $(this).attr('href') ).offset().top
-            }, 500); // determines the speed of the scroll
-            return false;
-        });		
-        </script>
-        <!-- classie.js by @desandro: https://github.com/desandro/classie -->
-		<script src="js/modalEffects.js"></script>
+<script>
+    $('a').click(function(){
+    $('html, body').animate({
+        scrollTop: $( $(this).attr('href') ).offset().top
+    }, 500); // determines the speed of the scroll
+    return false;
+});
+</script>
+<!-- classie.js by @desandro: https://github.com/desandro/classie -->
+<script src="js/modalEffects.js"></script>
 
-		<!-- for the blur effect -->
-		<!-- by @derSchepp https://github.com/Schepp/CSS-Filters-Polyfill -->
-		<script>
-			// this is important for IEs
-			var polyfilter_scriptpath = '/js/';
-		</script>
-        <script src="js/retina.js"></script>
-		<script src="js/cssParser.js"></script>
-		<script src="js/css-filters-polyfill.js"></script>
-        <script>
-        $(document).ready(function() {
-            $('.tooltip').tooltipster();
-        });
+<!-- for the blur effect -->
+<!-- by @derSchepp https://github.com/Schepp/CSS-Filters-Polyfill -->
+<script>
+    // this is important for IEs
+    var polyfilter_scriptpath = '/js/';
+</script>
+<script src="js/retina.js"></script>
+<script src="js/cssParser.js"></script>
+<script src="js/css-filters-polyfill.js"></script>
+<script>
+$(document).ready(function() {
+    $('.tooltip').tooltipster();
+});
+</script>
+<!--------------------------------------------------
+----------------------------------------------------
+Custom autocomplete
+--------------------------------------------------->
 
-        // Add autocomplete functionality
-        $(function() {
-            $('#companyText').autocomplete({
-                source: "companyLookup.php",
-                minLength: 2,
-                select: function( event, ui ) {
-                    productLookup();
-                },
-                search: function( event, ui ){
-                    console.log("Attempted Search");
+<script>
+    $(document).ready(function(){
+        var cache = {};
+        var drew = false;
+
+        $("#companyText").on("keyup", function(event){
+            var query = $("#companyText").val()
+            console.log(query);
+
+            if($("#companyText").val().length > 1){
+
+                // perform a product lookup
+                var companies = companyLookup();
+
+                //Check if we've searched for this term before
+
+                if(query in cache){
+                    results = cache[query];
                 }
-            });
-        });
+                else{
+                    //Case insensitive search for our people array
 
-        </script>
+                    companyList = [];
+                    for (var companyIndex in companies){
+                        console.log(companies[companyIndex]);
+                        var companyText = companies[companyIndex].label;
+                        companyList.push(companyText);
+                    }
+
+                    var results = $.grep(companyList, function(item){
+                        return item.search(RegExp(query, "i")) != -1;
+                    });
+
+                    console.log(results);
+
+                    //var results = companies;
+
+                    //Add results to cache
+                    cache[query] = results;
+                }
+
+
+                //First search
+                if(drew == false){
+                    //Create list for results
+                    $("#companyText").after('<ul id="res"></ul>');
+
+                    //Prevent redrawing/binding of list
+                    drew = true;
+
+                    //Bind click event to list elements in results
+                    $("#res").on("click", "li", function(){
+                        $("#companyText").val($(this).attr("symbol"));
+                        $("#res").empty();
+                        productLookup();
+                    });
+                }
+                //Clear old results
+                else{
+                    $("#res").empty();
+                }
+
+                //Add results to the list
+                for(term in companies){
+                    $("#res").append("<li symbol=\"" + companies[term].value + "\">" + companies[term].label + "</li>");
+                }
+            }
+            //Handle backspace/delete so results don't remain
+            else if(drew){
+                $("#res").empty();
+            }
+        });
+    });
+</script>
+
     </body>  
 </html>

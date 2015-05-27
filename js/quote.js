@@ -2,6 +2,35 @@
  * Created by perron on 2/2/15.
  */
 
+function companyLookup(){
+    var searchText = $("#companyText").val();
+    var companies = null;
+    $.ajax({
+        url : "companyLookup.php",
+        data : {
+            'term' : searchText
+        },
+        context : document.body,
+        async : false,
+        type : 'GET',
+        dataType : "json",
+        success : function(data) {
+            console.log(data);
+            // Populate quote info with data
+            companies = data;
+
+        },
+        error : function(jqXHR, textStatus, errorThrown) {
+            console.log("Status: " + textStatus);
+            console.log("Response Text: " + jqXHR.responseText)
+            console.log("Error: " + errorThrown);
+            status = textStatus;
+        }
+    });
+
+    return companies;
+}
+
 function productLookup(){
     var searchText = $("#companyText").val();
     var status = null;
