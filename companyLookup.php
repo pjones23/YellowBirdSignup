@@ -20,20 +20,19 @@ if (isset($_GET['term'])){
         $info = file_get_contents($url);
         $jsonDecodedInfo = json_decode($info);
 
-        $companyArray = [];
+        $companyArray = array();
 
         foreach($jsonDecodedInfo as $company){
             //print($company->n." (".$company->t.") Exhange Market: ".$company->e."\n");
             if($company->Name != null && $company->Name != "" && $company->Symbol != null && $company->Symbol != "") {
                 if($company->Exchange == "NYSE" || $company->Exchange == "NASDAQ") {
                     // Filter only New York Stock Exchange (NSYE) & NASDAQ
-                    $companyItem = ["label" => $company->Name . " (" . $company->Symbol . ")", "value" => $company->Symbol];
+                    $companyItem = array("label" => $company->Name . " (" . $company->Symbol . ")", "value" => $company->Symbol);
                     array_push($companyArray, $companyItem);
                 }
             }
         }
         echo json_encode($companyArray);
-
     }
 }
 else{
