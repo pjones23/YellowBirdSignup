@@ -145,7 +145,29 @@ function drawChart(chartData, info){
                     forced: true,
                     units: [['day', [1]]]
                 }
-            }]
+            }],
+            buttonTheme: { // styles for the buttons
+                fill: 'none',
+                stroke: 'none',
+                'stroke-width': 0,
+                r: 100,
+                height: 20,
+                width: 20,
+                style: {
+                    color: '#039',
+                    fontWeight: 'bold'
+                },
+                states: {
+                    hover: {
+                    },
+                    select: {
+                        fill: '#039',
+                        style: {
+                            color: 'white'
+                        }
+                    }
+                }
+            },
         },
 
         title: {
