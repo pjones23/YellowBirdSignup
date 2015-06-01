@@ -18,7 +18,7 @@
 <script>try{Typekit.load();}catch(e){}</script>
 
 <!--- Title --->    
-<title>YellowBird | What Can Investing Do For You?</title>
+<title>YellowBird | Gamifying Financial Education</title>
 </head>
     
     
@@ -33,13 +33,18 @@
 <header>
     
     <nav>
+            
+            <a href="index.html"><div class="header-logo"></div></a>
+        
         <ul>
-            <a href="index.php"><div class="header-logo"></div></a>
-            <a href="about.php"><li>About</li></a>
+            
+            <a href="#"><li class="call-to-action md-trigger" data-modal="modal-1">Sign Me Up</li></a>
             <a href="http://www.medium.com/@yellowbird"><li>Blog</li></a>
+            <a href="about.html"><li>About</li></a>  
             
         </ul>    
         
+<!--
         <ul class="social-nav">
             
             <a href="http://www.facebook.com/yellowbirdapp"><li><img src="images/social_facebook.svg" class="social-nav__link"></li></a>
@@ -47,8 +52,7 @@
             <a href="https://www.twitter.com/getyellowbird"><li><img src="images/social_twitter.svg" class="social-nav__link"></li></a>
             
         </ul>
-        
-        <div class="menu-icon" style="display:none;"><a href="#"><img src="images/menu_icon.svg"></a></div>
+-->
             
     </nav>
     
@@ -88,6 +92,51 @@
         </section>
         
     </div>
+    
+    
+<!-- Sign Up Modal
+---------------------------------------------------->  
+    
+<div class="md-modal md-effect-1" id="modal-1"> 
+    
+<!-- Sign up -->
+    
+    <div class="md-content">
+        
+        <div class="modal-title">
+                
+            <button class="md-close"><img src="images/icon_close-02.svg"></button>
+        
+        </div> 
+        
+        <h1>Early Access</h1>
+        
+            <p>Sign up for early access to the YellowBird platform.<p>
+        
+            <form onsubmit="event.preventDefault();">
+                
+                <input type="email" class="transparent" placeholder="Trade Your Email" required>
+                <button id="submit" onclick="location.href='refer-a-friend.php<?php if (isset($_GET["ref"])) { echo("?ref=".$_GET["ref"]); } ?>'" class="button_green--long">Go</button>
+        </form>
+             
+	</div>
+    
+</div>   
+    
+<div class="md-modal-full md-effect-12" id="modal-12">
+			
+            <div>
+                
+				<button class="md-close">×</button>
+           
+            </div>
+		
+        </div>
+    
+<div class="md-overlay"></div>
+    
+<!-- End Modal
+---------------------------------------------------->    
     
 <!-- Scripts 
 ---------------------------------------------------->     

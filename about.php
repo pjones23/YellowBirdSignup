@@ -33,13 +33,18 @@
 <header>
     
     <nav>
+            
+            <a href="index.php<?php if (isset($_GET["ref"])) { echo("?ref=".$_GET["ref"]); } ?>"><div class="header-logo"></div></a>
+        
         <ul>
-            <a href="index.php"><div class="header-logo"></div></a>
-            <a href="about.php"><li>About</li></a>
+            
+            <a href="#"><li class="call-to-action md-trigger" data-modal="modal-1">Sign Me Up</li></a>
             <a href="http://www.medium.com/@yellowbird"><li>Blog</li></a>
+            <a href="about.php<?php if (isset($_GET["ref"])) { echo("?ref=".$_GET["ref"]); } ?>"><li>About</li></a>
             
         </ul>    
         
+<!--
         <ul class="social-nav">
             
             <a href="http://www.facebook.com/yellowbirdapp"><li><img src="images/social_facebook.svg" class="social-nav__link"></li></a>
@@ -47,8 +52,7 @@
             <a href="https://www.twitter.com/getyellowbird"><li><img src="images/social_twitter.svg" class="social-nav__link"></li></a>
             
         </ul>
-        
-        <div class="menu-icon" style="display:none;"><a href="#"><img src="images/menu_icon.svg"></a></div>
+-->
             
     </nav>
     
@@ -68,25 +72,73 @@
                 <h1>At YellowBird</h1>
             
                 <h3>We are rethinking the way stock market education works. We don’t teach from a classroom, we don’t show long videos or write 500-page books to read. Instead, we are a mobile-only, gamified solution.</h3>
-            
-        </section>    
+               
+        <!-- Why We Created YellowBird   ---------------------->
         
+        <div class="media-text__wrapper">
     
-    
-    
+            <div class="media-text__text">
             
-<!-- Our History -------------------------------------->
+                <h2>Work on stuff together</h2>
+                
+                <h3>Edit a presentation with teammates without emailing files back and forth. When you edit a file in a shared folder, everyone gets the update automatically.</h3>
+                
+            </div>
             
-        <section class="main-container__about">
+            <div class="media-text__media">
+            
+                <img src="images/confidence.png">
+            
+            </div>
+    
+        </div>
+            
+        <!-- Why We Created YellowBird   ---------------------->  
+            
+        <div class="media-text__wrapper">
+    
+            <div class="media-text__media">
+            
+                <img src="images/confidence.png">
+                
+            </div>
+            
+            <div class="media-text__text">
+            
+                <h2>Work on stuff together</h2>
+                
+                <h3>Edit a presentation with teammates without emailing files back and forth. When you edit a file in a shared folder, everyone gets the update automatically.</h3>
+                
+            </div>
+    
+        </div> 
+        
+        <!-- YellowBird Ambassadors  ----------------------> 
+            
+        <div class="media-text__wrapper">
+    
+            <div class="media-text__text">
+            
+                <h2>Ambassadors Unite</h2>
+                
+                <p>Edit a presentation with teammates without emailing files back and forth. When you edit a file in a shared folder, everyone gets the update automatically.</p>
+                
+                <a href="ambassador.html" class="call-to-action__outline">Join Us</a>
+                
+            </div>
+            
+            <div class="media-text__media">
+            
+                <img src="images/confidence.png">
+            
+            </div>
+    
+        </div>    
+    
+    </section> 
+    
+             
 
-                <h1>Why The Name?</h1>
-            
-                <h3>We wanted something that is light and approachable. To break against the normalcy of solid and very strutted platforms. The previous notions can come off as intimidating. Our aim is to be welcoming. The bird represents the financial freedom one could have once investing began. Yellow is a good color for early learning. Although some can perceive this is a cowardly color, in this context, it is warming and peaceful. It is the color of the mind and the intellect. It is optimistic and cheerful. </h3>
-            
-        </section>  
-    
-    
-    
     
        
 <!-- Footer --------------------------------------->   

@@ -29,6 +29,10 @@ body {
     background-color: #fff166;
 }
 
+.light--grey {
+    background-color: rgba(247,247,247,1);
+}
+
 .ui-autocomplete {
     position: absolute;
     top: 100%;
@@ -86,6 +90,7 @@ body {
     =================================================== */
 
 @media (min-width: 320px) { 
+    
     header {
         width: 100%;
         position: fixed;
@@ -95,6 +100,19 @@ body {
         box-shadow: 0px 1px 0px rgba(51,51,51,.25);
         padding-top: 0px;    
     }
+    
+        nav {
+            width: 100%;
+            float: left;
+        }
+    
+        .header-logo {
+            width: 50px;
+            height: 45px;
+            float: left;
+            margin: 0 20px 0 10px;
+            background: #fff166 url(../images/symbol.svg) no-repeat center;
+        }
     
         nav .menu-icon {
             display: none;
@@ -108,26 +126,21 @@ body {
         }
     
             nav ul {
-                padding: 0 2.5%;
+                padding: 0;
                 margin: 0 0px 0 0;
-                width: 75%;
+                width: 80%;
                 height: 100%;
-                float: left;
+                float: right;
             }
     
             nav ul li {
                 list-style: none;
-                float: left;
-                margin: 12px 10px 0px 5px;
+                float: right;
+                margin: 14px 10px 0px;
+                text-transform: uppercase;
+                font-size: 14px;
             }
             
-            ul.social-nav {
-                list-style: none;
-                float: right;
-                width: 25%;
-                height: 100%;
-            }
-    
             .social-nav__link {
                 width: 27px;
                 height: 27px;
@@ -135,13 +148,12 @@ body {
                 float: right;
             }
     
-        .header-logo {
-            width: 50px;
-            height: 45px;
-            float: left;
-            margin: 0 20px 0 10px;
-            background-color: #fff166;
-        }
+            .call-to-action {
+                padding: 8px 28px;
+                margin-top: 6px;
+                border-radius: 4px;
+                background-color: rgba(255,241,102,1);
+            }        
     
     .logo_wordmark {
         max-width: 12.5em;
@@ -246,11 +258,11 @@ body {
     }
     
     .page-content_pane--right {
-        background-color: #fff166;
+        background-color: rgba(247,247,247,1);
     }
     
     .pane-background--desk {
-        background: url(../images/background.png);
+        background: url(../images/background.svg) no-repeat;
         background-position: 50% 40%;
     }
     
@@ -261,8 +273,19 @@ body {
     .masthead {
         width: 100%;
         height: 60vh;
-        background-color: #fff166;
+        background: url(../images/coffee-shop.png) no-repeat top center;
+        background-size: cover
     }
+    
+    .media-text__wrapper {
+        width: 100%;
+        margin: 30px 0;
+    }
+    
+        .media-text__media,    
+        .media-text__text {
+            width: 100%
+        }
     
     .thanks-container {
         position: fixed;
@@ -383,7 +406,10 @@ body {
         border: 1px solid #ccc;
     }
     
-    
+    .header-container .left img {
+        width: 100%;
+        height: 100%;  
+    }
     
     
     
@@ -490,7 +516,7 @@ body {
     
     
     
-    /* Elements
+    /* Elements, Buttons, Links
     ************************************* */
     
     .go-back,
@@ -606,6 +632,16 @@ body {
         text-align: center;
     }
     
+    .call-to-action__outline {
+        padding: 8px 36px;
+        margin-top: 0px;
+        border-radius: 6px;
+        float: left;
+        background-color: #00aced;
+        border: 1px solid navy;
+        text-decoration: none;
+        color: white;
+    }
     
     
     
@@ -916,6 +952,12 @@ body {
         transform: scale(1);
         opacity: 1;
     }
+    
+    
+    
+    
+    
+    
     /* Color Attributes
     ************************************* */
     
@@ -961,6 +1003,13 @@ body {
         background-color: #b3b3b3;
         border-color: #666666;
     }
+    
+    
+    
+    
+    
+    
+    
     /* Typography
     ************************************* */
     
@@ -972,13 +1021,17 @@ body {
         font-style: normal;
         color: rgb(51,51,51);
     }
+    
     .circle {
         color: white;
     }
+    
     h1 {
         font-size: 2.5em;
         line-height: 1.125em;
         text-align: center;
+        font-weight: normal;
+        letter-spacing: -1px;
     }
     
     header h1 {
@@ -986,6 +1039,7 @@ body {
         padding: 0;
         font-size: 2em;
     }
+    
     .thanks-container span {
         margin: 0;
         padding: 0;
@@ -1022,15 +1076,20 @@ body {
         float: left;
         width: 100%;
     }
+    
     h2 {
         font-size: 1.875em; /* 30px */
         margin: 0 0 15px 0;
         padding: 0;
+        font-weight: normal;
+        letter-spacing: -1px;
     }
+    
     h3 {
         font-weight: normal;
         color: #bbb;
     }
+    
     h4 {
         color: #00aced;
         font-size: 2em;
@@ -1038,39 +1097,48 @@ body {
         margin: 0;
         padding: 0;
     }
+    
     p {
         font-size: 1.125em;
-        line-height: 1.375em;
-        color: rgb(77,77,77);
+        line-height: 1.45em;
+        color: rgb(150,150,150);
         padding: 0;
         margin: 15px 0;
     }
+    
     td p {
         margin: 0;
         padding: 0;
     }
+    
     .tracker-container p {
         text-align: center;
     }
+    
     p a {
         color: rgb(86,164,218);
         text-decoration: none;
     }
+    
     .symbol,.price,.price-change {
         color: white;
     }
+    
     .symbol, .price {
         font-size: 1.25em;
         font-weight: 200;
         vertical-align: baseline;
     }
+    
     .price-change {
         font-size: 0.5em;
     }
+    
     .value-info {
         font-size: .85em;
         color: #bbb;
     }
+    
     .info {
         text-align: right;
         float: right;
@@ -1083,10 +1151,12 @@ body {
         color: rgb(51,51,51);
         letter-spacing: -1px;
     }
+    
     ul#duration li {
         color: #ccc;
         font-size: .875em; 
     }
+    
     ul#duration li.active {
         color: #00aced;
         font-weight: 700;
@@ -1111,12 +1181,25 @@ body {
 
 @media (min-width: 567px) {  
     
-    .main-container__about {
-        width: 65%;
+    .main-container,
+    .main-container__about,
+    .header-container {
+        width: 85%;
         max-width: 57.5em;
+        
     }
 
+    nav {
+        width: 85%;
+        margin: auto;
+        display: block;
+        float: none;
+    }
      
+    .header-container {
+        margin: auto;
+        text-align: center;
+    }
 }
 
 
@@ -1129,6 +1212,7 @@ body {
     =================================================== */
 
 @media (min-width: 960px) {
+    
     header {
         width: 100%;
         height: 45px;
@@ -1137,34 +1221,39 @@ body {
         padding-top: 0px;
         
     }
+    
     header > nav {
         max-width: 57.5em;
         margin: auto;  
     }
+    
     .main-container,
     .tracker-container{
         max-width: 57.5em;
         margin: 0px auto 0;
         
     }
+    
     .tracker-container {
         margin-bottom: 75px;
         text-align: center;
     }
     
-
     section {
         display: block;
     }
+    
     .interaction-container {
         margin: 0px auto 25px;
         text-align: left;
     }
+    
     .iphone-learning-container,
     .refer-container {
         width: 50%;
         float: left;
     }
+    
     .refer-container {
         padding-top: 50px;
         padding-right: 10%;
@@ -1172,6 +1261,7 @@ body {
         z-index: 10;
         text-align: left;
     }
+    
     .how-it-works-container {
         width: 100%;
         float: left;
@@ -1180,22 +1270,26 @@ body {
         padding: 30px 15%;
         margin-top: 50px;
     }
+    
     .how-it-works-container aside {
         width: 57.5em;
         margin: auto;
         text-align: center;
         margin-bottom: 40px;
     }
+    
     article.how-it-works aside {
         float: left;
         width: 33.3333333333%;
         padding: 0 1.5%;
     }
+    
     .first-container,
     .second-container{
         width: 30%;
         position: relative;
     }
+    
     .first-container {
         float: left;
         top: 100px;
@@ -1250,19 +1344,41 @@ body {
     }
     
     .pane-background--desk {
-        background: #fff166 url(../images/background.png) no-repeat top right;
+        background: transparent url(../images/background.svg) no-repeat top right;
         background-position: -1% 0%;
     }
     
     .header-container {
         width: 100%;
-        padding: 40px 40px 40px;
-        text-align: center
+        float: left;
+        padding: 50px ;
+        text-align: center;
     }
     
+    .header-container > div.left {
+        width: 50%;
+        padding: 0 7.5%;
+    }
     
+    .media-text__wrapper {
+        width: 100%;
+        float: left;
+    }
     
+        .media-text__media,    
+        .media-text__text {
+            width: 50%;
+            float: left;
+        }
     
+        .media-text__media {
+            min-height: 200px;
+            width: 50%;
+        }
+    
+        .media-text__text {
+            padding: 0 5%;
+        }
     
     
     
@@ -1349,6 +1465,7 @@ body {
         background-color: transparent;
         color: #bbb;
     }
+    
 /*
     .circle {
         display: block;
@@ -1360,10 +1477,12 @@ body {
         box-shadow: 0px 3px 0px rgba(190,190,190,.5);
     } */
 */
+    
     button {
         text-align: center;
         font-size: 1em
     }
+    
     button.go-back {
         position: absolute;
         left: 8px;
@@ -1371,13 +1490,16 @@ body {
         width: 90px;
         border-radius: 7px;
     }
+    
     button.go-back:hover {
         background-color: #f0f0f0;
     }
+    
     input {
         font-size: 1em;
         text-indent: 10px;
     }
+    
     form input.transparent {
         width: 100%;
         margin: 0;
@@ -1385,25 +1507,30 @@ body {
         float: left;
         border-radius: 0;
     }
+    
     form button.forward {
         float: right;
         width: 15%;
         height: 40px;
     }
+    
     button.forward {
         border: 0;
         border-radius: 5px;
         border: 1px solid black;
     }
+    
     ::-webkit-input-placeholder {
         font-style: normal;
         color: rgb(220,220,220);
     }
+    
     .refer-container input {
         margin: 20px 0 10px;
         width: 250px;
         text-align: center;
     }
+    
     .circle-social {
         text-align: center;
         font-size: 1.5em;
@@ -1413,40 +1540,48 @@ body {
         padding-top: 3px;
         margin-bottom: 20px;        
     }
+    
     ul.social-media-links {
         padding: 0;
         margin 0;
         list-style: none;
     }
+    
     table, tr, td, th {
         padding: 0;
         margin: 0; 
     }
+    
     table {
         width: 57.5em;
         border: 2px solid #ddd;
         border-radius: 10px;
         background-color: white;
     }
+    
     td {
         text-align: center;
         width: 20%;
         border: none;
         margin: 0;
     }
+    
     .border-cell {
         border-left: 1px solid #ddd;
         border-top: 0px;
         width: 13.5%;
         padding: 10px 2.5%;
     }
+    
     th {
         border: 0px;
     }
+    
     li {
         float: left;
         margin-right: 20px;
     }
+    
     li img {
         width: 60px;
         height: 60px;
@@ -1905,7 +2040,6 @@ body {
     .button, .circle, input, button, li {
         font-family: "proxima-nova",sans-serif;
         font-style: normal;
-        color: rgb(51,51,51);
     }
     .circle {
         color: white;
@@ -1957,10 +2091,18 @@ body {
     }
     
     h3 {
-        font-weight: normal;
+        font-style: normal;
+        font-weight: 300;
         color: #bbb;
-        font-size: 24px;
-        line-height: 35px;
+        font-size: 27px;
+        line-height: 39px;
+    }
+    
+    .main-container__about h3 {
+        text-align: left;
+        letter-spacing: -.0125em;
+        max-width: 30em;
+        margin: 0 auto 50px;
     }
     
     h4 {
@@ -1974,7 +2116,6 @@ body {
     p {
         font-size: 1.1875em;
         line-height: 1.375em;
-        color: rgb(77,77,77);
         padding: 0;
         margin: 15px 0;
     }

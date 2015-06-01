@@ -49,13 +49,18 @@
 <header>
     
     <nav>
+            
+            <a href="index.php<?php if (isset($_GET["ref"])) { echo("?ref=".$_GET["ref"]); } ?>"><div class="header-logo"></div></a>
+        
         <ul>
-            <a href="index.php"><div class="header-logo"></div></a>
-            <a href="about.php"><li>About</li></a>
+            
+            <a href="#"><li class="call-to-action md-trigger" data-modal="modal-1">Sign Me Up</li></a>
             <a href="http://www.medium.com/@yellowbird"><li>Blog</li></a>
+            <a href="about.php<?php if (isset($_GET["ref"])) { echo("?ref=".$_GET["ref"]); } ?>"><li>About</li></a>
             
         </ul>    
         
+<!--
         <ul class="social-nav">
             
             <a href="http://www.facebook.com/yellowbirdapp"><li><img src="images/social_facebook.svg" class="social-nav__link"></li></a>
@@ -63,8 +68,7 @@
             <a href="https://www.twitter.com/getyellowbird"><li><img src="images/social_twitter.svg" class="social-nav__link"></li></a>
             
         </ul>
-        
-        <div class="menu-icon" style="display:none;"><a href="#"><img src="images/menu_icon.svg"></a></div>
+-->
             
     </nav>
     
@@ -77,7 +81,7 @@
 ----------------------------------------------------> 
 <div class="main-container">
     
-<!--<a href="index.php" class="go-back"><img src="images/ylwb_back-arrow.svg"></a>-->
+<!--<a href="index.html" class="go-back"><img src="images/ylwb_back-arrow.svg"></a>-->
     
 <!--
 <section class="main-question">
@@ -114,7 +118,6 @@
     </article>
     
     <article class="iphone-container clearfix">
-        
         
         <img src="images/iphone-stock.png" style="width:250px; height: auto" class="center">
         

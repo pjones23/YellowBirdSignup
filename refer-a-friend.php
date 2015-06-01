@@ -25,13 +25,18 @@
 <header>
     
     <nav>
+            
+            <a href="index.php<?php if (isset($_GET["ref"])) { echo("?ref=".$_GET["ref"]); } ?>"><div class="header-logo"></div></a>
+        
         <ul>
-            <a href="index.php"><div class="header-logo"></div></a>
-            <a href="about.php"><li>About</li></a>
+            
+            <a href="#"><li class="call-to-action md-trigger" data-modal="modal-1">Check Status</li></a>
             <a href="http://www.medium.com/@yellowbird"><li>Blog</li></a>
+            <a href="about.php<?php if (isset($_GET["ref"])) { echo("?ref=".$_GET["ref"]); } ?>"><li>About</li></a>
             
         </ul>    
         
+<!--
         <ul class="social-nav">
             
             <a href="http://www.facebook.com/yellowbirdapp"><li><img src="images/social_facebook.svg" class="social-nav__link"></li></a>
@@ -39,8 +44,7 @@
             <a href="https://www.twitter.com/getyellowbird"><li><img src="images/social_twitter.svg" class="social-nav__link"></li></a>
             
         </ul>
-        
-        <div class="menu-icon" style="display:none;"><a href="#"><img src="images/menu_icon.svg"></a></div>
+-->
             
     </nav>
     
@@ -95,15 +99,15 @@
                     <div class="progress-bar__blue"></div> 
                     
                     <li class="level">
-                        <p><span class="signees">15</span><br>This is some filler text</p>
+                        <p><span class="signees">15</span><br>First Round Access +<br> YellowBird TShirt</p>
                     </li>
                     
                     <li class="level">
-                        <p><span class="signees">10</span><br>This is some filler text</p>
+                        <p><span class="signees">10</span><br>First Round Access</p>
                     </li>
                     
                     <li class="level">
-                        <p><span class="signees">5</span><br>This is some filler text</p>
+                        <p><span class="signees">5</span><br>Second Round Access</p>
                     </li>
                     
                 </div>
