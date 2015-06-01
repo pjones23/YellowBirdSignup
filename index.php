@@ -34,13 +34,13 @@
     
     <nav>
             
-            <a href="index.html"><div class="header-logo"></div></a>
+            <a href="index.php<?php if (isset($_GET["ref"])) { echo("?ref=".$_GET["ref"]); } ?>"><div class="header-logo"></div></a>
         
         <ul>
             
             <a href="#"><li class="call-to-action md-trigger" data-modal="modal-1">Sign Me Up</li></a>
             <a href="http://www.medium.com/@yellowbird"><li>Blog</li></a>
-            <a href="about.html"><li>About</li></a>  
+            <a href="about.php<?php if (isset($_GET["ref"])) { echo("?ref=".$_GET["ref"]); } ?>"><li>About</li></a>
             
         </ul>    
         
