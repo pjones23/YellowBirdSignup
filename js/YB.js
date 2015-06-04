@@ -45,6 +45,21 @@ function populateRefPage(info, newSubscription){
 
 
     // populate reference field
+    /*
+    var size;
+    var desired_width = 50;
+    var resizer = $("#hidden-resizer");
+
+    resizer.html("This is the text I want to resize.");
+
+    while(resizer.width() > desired_width) {
+        size = parseInt(resizer.css("font-size"), 10);
+        resizer.css("font-size", size - 1);
+    }
+
+    $("#target-location").css("font-size", size).html(resizer.html());
+    */
+
     var refCodeField = document.getElementById('uniqueURL');
     refCodeField.value = yellowBirdURL +"?ref="+ info.refCode;
 
@@ -77,4 +92,19 @@ function populateRefPage(info, newSubscription){
     }
     var joinedCount = document.getElementById('joined_count');
     joinedCount.text = totalReferences;
+
+    // change the progress bar
+    var maxReferences = 15;
+    var progressPercent = (totalReferences < maxReferences) ? (totalReferences/maxReferences*100) : 100;
+
+    if ($('header').width() >= 960 ){
+        // This is a desktop so change the width
+        $(".progress-bar__blue").attr("style", "width:" + progressPercent + "%");
+    }
+    else{
+        // This is a mobile device so change the height
+        $(".progress-bar__blue").attr("style", "height:" + progressPercent + "%");
+
+    }
+
 }
