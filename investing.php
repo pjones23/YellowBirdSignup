@@ -230,6 +230,7 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.0.min.js"></script>
 <script type="text/javascript" src="js/highstock.js"></script>
 <script type="text/javascript" src="js/jquery.tooltipster.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
 <script src="js/quote.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script
 <!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
@@ -261,85 +262,27 @@ $(document).ready(function() {
     $('.tooltip').tooltipster();
 });
 </script>
+
 <!--------------------------------------------------
 ----------------------------------------------------
-Custom autocomplete
+Autocomplete
 --------------------------------------------------->
 
 <script>
-    $(document).ready(function(){
-        var cache = {};
-        var drew = false;
-
-        $("#companyText").on("keyup", function(event){
-            var query = $("#companyText").val()
-            console.log(query);
-
-            if($("#companyText").val().length > 1){
-
-                // perform a product lookup
-                var companies = companyLookup();
-
-                //Check if we've searched for this term before
-
-                if(query in cache){
-                    results = cache[query];
-                }
-                else{
-                    //Case insensitive search for our people array
-
-                    companyList = [];
-                    for (var companyIndex in companies){
-                        console.log(companies[companyIndex]);
-                        var companyText = companies[companyIndex].label;
-                        companyList.push(companyText);
-                    }
-
-                    var results = $.grep(companyList, function(item){
-                        return item.search(RegExp(query, "i")) != -1;
-                    });
-
-                    console.log(results);
-
-                    //var results = companies;
-
-                    //Add results to cache
-                    cache[query] = results;
-                }
-
-
-                //First search
-                if(drew == false){
-                    //Create list for results
-                    $("#companyText").after('<ul id="res"></ul>');
-
-                    //Prevent redrawing/binding of list
-                    drew = true;
-
-                    //Bind click event to list elements in results
-                    $("#res").on("click", "li", function(){
-                        $("#companyText").val($(this).attr("symbol"));
-                        $("#res").empty();
-                        productLookup();
-                    });
-                }
-                //Clear old results
-                else{
-                    $("#res").empty();
-                }
-
-                //Add results to the list
-                for(term in companies){
-                    $("#res").append("<li symbol=\"" + companies[term].value + "\">" + companies[term].label + "</li>");
-                }
-            }
-            //Handle backspace/delete so results don't remain
-            else if(drew){
-                $("#res").empty();
+    // Add autocomplete functionality
+    $(function() {
+        $('#companyText').autocomplete({
+            source: "companyLookup.php",
+            minLength: 2,
+            select: function (event, ui) {
+                productLookup();
+            },
+            search: function (event, ui) {
+                console.log("Attempted Search");
             }
         });
     });
 </script>
 
-    </body>  
+</body>
 </html>
