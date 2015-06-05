@@ -16,20 +16,20 @@ if (isset($_GET['term'])){
         echo "<response><status>FAILURE</status><message>Search term is empty.</message></response>";
     }
     else {
-        $url = "http://dev.markitondemand.com/Api/v2/Lookup/json?input=".$search;
-        $info = file_get_contents($url);
-        $jsonDecodedInfo = json_decode($info);
+        $file = "companylist.csv";
+        $info = file_get_contents($file);
+        $companyList = explode("\n", $info);
 
         $companyArray = array();
 
-        foreach($jsonDecodedInfo as $company){
-            //print($company->n." (".$company->t.") Exhange Market: ".$company->e."\n");
-            if($company->Name != null && $company->Name != "" && $company->Symbol != null && $company->Symbol != "") {
-                if($company->Exchange == "NYSE" || $company->Exchange == "NASDAQ") {
-                    // Filter only New York Stock Exchange (NSYE) & NASDAQ
-                    $companyItem = array("label" => $company->Name . " (" . $company->Symbol . ")", "value" => $company->Symbol);
-                    array_push($companyArray, $companyItem);
-                }
+        foreach($companyList as $company){
+            //$companyItem = array("label" => $company->Name . " (" . $company->Symbol . ")", "value" => $company->Symbol);
+            $company = explode(',', $company);
+            $companyLabel = $company[1] . " (" . $company[0] . ")";
+            $isCompanyMatch = strpos(strtolower($companyLabel), strtolower($search));
+            if($isCompanyMatch !== false) {
+                $companyItem = array("label" => $companyLabel, "value" => $company[0]);
+                array_push($companyArray, $companyItem);
             }
         }
         echo json_encode($companyArray);
