@@ -6,8 +6,6 @@
  * Time: 8:08 PM
  */
 
-// Use Google Finance to lookup company name and symbol
-// https://www.google.com/finance/match?matchtype=matchall&q=<search term>
 
 if (isset($_GET['term'])){
     $search = $_GET['term'];
@@ -26,11 +24,20 @@ if (isset($_GET['term'])){
             //$companyItem = array("label" => $company->Name . " (" . $company->Symbol . ")", "value" => $company->Symbol);
             $company = explode(',', $company);
             $companyLabel = $company[1] . " (" . $company[0] . ")";
+            // Check if the search term matches with the company
+            // Regex: /\({0,1}<search term goes here>[A-Za-z]*/i
+            $companyMatches = array();
+            $regex = "/\b\({0,1}".$search."[A-Za-z]*/i";
+            preg_match($regex, $companyLabel, $companyMatches);
+
             $isCompanyMatch = strpos(strtolower($companyLabel), strtolower($search));
-            if($isCompanyMatch !== false) {
+
+            if(!empty($companyMatches)) {
                 $companyItem = array("label" => $companyLabel, "value" => $company[0]);
                 array_push($companyArray, $companyItem);
             }
+            unset($companyMatches);
+
         }
         echo json_encode($companyArray);
     }
