@@ -131,7 +131,7 @@
                     <div id="#" class="price-change">Change</div>
                 </div>
                 -->
-                <div id="container" style="height: 200px; min-width: 10px;"></div>
+                <div id="container" style="height: 180px; min-width: 10px;"></div>
             </div>
 
             <!----- Value Information ---->
@@ -139,14 +139,13 @@
             <div class="value-info">
               
             <!----- Duration ---->
-                <!--
+
                 <ul id="duration">
-                    <a href="#"><li id="#" class="active">1d</li></a>
-                    <a href="#"><li id="#">1m</li></a>
-                    <a href="#"><li id="#">1y</li></a>
-                    <a href="#"><li id="#">Max</li></a>
+                    <a class="durationBtn" id="dayBtn" onclick="changeRangeSelector(this);"><li class="durationLi" id="dayLi" class="active">1d</li></a>
+                    <a class="durationBtn" id="monthBtn" onclick="changeRangeSelector(this);"><li class="durationLi" id="monthLi">1m</li></a>
+                    <a class="durationBtn" id="yearBtn" onclick="changeRangeSelector(this);"><li class="durationLi" id="yearLi">1y</li></a>
+                    <a class="durationBtn" id="year4Btn" onclick="changeRangeSelector(this);"><li class="durationLi" id="year4Li">4y</li></a>
                 </ul>
-                -->
 
                 <ul>
                     <li>Initial Investment<span id="initial" class="info">$50</span></li>
@@ -239,9 +238,12 @@
 
 <script>
     $('a').click(function(){
-    $('html, body').animate({
-        scrollTop: $( $(this).attr('href') ).offset().top
-    }, 500); // determines the speed of the scroll
+        if($(this).attr('href') != null)
+        {
+            $('html, body').animate({
+                scrollTop: $($(this).attr('href')).offset().top
+            }, 500); // determines the speed of the scroll
+        }
     return false;
 });
 </script>

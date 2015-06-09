@@ -15,7 +15,7 @@ function companyLookup(){
         type : 'GET',
         dataType : "json",
         success : function(data) {
-            console.log(data);
+            //console.log(data);
             // Populate quote info with data
             companies = data;
 
@@ -31,7 +31,7 @@ function companyLookup(){
     return companies;
 }
 
-function productLookup(){
+function productLookup(rangeBtn){
     var searchText = $("#companyText").val();
     var status = null;
     $.ajax({
@@ -74,8 +74,10 @@ function createStockChart(info){
     // Number of Days is 1461 to go back 4 years (365.25 * 4)
     var InteractiveChartDataInput = { "Normalized":false, "NumberOfDays":1461, "DataPeriod":"Day", "Elements":[Element]};
 
+    /*
     console.log(Element);
     console.log(InteractiveChartDataInput);
+    */
 
     var encodedJSONObject = JSON.stringify(InteractiveChartDataInput);
 
@@ -89,7 +91,7 @@ function createStockChart(info){
         type : 'GET',
         dataType : "json",
         success : function(data) {
-            console.log(data);
+            //console.log(data);
             drawChart(data, info);
         },
         error : function(jqXHR, textStatus, errorThrown) {
@@ -114,7 +116,6 @@ function drawChart(chartData, info){
             allButtonsEnabled: true,
             selected: 0,
             inputEnabled: false, // Old value: $('#container').width() > 300
-
             buttons: [{
                 type: 'day',
                 count: 1,
@@ -132,12 +133,12 @@ function drawChart(chartData, info){
                 count: 1,
                 text: '1Y'
             }, /*{
-                type: 'ytd',
-                text: 'YTD'
-            }, {
-                type: 'all',
-                text: 'all'
-            },*/ {
+             type: 'ytd',
+             text: 'YTD'
+             }, {
+             type: 'all',
+             text: 'all'
+             },*/ {
                 type: 'year',
                 count: 4,
                 text: '4Y',
@@ -145,40 +146,12 @@ function drawChart(chartData, info){
                     forced: true,
                     units: [['day', [1]]]
                 }
-            }],
-            buttonTheme: { // styles for the buttons
-                fill: 'none',
-                stroke: 'none',
-                'stroke-width': 0,
-                r: 100,
-                height: 20,
-                width: 20,
-                style: {
-                    color: '#039',
-                    fontWeight: 'bold'
-                },
-                states: {
-                    hover: {
-                    },
-                    select: {
-                        fill: '#039',
-                        style: {
-                            color: 'white'
-                        }
-                    }
-                }
-            },
+            }]
         },
 
         title: {
             text: info.symbol + " " + info.price
         },
-
-        /*
-        subtitle: {
-            text: info.change + " " + info.percentChange
-        },
-        */
 
         series: [{
             name: info.symbol,
@@ -217,9 +190,19 @@ function drawChart(chartData, info){
     var chart = new Highcharts.StockChart(options);
     createInvestment(chart, null);
 
+    // redo the investment
     $(".highcharts-button").click(function(){
         createInvestment(chart, this);
     });
+
+    // Hide the range selector buttons
+    $(".highcharts-range-selector-buttons").css("display", "none");
+
+    // Set the range selection back to default
+    // Clear the "active" class from all li elements
+    $(".durationLi").removeClass("active")
+    // Add the "active" class to the li element
+    $("#dayLi").addClass("active");
 
 }
 
@@ -285,5 +268,62 @@ function createInvestment(chart, button){
         $(".stock-info").css("background-color", "tomato");
     }
 
+}
+
+function changeRangeSelector(rangeBtn){
+
+    var rangeSelection = null;
+    if(rangeBtn != undefined){
+        rangeSelection = $(rangeBtn).attr("id");
+    }
+
+    // Get buttons
+    var stockBtns = $(".highcharts-button");
+
+    // Clear the "active" class from all li elements
+    $(".durationLi").removeClass("active")
+
+    var chosenBtn = stockBtns[0];
+    if(rangeSelection == "dayBtn" || rangeSelection == null) {
+        // Add the "active" class to the li element
+        $("#dayLi").addClass("active");
+
+        // Choose the day range selector
+        chosenBtn = stockBtns[0];
+    }
+    else if(rangeSelection == "monthBtn"){
+        // Add the "active" class to the li element
+        $("#monthLi").addClass("active");
+
+        // Choose the month range selector
+        var chosenBtn = stockBtns[1];
+    }
+    else if(rangeSelection == "yearBtn"){
+        // Add the "active" class to the li element
+        $("#yearLi").addClass("active");
+
+        // Choose the year range selector
+        var chosenBtn = stockBtns[2];
+    }
+    else if(rangeSelection == "year4Btn"){
+        // Add the "active" class to the li element
+        $("#year4Li").addClass("active");
+
+        // Choose the 4 year range selector
+        var chosenBtn = stockBtns[3];
+    }
+    else{
+        // Default to the day choice
+        // Add the "active" class to the li element
+        $("#dayLi").addClass("active");
+
+        // Choose the day range selector
+        chosenBtn = stockBtns[0];
+    }
+
+    // click the button to change
+    $(chosenBtn).trigger("click");
+    // double click
+    $(chosenBtn).trigger("click");
 }
 
