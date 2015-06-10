@@ -83,7 +83,10 @@ body {
    background-image: none;
 }
 
-
+.durationLi:hover {
+    background-color: #eaeaea;
+    border-radius: 4px;
+}
 
 /*  ===================================================
     01. Mobile
