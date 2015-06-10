@@ -111,7 +111,7 @@ body {
             height: 45px;
             float: left;
             margin: 0 20px 0 10px;
-            background: #fff166 url(../images/symbol.svg) no-repeat center;
+            background: transparent url(../images/symbol.svg) no-repeat center;
         }
     
         nav .menu-icon {
@@ -1017,7 +1017,7 @@ body {
     .button, input, button, td,
     .symbol, .price, .price-change, .value-info,        
     ul#duration li, span {
-        font-family: "proxima-nova",sans-serif;
+        font-family: "proxima-nova-soft",sans-serif;
         font-style: normal;
         color: rgb(51,51,51);
     }
@@ -2038,7 +2038,7 @@ body {
     
     h1,h2,h3,h4,h5,p,a, .how-it-works h3,
     .button, .circle, input, button, li {
-        font-family: "proxima-nova",sans-serif;
+        font-family: "proxima-nova-soft",sans-serif;
         font-style: normal;
     }
     .circle {
@@ -2138,8 +2138,8 @@ body {
     .notes_left--chart,
     .notes_left--time,
     .notes_left--time p{
-        font-family: "proxima-nova", sans-serif;
-        font-style: italic;
+        font-family: "proxima-nova-soft", sans-serif;
+/*        font-style: italic;*/
         color: rgba(51,51,51,.35);
     }
     
