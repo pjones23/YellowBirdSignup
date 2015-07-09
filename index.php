@@ -38,7 +38,7 @@
         
         <ul>
             
-            <a href="#"><li class="call-to-action md-trigger" data-modal="modal-1">Sign Me Up</li></a>
+            <a href="#"><li class="call-to-action md-trigger" data-modal="modal-1">Early Access</li></a>
             <a href="http://www.medium.com/@yellowbird"><li>Blog</li></a>
             <a href="about.php<?php if (isset($_GET["ref"])) { echo("?ref=".$_GET["ref"]); } ?>"><li>About</li></a>
             
@@ -61,33 +61,99 @@
 <!-- Content
 ---------------------------------------------------->      
 
-    <div id="page-container">  
+    <div id="page-container">
+        <section class="page-content_pane--left"></section>
+        <section class="page-content_pane--right"></section>
     
         <!-- Left Pane ------------------------> 
         
-        <section class="page-content_pane--left">
+        <section class="main-container">
+            
+<!--
+            <div class="main-title">
+                
+                <img src="images/wordmark-dark.png">
+                
+                <h2>Financial education made fun.</h2>
+            
+            </div>
+-->
+            
+            <div class="background-pattern"><img src="images/bg-pattern.png"></div>
         
-            <div class="header-container">
-                <img src="#" class="investing-illus">
-                <div class="phone-container_text"><h2>Why Investing Is Good</h2>
-                    <p>Want to see what investing can do for you?</p>
-                        <div><a href="investing.php<?php if (isset($_GET["ref"])) { echo("?ref=".$_GET["ref"]); } ?>" class="button rounded center dark-grey">Let's Go See</a></div>
+            <div class="header-container--third">
+            
+                <div>
+                
+                    <img src="images/vault.png" class="img-icon">
+                    
+                    <h2>Why Investing Is Good</h2>
+                    
+                        <p>Want to see what investing can do for you?</p>
+                    
+                        <div>
+                            <a href="investing.php<?php if (isset($_GET["ref"])) { echo("?ref=".$_GET["ref"]); } ?>" class="button rounded center dark-grey">Check It Out</a>
+                    </div>
+            
                 </div>
+                
+            </div>
+            
+            <!--- Phone center image --->
+            
+            <div class="header-container--third">
+            
+                <img src="images/iphone-home.png" class="phone_image">
+                
+            </div>
+            
+            <div class="header-container--third">
+            
+                <div>
+                    
+                    <img src="images/works.png" class="img-icon">
+                
+                    <h2>How YellowBird Works</h2>
+                    
+                        <p>Out with traditional education, in with the new!</p>
+                    
+                        <div>
+                            <a href="how-it-works.php" class="button rounded center dark-grey">Take a Look</a>
+                    </div>
+            
+                </div>
+                
+            </div>
+        
+<!--
+                <div class="phone-container_text">
+                    
+                    <h2>Why Investing Is Good</h2>
+                    
+                    <p>Want to see what investing can do for you?</p>
+                    
+                        <div>
+                            <a href="investing.php" class="button rounded center dark-grey">Let's Go See</a>
+                    </div>
+                    
+                </div>
+                
             </div>
             
         </section>
         
-        <!-- Right Pane ------------------------>
+         Right Pane ----------------------
         
         <section class="page-content_pane--right pane-background--desk">
         
             <div class="header-container">
                 <img src="images/ingredients.png">
                 <div class="phone-container_text"><h2>Gamified Financial Education</h2>
-                    <p>1 part learning, 1 part trading. All parts fun. All parts FREE!</p>
-                        <div><a href="how-it-works.php<?php if (isset($_GET["ref"])) { echo("?ref=".$_GET["ref"]); } ?>" class="button rounded center dark-grey">How It Works?</a></div>
+                    <p>Learn. Apply. Graduate. FREE Forever!</p>
+                        <div><a href="how-it-works.php" class="button rounded center dark-grey">How It Works?</a></div>
                 </div>
             </div>
+-->
             
         </section>
         
@@ -141,7 +207,27 @@
 <!-- Scripts 
 ---------------------------------------------------->     
 
-<script src="js/retina.js"></script>  
+<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
+		<script src="js/classie.js"></script>
+        <script src="js/modernizr.custom.js"></script>
+
+        <!-- classie.js by @desandro: https://github.com/desandro/classie -->
+		<script src="js/modalEffects.js"></script>
+
+		<!-- for the blur effect -->
+		<!-- by @derSchepp https://github.com/Schepp/CSS-Filters-Polyfill -->
+		<script>
+			// this is important for IEs
+			var polyfilter_scriptpath = '/js/';
+		</script>
+        <script src="js/retina.js"></script>
+		<script src="js/cssParser.js"></script>
+		<script src="js/css-filters-polyfill.js"></script>
+        <script>
+        $(document).ready(function() {
+            $('.tooltip').tooltipster();
+        });
+    </script> 
     
     
 </body> 

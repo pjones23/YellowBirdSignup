@@ -37,7 +37,7 @@
         
         <ul>
             
-            <a href="#"><li class="call-to-action md-trigger" data-modal="modal-1">Sign Me Up</li></a>
+            <a href="#"><li class="call-to-action md-trigger" data-modal="modal-1">Early Access</li></a>
             <a href="http://www.medium.com/@yellowbird"><li>Blog</li></a>
             <a href="about.php<?php if (isset($_GET["ref"])) { echo("?ref=".$_GET["ref"]); } ?>"><li>About</li></a>
             
@@ -64,30 +64,41 @@
 ----------------------------------------------------> 
 <div class="main-container">
     
-<!--    <a href="index.php" class="go-back--left"><img src="images/ylwb_back-arrow.svg"></a>-->
+<!--    <a href="index.html" class="go-back--left"><img src="images/ylwb_back-arrow.svg"></a>-->
     
-    <article class="header-container">
+    <div class="header-container--third">
         
-        <div class="left">
             
-        <img src="images/gamified.png" alt="YellowBird uses interactive templates to provide the best learning experience">
+        <img src="images/works.png" class="img-icon" alt="YellowBird uses interactive templates to provide the best learning experience">
             
-        <p class="center-text"><span class="body-subtitle">Gamified Learning</span><br>Learn the basics, then apply those basics in a real-time simulator.</p>    
-            
-        </div>    
-            
-        <div class="left">
-        <img src="images/confidence.png" alt="YellowBird uses interactive templates to provide the best learning experience">
+        <p class="center-text"><span class="body-subtitle">Learn</span><br>Interactive lessons that build upon each other. A new format, built for mobile.</p>      
         
-        <p class="center-text"><span class="body-subtitle">Build Money Confidence</span><br>Learn the basics, then apply those basics in a real-time simulator.</p>     
+    </div>    
+            
+        <div class="header-container--third">
+            
+        <img src="images/apply.png" class="img-icon" alt="YellowBird uses interactive templates to provide the best learning experience">
+        
+        <p class="center-text"><span class="body-subtitle">Apply</span><br>Apply all of the things you learn from the lessons in interactive ways. </p>     
             
         </div>
     
-    </article>
+        <div class="header-container--third__full">
+        
+            
+        <img src="images/graduate.png" class="img-icon" alt="YellowBird uses interactive templates to provide the best learning experience">
+            
+        <p class="center-text"><span class="body-subtitle">Graduate</span><br>After you've built your money confidence, make what you've learned a reality.</p>      
+        
+    </div> 
     
+<!--
+    </div>
     
+<div class="main-container__white">
+-->
     
-    <section class="cta-container center">
+     <section class="cta-container center">
         
         <h2>Mobile. Fun. Free</h2>
         
@@ -98,6 +109,8 @@
         <button class="button rounded center dark-grey md-trigger" data-modal="modal-1">Sign Me Up!</button>
         
     </section>
+    
+    </div>
               
 <!-- End Main Content
 ---------------------------------------------------->  

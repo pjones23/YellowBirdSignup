@@ -177,15 +177,26 @@ body {
     .main-container,
     .tracker-container,
     .main-container__about {
-        max-width: 22em;
+        max-width: 35em;
         margin: 0px auto 0;
-        padding: 75px 0;
+        padding: 75px em;
         float: none;
     }
     
     .main-container__about {
-        padding: 25px 0;
+        padding: 25px 2em;
+        text-align: center;
     }
+    
+    .header-container--third,
+    .header-container--third__full {
+        width: 100%;
+        float: left;
+        margin: 20px 0;
+        padding: 1em 1.5em;
+        text-align: center;
+    }
+
     
     .tracker-container {
         margin-bottom: 0px;
@@ -219,28 +230,35 @@ body {
         padding: 30px 5%;
         margin-top: 50px;
     }
+    
     .how-it-works-container aside {
         margin: auto;
         text-align: center;
         margin-bottom: 40px;
     }
+    
     .first-container,
     .second-container {
         margin-top: 25px;
     }
+    
     .first-container {
         float: left;
         top: 0px;
         margin-top: 0px;
     }
+    
     .second-container {
         float: right;
         top: 200px
     }
+    
     .cta-container {
-        margin: 25px auto 50px;
+        margin: 50px auto;
+        float: left;
         clear: both;
     }
+    
     aside.number-of-friends,
     aside.benefits {
         width: 100%;
@@ -271,6 +289,7 @@ body {
     
     .header-container {
         padding: 20px 40px;
+        text-align: center;
     }
     
     .masthead {
@@ -383,13 +402,9 @@ body {
     }
     
     .investing-illus {
-        width: 60%;
-        width: 250px;
-        height: 250px;
+        width: 90%;
+        height: 100%;
         display: block;
-        border-radius: 100%;
-        border: 3px solid rgb(51,51,51);
-        background-color: rgba(255,255,255,1);
         margin-bottom: 35px;
     }
     
@@ -422,7 +437,7 @@ body {
     
     .iphone-shell {
         position: absolute;
-        top: 348px;
+        top: 310px;
         left:8px;
         right:0;
         margin-left:auto;
@@ -646,6 +661,11 @@ body {
         color: white;
     }
     
+    .press-kit {
+        display: none;
+        width: 100%;
+        float: left;
+    }
     
     
     
@@ -664,7 +684,11 @@ body {
     }
     .center {
         text-align: center;
-        margin: 0 auto 20px;
+        margin: inherit auto 20px;
+    }
+    button.center {
+        display: block;
+        margin: auto;
     }
     .clearfix {
 /*
@@ -972,10 +996,16 @@ body {
     }
     
     .dark-grey {
-        border: 2px solid rgb(70,70,70);
-        background-color: rgb(130,130,130);
+        border: 1px solid rgb(70,70,70);
+        background-color: rgb(90,90,90);
         color: white;
     }
+        
+        button.dark-grey,
+        a.button.dark-grey {
+            color: white;
+            margin: auto
+        }
     
     .light--yellow {
         background-color: #fff166;    
@@ -987,7 +1017,7 @@ body {
     }
     
     .dark-grey:hover {
-        background-color: rgb(90,90,90);
+        background-color: rgb(70,70,70);
     }
     
     .green:hover {
@@ -1019,7 +1049,7 @@ body {
     h1,h2,h3,h4,h5,p,a,
     .button, input, button, td,
     .symbol, .price, .price-change, .value-info,        
-    ul#duration li, span {
+    ul#duration li, span, tspan {
         font-family: "proxima-nova-soft",sans-serif;
         font-style: normal;
         color: rgb(51,51,51);
@@ -1033,7 +1063,7 @@ body {
         font-size: 2.5em;
         line-height: 1.125em;
         text-align: center;
-        font-weight: normal;
+        font-weight: 600;
         letter-spacing: -1px;
     }
     
@@ -1080,11 +1110,16 @@ body {
         width: 100%;
     }
     
+    .main-container__about h1 {
+        margin: 20px 0;
+        font-weight: 600;
+    }
+    
     h2 {
         font-size: 1.875em; /* 30px */
         margin: 0 0 15px 0;
         padding: 0;
-        font-weight: normal;
+        font-weight: 601;
         letter-spacing: -1px;
     }
     
@@ -1093,12 +1128,18 @@ body {
         color: #bbb;
     }
     
+    .main-container__about h3 {
+        font-size: 1.25em;
+        line-height: 1.25em;
+    }
+    
     h4 {
-        color: #00aced;
-        font-size: 2em;
+        color: rgb(120,120,120);
+        font-size: 1.35em;
+        line-height: 1.35em;
+        margin-bottom: 30px;
         font-weight: normal;
-        margin: 0;
-        padding: 0;
+        padding: 0 2%;
     }
     
     p {
@@ -1182,14 +1223,17 @@ body {
     02. Tablet
     =================================================== */
 
-@media (min-width: 567px) {  
+@media (min-width: 684px) {  
     
     .main-container,
     .main-container__about,
     .header-container {
         width: 85%;
-        max-width: 57.5em;
-        
+        max-width: 57.5em; 
+    }
+    
+    .main-container__about h4 {
+        text-align: left;
     }
 
     nav {
@@ -1202,6 +1246,19 @@ body {
     .header-container {
         margin: auto;
         text-align: center;
+    }
+    
+    .header-container--third,
+    .header-container--third__full {
+        width: 50%;
+        float: left;
+        margin: 20px 0;
+        padding: 1em 2em;
+    }
+    
+    .header-container--third__full {
+        width: 100%;
+        padding: 0 25%;
     }
 }
 
@@ -1230,11 +1287,23 @@ body {
         margin: auto;  
     }
     
+    .main-title {
+        text-align:center;
+    }
+    
     .main-container,
     .tracker-container{
-        max-width: 57.5em;
-        margin: 0px auto 0;
-        
+        max-width: 62.5em;
+        margin: 0px auto 0;  
+        padding: 80px 0;
+    }
+    
+    .main-container__white {
+        width: 62.5em;
+        margin-top: 50px;
+        padding: 40px 10em 60px;
+        border-top: 1px solid #ccc;
+        float: left;
     }
     
     .tracker-container {
@@ -1316,12 +1385,11 @@ body {
     }
     
     .cta-container {
-        width: 60%;
-        margin: 20px auto 0px;
-        padding-top: 15px;
-        clear: both;
-        display: block;
-        float: none;
+        width: 100%;
+        margin: 40px auto;
+        padding: 35px 10em;
+        float: left;
+        border-top: 4px solid rgba(0,0,0,.1);
     }
     aside.number-of-friends,
     aside.benefits {
@@ -1338,6 +1406,8 @@ body {
         padding-right: 1px;
         position: absolute;
         top: 0;
+        z-index: -9;
+        opacity: .75;
     }
     
     .page-content_pane--right {
@@ -1356,6 +1426,19 @@ body {
         float: left;
         padding: 50px ;
         text-align: center;
+    }
+    .header-container--third,
+    .header-container--third__full {
+        width: 31.3333333%;
+        margin: 0 1%;
+        padding: 0px 0;
+        float: left;
+        text-align: center;
+        z-index: 99;
+    }
+    
+    .header-container--third > div {
+        margin-top: 40px;
     }
     
     .header-container > div.left {
@@ -1383,6 +1466,13 @@ body {
             padding: 0 5%;
         }
     
+    .press-kit {
+        display: block;
+        margin-left: 40px;
+        width: 30%;
+        float: right;
+        clear: left;
+    }
     
     
     /* Footer
@@ -1413,12 +1503,31 @@ body {
     }
     
     .investing-illus {
-        width: 300px;
-        height: 300px;
+        width: 400px;
     }
     
+    .phone_image {
+        width: 230px;
+    }
     
+    .background-pattern {
+        position: absolute;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        top: -5px;
+        width: 610px;
+        height: 595px;
+        z-index: -10;
+        opacity: .5;
+    }
     
+    .img-icon {
+        width: 75%;
+        height: auto;
+        margin-bottom: 30px;
+    }
     
     
     
@@ -1444,11 +1553,27 @@ body {
         transform: rotate(180deg);
     }
     
-    .button {
+    .button,
+    a.dl-button {
         width: 185px;
         display: block;
         text-decoration: none;
         color: inherit;
+    }
+    
+    a.dl-button {
+        width: 200px;
+        float: none;
+        margin: 30px auto 20px;
+        padding: 10px 0;
+        border-radius: 6px;
+        background-color: tomato;
+        border: 2px solid red;
+        color: white;
+    }
+    
+    a.dl-button:hover {
+        background-color: red;
     }
     
     input {
@@ -1655,7 +1780,9 @@ body {
         top: 330px;
         width: 20%;
     }
-    
+    .center-text {
+        padding: 0 7.5%;
+    }
     
     
     
@@ -1678,7 +1805,7 @@ body {
     
     .center {
         text-align: center;
-        margin: 0 auto 0px;
+/*        margin: 0 auto 0px;*/
     }
     
     img.center {
@@ -1962,8 +2089,8 @@ body {
     }
     .dark-grey {
         border: 1px solid rgb(70,70,70);
-        background-color: white;
         color: white;
+        background-color: rgb(110,110,110);
     }
     
     .light--yellow {
@@ -2050,6 +2177,7 @@ body {
     h1 {
         font-size: 2.5em;
         line-height: 2em;
+        font-weight: 600;
         text-align: center;
         padding: 0;
         margin: 0;
@@ -2086,6 +2214,7 @@ body {
         font-size: 1.875em; /* 30px */
         margin: 0 0 15px 0;
         padding: 0;
+        font-weight: 600;
     }
     
     .how-it-works h3 {
@@ -2109,11 +2238,12 @@ body {
     }
     
     h4 {
-        color: #00aced;
-        font-size: 2em;
-        font-weight: normal;
-        margin: 0;
-        padding: 0;
+        color: rgb(150,150,150);
+        font-size: 1.5em;
+        line-height: 1.35;
+        font-weight: 300;
+        margin: 0 0 60px 0;
+        padding: 0 5%;
     }
     
     p {
@@ -2148,3 +2278,10 @@ body {
     
 }
 
+
+.body-subtitle {
+    font-weight: 600;
+    font-size: 1.125em;
+    display: block;
+    margin-bottom: -15px;
+}

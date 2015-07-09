@@ -38,7 +38,7 @@
         
         <ul>
             
-            <a href="#"><li class="call-to-action md-trigger" data-modal="modal-1">Sign Me Up</li></a>
+            <a href="#"><li class="call-to-action md-trigger" data-modal="modal-1">Early Access</li></a>
             <a href="http://www.medium.com/@yellowbird"><li>Blog</li></a>
             <a href="about.php<?php if (isset($_GET["ref"])) { echo("?ref=".$_GET["ref"]); } ?>"><li>About</li></a>
             
@@ -71,73 +71,117 @@
             
                 <h1>At YellowBird</h1>
             
-                <h3>We are rethinking the way stock market education works. We don’t teach from a classroom, we don’t show long videos or write 500-page books to read. Instead, we are a mobile-only, gamified solution.</h3>
-               
-        <!-- Why We Created YellowBird   ---------------------->
-        
-        <div class="media-text__wrapper">
-    
-            <div class="media-text__text">
+                <h4>We are rethinking the way financial education works. We don’t teach from a classroom, we don’t show long videos or write 500-page books to read. Instead, we are a mobile-specific, interactive solution.</h4>
             
-                <h2>Work on stuff together</h2>
+            <div>
                 
-                <h3>Edit a presentation with teammates without emailing files back and forth. When you edit a file in a shared folder, everyone gets the update automatically.</h3>
+                <div class="right press-kit">
+            
+                    <img src="images/zip.png">
+
+                    <a href="YellowBird%20Press%20Kit.zip" class="dl-button">Download Press Kit</a>
+                
+                </div>
+                
+                <h2>What is YellowBird</h2>
+            
+                <h4>YellowBird is a mobile-specific solution to a growing problem of under-served millennials who do not invest in the stock market nor have the financial literacy to make responsible financial decisions. We offer both, free and premium versions to consumers as well as provide a trusted bridge connecting educated consumers with financial institutions who seek to build new client relationships.</h4>
+                
+            </div>   
+            
+            <div>
+            
+            <h2>Get in Contact With Us</h2>
+                
+            <ul class="social-media-links">
+                
+                <a href="http://twitter.com/getyellowbird"><li class="circle-social twitter"><img src="images/twitter.png"></li></a>
+                
+                <a href="http://facebook.com/yellowbirdapp"><li class="circle-social facebook"><img src="images/facebook.png"></li>
+                
+                <a href="mailto:info@yellowbird.io"><li class="circle-social email"><img src="images/email.png"></li>
+            
+            </ul>
+                    
+                </ul>
+                
+            </div>
+               
+        </section>
+    
+<!--
+        <div class="main-container">
+    
+            <div class="header-container--third">
+            
+                <img src="images/graduate.png">
+                
+                <a href="#" class="dl-button">Download Press Kit</a>
                 
             </div>
             
-            <div class="media-text__media">
+            <div class="header-container--third">
             
-                <img src="images/confidence.png">
+                <img src="images/graduate.png">
+                
+                <a href="#" class="dl-button">Download Press Kit</a>
+                
+            </div>
             
+            <div class="header-container--third">
+            
+                <img src="images/graduate.png">
+                
+                <a href="#" class="dl-button">Download Press Kit</a>
+                
             </div>
     
         </div>
-            
-        <!-- Why We Created YellowBird   ---------------------->  
-            
-        <div class="media-text__wrapper">
+-->
+
+<!-- Sign Up Modal
+---------------------------------------------------->  
     
-            <div class="media-text__media">
-            
-                <img src="images/confidence.png">
-                
-            </div>
-            
-            <div class="media-text__text">
-            
-                <h2>Work on stuff together</h2>
-                
-                <h3>Edit a presentation with teammates without emailing files back and forth. When you edit a file in a shared folder, everyone gets the update automatically.</h3>
-                
-            </div>
+<div class="md-modal md-effect-1" id="modal-1"> 
     
+<!-- Sign up -->
+    
+    <div class="md-content">
+        
+        <div class="modal-title">
+                
+            <button class="md-close"><img src="images/icon_close-02.svg"></button>
+        
         </div> 
         
-        <!-- YellowBird Ambassadors  ----------------------> 
-            
-        <div class="media-text__wrapper">
-    
-            <div class="media-text__text">
-            
-                <h2>Ambassadors Unite</h2>
+        <h1>Early Access</h1>
+        
+            <p>Sign up for early access to the YellowBird platform.<p>
+        
+            <form onsubmit="event.preventDefault();">
                 
-                <p>Edit a presentation with teammates without emailing files back and forth. When you edit a file in a shared folder, everyone gets the update automatically.</p>
-                
-                <a href="ambassador.html" class="call-to-action__outline">Join Us</a>
-                
-            </div>
-            
-            <div class="media-text__media">
-            
-                <img src="images/confidence.png">
-            
-            </div>
-    
-        </div>    
-    
-    </section> 
-    
+                <input type="email" class="transparent" placeholder="Trade Your Email" required>
+                <button id="submit" onclick="location.href='refer-a-friend.php'" class="button_green--long">Go</button>
+        </form>
              
+	</div>
+    
+</div>   
+    
+<div class="md-modal-full md-effect-12" id="modal-12">
+			
+            <div>
+                
+				<button class="md-close">×</button>
+           
+            </div>
+		
+        </div>
+    
+<div class="md-overlay"></div>
+    
+<!-- End Modal
+---------------------------------------------------->    
 
     
        
