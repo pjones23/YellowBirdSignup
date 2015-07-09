@@ -118,7 +118,7 @@ function drawChart(chartData, info){
             inputEnabled: false, // Old value: $('#container').width() > 300
             buttons: [{
                 type: 'day',
-                count: 1,
+                count: 2,
                 text: '1D',
                 dataGrouping: {
                     forced: true,
@@ -228,8 +228,9 @@ function createInvestment(chart, button){
         };
     }
 
-    /*
+
      console.log(currentDataPoints);
+    /*
      console.log(firstPoint);
      console.log(new Date(firstPoint.x).toGMTString());
      console.log(firstPoint.y);
