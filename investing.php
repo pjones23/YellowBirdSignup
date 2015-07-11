@@ -8,6 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <link href="css/global.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="css/tooltipster.css" />
+<link rel="stylesheet" type="text/css" href="css/autocomplete.css" />
 <link href="fonts/ss-social-regular.css" rel="stylesheet" type="text/css"/>
 <meta property="og:image" content="http://yellowbird.io/images/symbol.png" />
     
@@ -17,24 +18,6 @@
 
 <!--- Title --->    
 <title>YellowBird | What Can Investing Do For You?</title>
-
-    <style>
-        #res {
-            margin: 0px;
-            padding-left: 0px;
-            width: 150px;
-        }
-
-        #res li {
-            list-style-type: none;
-        }
-
-        #res li:hover {
-            background: #110D3B;
-            color: #FFF;
-            cursor: pointer;
-        }
-    </style>
 
 </head>
     
