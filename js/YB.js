@@ -63,7 +63,10 @@ function populateRefPage(info, newSubscription){
 
     var refCodeField = document.getElementById('uniqueURL');
     refCodeField.value = yellowBirdURL +"?ref="+ info.refCode;
-    $("#uniqueURL").attr("style", "z-index: 99; width: 90%");
+    $("#uniqueURL").attr("style", "z-index: 99; width: 90%; display: none;");
+    $("#uniqueURLLoading").hide();
+    $("#uniqueURL").fadeIn();
+
 
     // populate Twitter share href
     var twitterBtn = document.getElementById('share_twitter');

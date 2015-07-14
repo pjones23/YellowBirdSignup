@@ -70,8 +70,9 @@
             <h1>Invite Your Friends to <br>Gain Early Access &amp; Exclusive Benefits!</h1>
             
             <p>Share your unique url via twitter, facebook, and/or email. Earn benefits for each friend who signs up!</p>
-            
-            <input id="uniqueURL" style="z-index: 99;" placeholder="your unique url" disabled type="text" >
+
+            <img id="uniqueURLLoading" src="images/loading.gif" />
+            <input id="uniqueURL" style="z-index: 99; display: none" placeholder="your unique url" disabled type="text">
 
             <ul class="social-media-links">
 
