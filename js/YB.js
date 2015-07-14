@@ -42,6 +42,7 @@ function populateRefPage(info, newSubscription){
     else{
         shareMessageHeading.innerHTML = "Welcome Back, Check Your Progress";
     }
+    $(".thanks-container").fadeIn();
 
 
     // populate reference field
@@ -62,6 +63,7 @@ function populateRefPage(info, newSubscription){
 
     var refCodeField = document.getElementById('uniqueURL');
     refCodeField.value = yellowBirdURL +"?ref="+ info.refCode;
+    $("#uniqueURL").attr("style", "z-index: 99; width: 90%");
 
     // populate Twitter share href
     var twitterBtn = document.getElementById('share_twitter');

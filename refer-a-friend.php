@@ -53,7 +53,7 @@
 <!-- Main Container
 ---------------------------------------------------->  
     
-    <div class="thanks-container">
+    <div class="thanks-container" style="display: none;">
         
         <span id="signup_heading">Thanks For Signing Up</span>
         <div class="close"><img src="images/icon_close-white.svg"></div>
