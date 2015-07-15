@@ -62,7 +62,7 @@
               
 <!-- Main Content
 ----------------------------------------------------> 
-<div class="main-container">
+<div class="main-container__works">
     
 <!--    <a href="index.html" class="go-back--left"><img src="images/ylwb_back-arrow.svg"></a>-->
     
@@ -173,14 +173,6 @@
         <!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
 		<script src="js/classie.js"></script>
         <script src="js/modernizr.custom.js"></script>
-        <script>
-            $('a').click(function(){
-            $('html, body').animate({
-                scrollTop: $( $(this).attr('href') ).offset().top
-            }, 500); // determines the speed of the scroll
-            return false;
-        });		
-        </script>
         <!-- classie.js by @desandro: https://github.com/desandro/classie -->
 		<script src="js/modalEffects.js"></script>
 

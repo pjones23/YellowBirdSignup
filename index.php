@@ -101,7 +101,7 @@
             
             <!--- Phone center image --->
             
-            <div class="header-container--third">
+            <div class="header-container--third iphone">
             
                 <img src="images/iphone-home.png" class="phone_image">
                 

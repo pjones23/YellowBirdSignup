@@ -176,11 +176,12 @@ body {
     
     .main-container,
     .tracker-container,
-    .main-container__about {
-        max-width: 35em;
+    .main-container__about,
+    .main-container__works {
+        width: 100%;
         margin: 0px auto 0;
-        padding: 75px em;
-        float: none;
+        padding: 20px 0em;
+        float: left;
     }
     
     .main-container__about {
@@ -188,15 +189,26 @@ body {
         text-align: center;
     }
     
+    .main-container__works {
+        padding: 75px 5%;
+    }
+    
     .header-container--third,
     .header-container--third__full {
         width: 100%;
+        height: 80vh;
         float: left;
-        margin: 20px 0;
-        padding: 1em 1.5em;
+        margin: 0px 0;
+        padding: 5em 1.5em;
         text-align: center;
     }
 
+    .header-container--third:nth-child(2) {
+        background-color: #a3e6c3;
+    }
+    .header-container--third:nth-child(4) {
+        background-color: transparent;
+    }
     
     .tracker-container {
         margin-bottom: 0px;
@@ -208,8 +220,10 @@ body {
     }
     
     .interaction-container {
-        margin: 0px auto 25px;
+        float: left;
+        margin: 80px auto 25px;
         text-align: center;
+        padding: 0 7.5%;
     }
     
     .iphone-learning-container,
@@ -265,26 +279,24 @@ body {
         float: left;
     }
     
-    .page-content_pane--left,
-    .page-content_pane--right {
-        width: 100%;
-        height: 50%;
-        float: left;
-        text-align: center;
-    }
-    
+    .page-content_pane--right,
     .page-content_pane--left {
-        background-color: #a3e6c3;
-        padding-top: 50px;
+        display: none;
+        width: 50%;
+        height: 100%;
+        left: 0;
+        margin-right: 0px;
+        padding-right: 1px;
+        position: absolute;
+        top: 0;
+        z-index: -9;
+        opacity: .75;
     }
     
     .page-content_pane--right {
-        background-color: rgba(247,247,247,1);
-    }
-    
-    .pane-background--desk {
-        background: url(../images/background.svg) no-repeat;
-        background-position: 50% 40%;
+        height: 100%;
+        left: auto;
+        right: 0; 
     }
     
     .header-container {
@@ -415,13 +427,9 @@ body {
         top: 13px;
     }
     
-    .yellowbird-sketch {
-        width: 320px;
-        height: 200px;
-        margin: auto;
-        display: block;
-        background-color: white;
-        border: 1px solid #ccc;
+    .background-pattern, 
+    .iphone {
+        display: none;
     }
     
     .header-container .left img {
@@ -437,7 +445,7 @@ body {
     
     .iphone-shell {
         position: absolute;
-        top: 310px;
+        top: 316px;
         left:8px;
         right:0;
         margin-left:auto;
@@ -1227,9 +1235,11 @@ body {
     
     .main-container,
     .main-container__about,
-    .header-container {
+    .header-container,
+    .main-container__works {
         width: 85%;
         max-width: 57.5em; 
+        float: none;
     }
     
     .main-container__about h4 {
@@ -1250,16 +1260,105 @@ body {
     
     .header-container--third,
     .header-container--third__full {
+        position: relative;
         width: 50%;
         float: left;
-        margin: 20px 0;
-        padding: 1em 2em;
+        margin: 80px 0;
+        padding: 1em 1em;
+        background-color: transparent;
     }
     
     .header-container--third__full {
         width: 100%;
         padding: 0 25%;
     }
+    
+    .header-container--third:nth-child(2) {
+        margin-left: -30px; 
+        background-color: transparent;
+    }
+    
+    .header-container--third:nth-child(4) {
+        margin-right: -30px;
+        float: right;
+    }
+    
+    .page-content_pane--right,
+    .page-content_pane--left {
+        display: block;
+        width: 50%;
+        height: 100vh;
+        left: 0;
+        margin-right: 0px;
+        padding-right: 1px;
+        position: absolute;
+        top: 0;
+        z-index: -9;
+        opacity: .75;
+    }
+    
+    .page-content_pane--right {
+        background-color: rgba(247,247,247,1);
+    }
+    
+    .page-content_pane--left {
+        background-color: #a3e6c3;
+    }
+    
+    .page-content_pane--right {
+        height: 100%;
+        left: auto;
+        right: 0; 
+    }
+    
+    .interaction-container {
+        width: 100%;
+        margin-top: 100px;
+        padding: 0;
+        float: left;
+    }
+    
+    .first-container {
+        width: 50%;
+        float: left;
+        margin-top: 50px;
+        text-align: left;
+    }
+    
+    .iphone-shell {
+        top: 163px;
+        left: 43.75%;
+    }
+    
+    
+    
+    
+    
+    
+    /* Images
+    ************************************* */
+    
+    .background-pattern {
+        display: block;
+        position: absolute;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        top: 0px;
+        width: 610px;
+        height: 595px;
+        z-index: -10;
+        opacity: .5;
+        overflow: hidden; 
+    }
+    
+    .iphone {
+        display: none;
+        float: right;
+        margin-top: 60px;
+    }
+    
 }
 
 
@@ -1292,10 +1391,12 @@ body {
     }
     
     .main-container,
-    .tracker-container{
+    .tracker-container,
+    .main-container__works {
         max-width: 62.5em;
         margin: 0px auto 0;  
         padding: 80px 0;
+        float: none;
     }
     
     .main-container__white {
@@ -1399,6 +1500,7 @@ body {
     
     .page-content_pane--right,
     .page-content_pane--left {
+        display: block;
         width: 50%;
         height: 100%;
         left: 0;
@@ -1414,11 +1516,6 @@ body {
         height: 100%;
         left: auto;
         right: 0; 
-    }
-    
-    .pane-background--desk {
-        background: transparent url(../images/background.svg) no-repeat top right;
-        background-position: -1% 0%;
     }
     
     .header-container {
@@ -1444,6 +1541,11 @@ body {
     .header-container > div.left {
         width: 50%;
         padding: 0 7.5%;
+    }
+    
+    .header-container--third:nth-child(2),
+    .header-container--third:nth-child(4) {
+        margin: 0;
     }
     
     .media-text__wrapper {
@@ -1473,6 +1575,10 @@ body {
         float: right;
         clear: left;
     }
+    
+    
+    
+    
     
     
     /* Footer
@@ -1511,6 +1617,7 @@ body {
     }
     
     .background-pattern {
+        display: block;
         position: absolute;
         margin-left: auto;
         margin-right: auto;
@@ -1529,6 +1636,9 @@ body {
         margin-bottom: 30px;
     }
     
+    .iphone {
+        display: block;
+    }
     
     
     
@@ -2060,7 +2170,7 @@ body {
     /* iPhone Shell
     ************************************* */
     .iphone-shell {
-        top: 139px;
+        top: 143px;
         left: 10px;
     }
     
