@@ -267,6 +267,12 @@ Autocomplete
             }
         });
     });
+
+    $(".ui-menu-item").live("touchstart", function() {
+        $(this).addClass("ui-state-active");
+    }).live("touchend", function() {
+        $(this).removeClass("ui-state-active");
+    });
 </script>
 
 </body>
