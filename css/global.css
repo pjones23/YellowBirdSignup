@@ -1,0 +1,1028 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+/*    background-color: #f8f8f8;*/
+    font-family: sans-serif;
+}
+
+.group:after {
+    content:"";
+    display: block;
+    clear: both;
+}
+
+
+/* Nav --------------------- */
+
+header {
+    background-color: white;
+    width: 100%;
+    padding: 0;
+    border-bottom: 1px solid #ddd;
+    overflow: auto;
+}
+
+.logo {
+    min-width: 60px;
+    width: 10%;
+    max-width: 70px;
+    height: 50px;
+    border-right: 1px solid #ccc;
+    background-color: ;
+    float: left;
+    background: white url(/images/symbol.png) center / 38px no-repeat ;
+}
+
+nav {
+    width: auto;
+    padding-left: 3%;
+    float: left;
+}
+
+    nav ul {
+        list-style: none;
+        overflow: auto;
+        width: 250px
+    }
+
+    nav ul li {
+        float: left;
+        padding: 16px 10px 13px;
+        margin-right: 2%;
+        font-size: 0.875em;
+    }
+
+    header > button {
+        display: none;
+    }
+
+article.headline-main,
+article.headline-main__refer {
+    padding: 20px 5% 0;
+    text-align: center;
+    
+}
+
+article.about,
+article.about-main,
+article.how-it-works,
+article.about-main__refer {
+    padding: 60px 5% 20px;
+    float: left;
+    text-align: center;
+    margin-top: 0px;
+}
+
+article.about-main__refer {
+    padding: 10px 5% 60px;
+}
+
+article.about-main__refer:first-child {
+    padding: 10px 5% 20px;
+    margin-top: 30px;
+}
+
+li.active {
+    border-bottom: 3px solid #00aced;
+    color: #00aced;
+}
+
+li.inactive {
+    border-bottom: 3px solid transparent;
+}
+
+li.topics {
+    list-style: none;
+    display: inline-block;
+    padding: 13px 26px;
+    width: auto;
+    float: none;
+    margin: 0 10px 10px 0px;
+    border-radius: 5px;
+    background-color: rgba(178,221,251,.3);
+    color: #00aced;
+}
+
+.about-main li {
+    list-style: none;
+    color: #555;
+    margin: 10px 0;
+    display: block;
+    text-align: left;
+}
+    
+    .about-main li span {
+        color: #555;
+        margin: 0px 5px 0 0;
+        display: inline-block;
+        text-align: center;
+        width: 30px;
+        height: 30px;
+        padding-top: 5px;
+        border-radius: 3px;
+    }
+    
+    .light {
+        background-color: #fff166;
+    }
+
+    .medium {
+        background-color: #b2d6ae;
+    }
+
+    .dark {
+        background-color: #65baf7;
+    }
+
+    ul.social-media-links {
+        margin-top: 10px;
+        margin-bottom: 60px;
+    }
+
+    .social-media-links li {
+        width: 60px;
+        height: 60px;
+        float: none;
+        margin: 0 10px;
+        display: inline-block;
+        border-radius: 100%; 
+    }
+
+    li.twitter {
+        background-color: #00aced;
+        border-color: #0f89d3;
+    }
+
+    li.facebook {
+        background-color: #3b5998;
+        border-color: navy;
+    }
+
+    li.email {
+        background-color: #ccc;
+        border-color: #aaa;
+    }
+
+.cta-container {
+    width: 100%;
+    float: left;
+    text-align: center;
+    min-height: 200px;
+    margin-top: 50px;
+    padding: 30px 5%;
+    background-color: white;
+    border-top: 1px solid #eaeaea;
+}
+
+div.center {
+    text-align: center;
+}
+
+.float-right {
+    float: right;
+}
+
+.float-left {
+    float: left;
+}
+
+.desktop {
+    display: none;
+}
+
+
+
+
+
+
+/* Footer
+------------------------------------------- */
+
+footer {
+    width: 100%;
+    float: left;
+    padding: 20px 5% 90px;
+    min-height: 100px;
+    background-color: white;
+    border-top: 1px solid #eaeaea;
+    text-align: center;
+    margin-top: 80px;
+}
+
+
+
+
+
+
+
+
+
+/* Call To Action
+------------------------------------------- */
+
+.cta-fixed {
+    position: fixed;
+    width: 100%;
+    float: left;
+    bottom: 0;
+    padding: 14px 6% 9px;
+    background-color: #f8f8f8;
+    border-top: 1px solid #ddd;
+    text-transform: uppercase;
+    font-size: 0.875em;
+}
+
+
+
+
+
+
+
+/* Images
+------------------------------------------- */
+
+.iphone-image__main,
+.iphone-image__simple,
+.iphone-image__single {
+    width: 100%;
+    height: 65vh;
+    float: left;
+    padding-top: 0px;
+    border-bottom: 1px solid #ddd;
+    overflow: hidden;
+}
+
+.iphone-image__simple {
+    height: 60vh;
+}
+
+.iphone-image__main img,
+.iphone-image__simple img,
+.iphone-image__single img {
+    width: 90%;
+    height: auto;
+    max-width: 450px;
+    display: block;
+    margin: 0 auto;
+}
+
+.iphone-image__simple img {
+    width: auto;
+}
+
+
+
+
+
+
+
+/* Links
+------------------------------------------- */
+
+a {
+    color: #00aced;
+}
+
+
+
+
+
+
+
+/* Forms
+------------------------------------------- */
+
+input {
+    width: 100%;
+    padding: 12px 10px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 15px;
+    font-size: 1em;
+    text-align: center;
+}
+
+input.transparent {
+    text-align: center;
+    font-size: 1.25em;
+    color: #555;
+}
+
+
+
+
+
+/* Buttons & Elements
+------------------------------------------- */
+
+    button {
+        border: none;
+        min-width: 140px;
+        padding: 12px 0;
+        border-radius: 4px;
+    }
+
+    button.small {
+        padding: 10px 0;
+        background-color: #fff166;
+        margin-right: 0px;
+        text-transform: uppercase;
+        font-size: 0.875em;
+    }
+
+    button.more {
+        background-color: transparent;
+        text-align: left;
+        font-size: 1.125em;
+        border-radius: 0px;
+        display: inline-block;
+        margin-top: -5px;
+        
+    }
+
+    button#submit {
+        margin: 0 auto;
+        display: block;
+        float: none;
+        background-color: #a3d165;
+        color: white;
+    }
+
+    .md-content button#submit {
+        background-color: #a3d165;
+        color: white;
+    }
+
+    button.desktop {
+        display: none;
+    }
+
+    button.dark,
+    button.light-blue {
+        border-radius: 6px;
+    }
+    
+    button.dark {
+        background-color: #333;
+        color: white;
+    }
+    
+    button.light-blue {
+        background-color: #00aced;
+        color: white;
+    }
+    
+
+
+
+
+/* Modal for Signing Up 
+------------------------------------------- */    
+
+    .md-modal, .md-modal-full {
+        position: fixed;
+        top: 0px;
+        left: 0;
+        right: 0;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+        max-width: 37.5em;
+        border-radius: 0px;
+        float: left;
+        z-index: 2000;
+        visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+/*
+        Do not touch this. It pushes the mobile sign in modal up beyond the navigation bar.
+        
+        backface-visibility: hidden;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        -moz-transform: translateX(-50%) translateY(-50%);
+        -ms-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+*/
+    }
+
+        .md-modal__bottom, 
+        .md-modal-full {
+            position: fixed;
+            bottom: 0px;
+            left: 0;
+            right: 0;
+            margin-left: 0;
+            margin-right: 0;
+            width: 100%;
+            max-width: 37.5em;
+            border-radius: 0px;
+            float: left;
+            z-index: 2000;
+            visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+        }
+        .md-content {
+            position: relative;
+            top: 0;
+            width: 100%;
+            background: white;
+            position: relative;
+            border-radius: 0px;
+            margin: 0 auto;
+            padding: 50px 10% 90px;
+            text-align: center;
+            box-shadow: 0px 0px 10px rgba(0,0,0,.25);
+        }
+
+        .md-content__bottom {
+            position: relative;
+            bottom: 63px;
+            float: left;
+            width: 100%;
+            background: rgba(248,248,248,1);
+            border-top: 1px solid #ccc;
+            position: relative;
+            border-radius: 0px;
+            margin: 0 auto;
+            padding: 10px 6%;
+            text-align: center;
+        }
+
+        .md-content__bottom li {
+            list-style: none;
+            text-align: left;
+            padding: 10px 0;
+            color: #aaa;
+        }
+
+        .md-content__bottom a {
+            text-decoration: none;
+            color: #222;
+        }
+
+        .modal-title {
+            width: 100%;
+            height: 45px;
+            float: left;
+            margin-bottom: 25px;
+        }
+    
+        button.md-close {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, 0);
+            border: 0;
+            bottom: 30px;
+            border-radius: 100%;
+            border: 2px solid #ccc;
+            background: #fff url(/images/x_close.png) center / 40px 40px no-repeat;
+            min-width: 40px;
+            height: 40px;
+            opacity: 1;
+        }
+    
+        .md-modal-full {
+            max-width: 100%;
+            max-height: 600px;
+        }
+
+        .md-show {
+            visibility: visible;
+        }
+
+    /* Content styles */
+
+    .md-content > div {
+        padding: 10px 30px 0px;
+        margin: 0;
+        font-weight: 300;
+        font-size: 1em;
+    }
+
+    .md-content > div p {
+        margin: 0;
+        padding: 10px 0;
+    }
+
+    .md-content form {
+        padding: 5px 5% 25px;
+        float: none;
+        width: 100%:
+    }
+
+    .md-content input:focus {
+        outline: inherit;
+    }
+
+    .md-content button {
+        display: block;
+        margin: 0 auto;
+        font-size: 1em;
+    }
+
+    /* Individual modal styles with animations/transitions */
+
+    /* Effect 1: Fade in and scale up */
+    .md-effect-1 .md-content, 
+    .md-content__bottom {
+        -webkit-transform: scale(0.7);
+        -moz-transform: scale(0.7);
+        -ms-transform: scale(0.7);
+        transform: scale(0.7);
+        opacity: 0;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+
+    .md-show.md-effect-1 .md-content,
+    .md-content__bottom {
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    .md-overlay {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        visibility: hidden;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        opacity: 0;
+        background: rgba(60,60,60,0.8);
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+    .md-show ~ .md-overlay {
+        opacity: 0;
+        visibility: visible;
+    }
+
+/*
+     Effect 12:  Just me 
+    .md-effect-12 .md-content {
+        -webkit-transform: scale(0.8);
+        -moz-transform: scale(0.8);
+        -ms-transform: scale(0.8);
+        transform: scale(0.8);
+        opacity: 0;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+
+    .md-show.md-effect-12 ~ .md-overlay {
+        background: #fff166;
+    } 
+*/    
+
+
+
+
+
+
+
+/* Typography
+------------------------------------------- */
+
+a, p, h1, h2, h3, h4, li, button, input {
+    line-height: 130%;
+    text-align: center;
+    font-family: "proxima-nova-soft", sans-serif;
+}
+
+p {
+    color: #555;
+    font-size: 100%;
+    line-height: 140%;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 1.75em;
+    letter-spacing: -0.0125em;
+    margin-bottom: 5px;
+    color: black;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+} 
+
+h3, h4 {
+    font-size: 130%;
+    line-height: 120%;
+    font-weight: 300;
+    font-weight: normal;
+    margin-bottom: 30px;
+    color: #bbb;
+}
+
+h4 {
+    margin-bottom: 30px;
+    line-height: 1;
+    margin-top: -5px;
+}
+
+li {
+    color: #bbb;
+}
+
+button {
+    font-size: 0.90em;
+    text-align: center;
+}
+
+.center p,
+.center h1,
+.center h4,
+.cta-container p,
+.cta-container h2 {
+    text-align: center;
+}
+
+::-moz-input-placeholder {
+    color: red;
+}
+
+
+
+
+
+
+/* Large smartphones and tablets 
+--------------------------------------------- */
+
+@media (min-width: 550px) {
+  
+    .logo {
+        width: 200px;
+        max-width: 200px;
+        height: 50px;
+        border-right: 1px solid #ccc;
+        background-color: #fff166;
+        float: left;
+        background: url(/images/wordmark@2x.png) center / 170px no-repeat ;
+    }
+    
+    .cta-fixed {
+        display: block;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
+
+
+
+
+
+
+
+
+/* Tablets and small laptop 
+--------------------------------------------- */
+
+@media (min-width: 901px) {
+  
+    .logo:hover {
+        background-color: rgba(255,241,102,.25);
+    }
+    
+    nav ul li {
+        margin-right: 4%;
+    }
+    
+        header > button.small {
+            display: block;
+            float: right;
+            margin-top: 6px;
+            margin-right: 15%
+        }
+    
+    section.main-container {
+        max-width: 68em;
+        margin: 0 auto;
+    }
+    
+    .logo-big {
+        margin-bottom: 10px;
+        margin-left: -10px;
+    }
+    
+    section.main-container__refer {
+        width: 58em;
+    }
+    
+    article.headline-main,
+    article.headline-main__refer {
+        width: 50%;
+        float: right;
+        height: auto;
+        margin-top: 20%;
+        text-align: left;
+        margin-bottom: 0;
+        padding: 0 4% 0 2%;
+    }
+    
+    article.headline-main__refer {
+        margin-top: 3%;
+    }
+
+    article.about-main__refer {
+        padding: 20px 5%;
+    }
+    
+        article.about-main h2 {
+            text-align: left;
+            color: #00aced;
+            font-weight: 400;
+        }
+        
+/*
+        article.about-main span.rounded-number {
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+            text-align: center;
+            padding-top: 4px;
+            margin: 0 10px 0 -50px;
+            border-radius: 100%;
+            border: 1px solid #00aced;
+        }
+*/
+    
+    .iphone-image__main,
+    .iphone-image__simple,
+    .iphone-image__single {
+        width: 50%;
+        float: left;
+        height: auto;
+        border-bottom: none;
+    }
+    
+    .iphone-image__single {
+        margin-top: 50px;
+    }
+    
+    .iphone-image__main
+    .iphone-image__simple {
+        height: 100vh;
+        padding-top: 20px;
+        max-height: 580px;
+    }
+    
+    .iphone-image__simple {
+        padding-top: 30px;   
+    }
+    
+    article {
+        width: 50%;
+        float: left;
+        text-align: left;
+    }
+    
+    article.about-main,
+    articl.how-it-works {
+        width: 50%;
+        float: right;
+        margin-left: 0;
+        margin-top: 0px;
+        text-align: left;
+        padding: 0 4% 0 2%;
+    }
+    
+    article.about {
+        float: left;
+        width: 70%;
+        padding-left: 9%;
+        padding-top: 60px;
+        min-height: 85vh;
+    }
+    
+    article.how-it-works {
+        text-align: left;
+        min-height: 85vh;
+    }
+    
+    .iphone-image__simple {
+        border-bottom: none;
+        margin-top: 20px;
+    }
+
+    li.topics {
+        background-color: rgba(178,221,251,.3);
+        color: #00aced;
+    }
+    
+    .cta-container {
+        padding: 10px 20%;   
+    }
+ 
+    .desktop {
+        display: block;
+    }
+    
+    .md-show ~ .md-overlay {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .cta-fixed {
+        display: none;
+    }
+    
+    
+    
+    
+
+/* Footer
+--------------------------------------------- */    
+    
+    footer {
+        padding-bottom: 0px;
+        border-top: 1px solid #ccc;
+        background-color: white;
+        min-height: auto;
+        margin-top: 0px;
+    }
+    
+    footer p {
+        float: left;
+    }
+    
+    footer > ul {
+        float: right;
+    }
+    
+    footer > ul a {
+        float: right; 
+        margin-left: 20px;
+        text-decoration: none;
+        color: #ccc;
+    }
+    
+    footer > ul a:hover {
+        color: #111;
+    }
+    
+    
+    
+    
+    
+    
+/* Buttons
+--------------------------------------------- */
+  
+    button {
+        margin: 0 3% 0 0;
+        min-width: 160px;
+        padding: 15px 0;
+    }
+    
+    button.desktop {
+        display: block;
+        float: left;
+    }
+    
+    button.dark,
+    button.light-blue {
+        border-radius: 6px;
+    }
+    
+    button.dark {
+        background-color: #333;
+        color: white;
+    }
+    
+    button.light-blue {
+        background-color: #00aced;
+        color: white;
+    }
+    
+    
+    
+    
+    
+    
+/* Images
+--------------------------------------------- */
+    
+    .iphone-image__main img,
+    .iphone-image__simple img,
+    .iphone-image__single img {
+        width: 90%;
+        height: auto;
+    }
+    
+    
+    
+    
+    
+    
+/* Typography
+--------------------------------------------- */
+    
+    p {
+        text-align: left;
+    }
+    
+    h1 {
+        font-size: 2.25em;
+        text-align: left;
+        line-height: 1em;
+    }
+    
+    h3 {
+        font-size: 2em;
+        line-height: 1em;
+        text-align: left;
+    }
+    
+    h4 {
+        text-align: left;
+        line-height: 1.25em;
+        margin-top: 6px;
+    }
+    
+    article.about h3 {
+        width: 75%;
+    }
+    
+    .md-content h1,
+    .md-content h3 {
+        text-align: center;
+    }
+    
+    .md-content h3 {
+        font-size: 1.5em;
+        line-height: 1.2em;
+        font-weight: 100;
+    }
+    
+    .how-it-works h1,
+    .how-it-works h3 {
+        text-align: left;
+    }
+    
+    .center p, 
+    .center h1, 
+    .center h4, 
+    .cta-container p, 
+    .cta-container h2 {
+        text-align: left;
+    }
+    
+    .about-main input {
+        text-align: left;
+    }
+    
+    
+    
+    
+    
+    
+/* Sign Up Modal
+--------------------------------------------- */    
+    
+    .md-modal, .md-modal-full {
+        position: fixed;
+        display: block;
+        text-align: center;
+        top: 70px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        max-width: 25em;
+        border-radius: 0px;
+        z-index: 2000;
+/*        visibility: hidden;*/
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        overflow: auto;
+    
+}
+    
+}
