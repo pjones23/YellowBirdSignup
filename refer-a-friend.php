@@ -100,15 +100,15 @@
                     <div class="progress-bar__blue"></div> 
                     
                     <li class="level">
-                        <p><span class="signees">15</span><br>First Round Access +<br> YellowBird TShirt</p>
+                        <p><span class="signees">15</span><br>Beta Access +<br> YellowBird T-Shirt</p>
                     </li>
                     
                     <li class="level">
-                        <p><span class="signees">10</span><br>First Round Access</p>
+                        <p><span class="signees">10</span><br>Private Beta Access</p>
                     </li>
                     
                     <li class="level">
-                        <p><span class="signees">5</span><br>Second Round Access</p>
+                        <p><span class="signees">5</span><br>Public Beta Access</p>
                     </li>
                     
                 </div>

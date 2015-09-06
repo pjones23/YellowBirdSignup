@@ -196,7 +196,7 @@ body {
     .header-container--third,
     .header-container--third__full {
         width: 100%;
-        height: 80vh;
+        height: 70vh;
         float: left;
         margin: 0px 0;
         padding: 5em 1.5em;
@@ -205,6 +205,7 @@ body {
 
     .header-container--third:nth-child(2) {
         background-color: #a3e6c3;
+        background-color: transparent;
     }
     .header-container--third:nth-child(4) {
         background-color: transparent;
@@ -445,7 +446,7 @@ body {
     
     .iphone-shell {
         position: absolute;
-        top: 316px;
+        top: 362px;
         left:8px;
         right:0;
         margin-left:auto;
@@ -1269,9 +1270,10 @@ body {
     .header-container--third,
     .header-container--third__full {
         position: relative;
+        height: 70vh;
         width: 50%;
         float: left;
-        margin: 80px 0;
+        margin: 40px 0 0 0;
         padding: 1em 1em;
         background-color: transparent;
     }

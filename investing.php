@@ -83,7 +83,7 @@
         
             <h2>Do You Shop?</h2>
         
-            <p>Where was the last placed you purchased something worth more than $50?</p></aside>
+            <p>Where was the last place you purchased something worth more than $50?</p></aside>
         
         <form autocomplete="off" onsubmit="event.preventDefault();">
             
