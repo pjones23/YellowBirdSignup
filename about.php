@@ -14,7 +14,7 @@
     <script>try{Typekit.load();}catch(e){}</script>
 
     <!--- Title --->
-    <title>YellowBird | Financial Education Made Fun</title>
+    <title>YellowBird | About</title>
 </head>
 
 <body>
@@ -25,45 +25,23 @@ include_once("header.php");
 
 <!-- Main Content -------------------------------->
 
-<section class="main-container group">
+<section class="main-container">
 
-    <article class="headline-main center">
-
-        <!-- Main Title -->
-        <div class="logo-big"><img src="images/wordmark.png"></div>
-
-        <h3>Financial education made fun.</h3>
-
-    </article>
-
-    <!-- Main iPhone Image -->
-    <article class="iphone-image__main">
-
-        <img src="images/iphone-two.png">
-
-    </article>
-
-    <!-- Main Information Section -->
-    <article class="about-main">
+    <!-- Main About Section ----->
+    <article class="about">
 
         <aside class="">
 
             <div class="">
 
-                <p>A mobile-specific, gamified platform that educates users about personal finance and investing.</p>
+                <h1>About Us</h1>
+
+                <h4>We are rethinking the way financial education works. We don’t teach from a classroom, we don’t show long videos or write 500-page books to read. Instead, we are a mobile-specific, interactive solution.</h4>
+
+                <p>YellowBird was founded in Atlanta, Georgia in 2014 by a small team of entrepreneurs with a variety of investing backgrounds. The methods in which the founders were taught did not speak to their demographic in terms relevant to them, nor to their mobile emphasis. Learning should not be confined to traditional methods only. </p>
 
             </div>
 
-            <!-- Main Button Section ----->
-            <div>
-
-                <button class="desktop dark call-to-action md-trigger" data-modal="modal-1">Get Early Access</button>
-
-                <a href="how-it-works.php"><button class="light-blue">How It Works</button></a>
-
-
-
-            </div>
 
         </aside>
 
@@ -89,9 +67,6 @@ include_once("footer.php");
 <script src="js/retina.js"></script>
 <script src="js/classie.js"></script>
 <script src="js/modernizr.custom.js"></script>
-
-
-<script src="js/retina.js"></script>
 
 </body>
 

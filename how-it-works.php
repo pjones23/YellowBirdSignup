@@ -14,7 +14,7 @@
     <script>try{Typekit.load();}catch(e){}</script>
 
     <!--- Title --->
-    <title>YellowBird | Financial Education Made Fun</title>
+    <title>YellowBird | How It Works</title>
 </head>
 
 <body>
@@ -25,45 +25,46 @@ include_once("header.php");
 
 <!-- Main Content -------------------------------->
 
-<section class="main-container group">
+<section class="main-container">
 
-    <article class="headline-main center">
+    <!-- Main iPhone Image ----->
+    <article class="iphone-image__simple">
 
-        <!-- Main Title -->
-        <div class="logo-big"><img src="images/wordmark.png"></div>
-
-        <h3>Financial education made fun.</h3>
+        <img src="images/how-it-works.png">
 
     </article>
 
-    <!-- Main iPhone Image -->
-    <article class="iphone-image__main">
-
-        <img src="images/iphone-two.png">
-
-    </article>
-
-    <!-- Main Information Section -->
-    <article class="about-main">
+    <!-- Main Information Section ----->
+    <article class="how-it-works">
 
         <aside class="">
 
             <div class="">
 
-                <p>A mobile-specific, gamified platform that educates users about personal finance and investing.</p>
+                <h1>How It Works</h1>
+
+                <h3>Learn. Apply. Graduate.</h3>
+
+                <p>Financial education shouldn't be confined to traditional methods only. So we created an entirely new mobile experience with a curated curriculum that offers mini-lessons with interactive features. </p>
 
             </div>
 
-            <!-- Main Button Section ----->
-            <div>
+            <!-- Main Topics Section
+            ----------------------------------------------->
+            <ul>
 
-                <button class="desktop dark call-to-action md-trigger" data-modal="modal-1">Get Early Access</button>
+                <li class="topics">Credit</li>
+                <li class="topics">Budgeting</li>
+                <li class="topics">Planning</li>
+                <li class="topics">Students Loans</li>
+                <li class="topics">Digital Currency</li>
+                <li class="topics">Saving</li>
+                <li class="topics">Investing</li>
+                <li class="topics">Taxes</li>
+                <li class="topics">Mortgages</li>
+                <li class="topics">and more</li>
 
-                <a href="how-it-works.php"><button class="light-blue">How It Works</button></a>
-
-
-
-            </div>
+            </ul>
 
         </aside>
 
@@ -83,15 +84,11 @@ include_once("early-access-modal.php");
 include_once("footer.php");
 ?>
 
-
 <!-- Script -->
 <script src="js/modalEffects.js"></script>
 <script src="js/retina.js"></script>
 <script src="js/classie.js"></script>
 <script src="js/modernizr.custom.js"></script>
-
-
-<script src="js/retina.js"></script>
 
 </body>
 
