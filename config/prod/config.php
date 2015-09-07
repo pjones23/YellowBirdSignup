@@ -19,4 +19,10 @@ $mailChimpEndPoint = 'https://' + $mailChimpDataCenter + '.api.mailchimp.com/2.0
 
 $yellowBirdListID = '8e591b77f5'; // name: YellowBird
 
+$emailSMTPServer = 'smtp.gmail.com';
+$emailSMTPServerPort = 465;
+$emailSender = 'info@yellowbird.io';
+$emailSenderName = 'YellowBird (no-reply)';
+$emailSenderPassword = 'yellowFeather23';
+
 ?>

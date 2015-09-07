@@ -37,7 +37,7 @@ if (isset($_POST['email'])) {
         $message->addPart($textBody, 'text/plain');
 
         // Create the Transport
-        $transport = Swift_SmtpTransport::newInstance($emailSMTPServer, $emailSMTPServerPort);
+        $transport = Swift_SmtpTransport::newInstance($emailSMTPServer, $emailSMTPServerPort, 'ssl');
         $transport->setUsername($emailSender);
         $transport->setPassword($emailSenderPassword);
 
