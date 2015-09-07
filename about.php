@@ -7,11 +7,6 @@
     <meta name="author" content="YellowBird" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/global.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.0.min.js"></script>
-
-    <!--- Typekit --->
-    <script src="//use.typekit.net/ykc6jnz.js"></script>
-    <script>try{Typekit.load();}catch(e){}</script>
 
     <!--- Title --->
     <title>YellowBird | About</title>
@@ -63,6 +58,17 @@ include_once("footer.php");
 
 
 <!-- Script -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.0.min.js"></script>
+
+<!--- Typekit --->
+<script src="//use.typekit.net/ykc6jnz.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+<script id="configScript"></script>
+<script src="js/loadConfig.js"></script>
+<script src="js/addSubscriber.js"></script>
+<script src="js/YB.js"></script>
+
 <script src="js/modalEffects.js"></script>
 <script src="js/retina.js"></script>
 <script src="js/classie.js"></script>

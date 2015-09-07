@@ -21,12 +21,11 @@
 
         <h3>Sign up for early access to the YellowBird platform.</h3>
 
-        <form onsubmit="event.preventDefault();">
+        <form action="refer-a-friend.php<?php if (isset($_GET["ref"])) { echo("?ref=".$_GET["ref"]); } ?>" method="post">
 
-            <input type="email" class="transparent" placeholder="Your Email Please" required>
-
-            <button id="submit" onclick="location.href='refer-a-friend.php'" class="">Let's Do This</button>
-
+            <input id="email" name="email" type="email" class="transparent" placeholder="Trade Your Email" required>
+            <input id="ref" name="ref" type="hidden" value="<?php if (isset($_GET["ref"])) { echo($_GET["ref"]); } ?>">
+            <button id="submit" class="button_green--long">Go</button>
         </form>
 
     </div>

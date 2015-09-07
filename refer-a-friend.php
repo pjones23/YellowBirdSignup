@@ -8,12 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/global.css" rel="stylesheet" type="text/css" />
     <meta property="og:image" content="http://yellowbird.io/images/symbol.png" />
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.0.min.js"></script>
-
-    <!--- Typekit --->
-    <script src="//use.typekit.net/ykc6jnz.js"></script>
-    <script>try{Typekit.load();}catch(e){}</script>
 
     <!--- Title --->
     <title>YellowBird | Refer Your Friends</title>
@@ -24,18 +18,6 @@
 <?php
 include_once("header.php");
 ?>
-
-<!-- Main Container
----------------------------------------------------->
-
-<!--
-    <div class="thanks-container">
-
-        <span>Thanks For Signing Up</span>
-        <div class="close"><img src="images/icon_close-white.svg"></div>
-
-    </div>
--->
 
 <section class="main-container group">
 
@@ -79,15 +61,14 @@ include_once("header.php");
         <p>Below is your unique url code. You can click and copy it or share via social media and/or email!</p>
 
         <!-- The unique URL -->
-        <input type="text" style="z-index: 99;" placeholder="yellowbird.io/?ref=">
+        <img id="uniqueURLLoading" src="images/loading.gif" />
+        <input id="uniqueURL" style="z-index: 99; display: none" placeholder="yellowbird.io/?ref=" disabled type="text">
 
         <ul class="social-media-links">
 
-            <li class="twitter"><img src="images/twitter.png"></li>
-
-            <li class="facebook"><img src="images/facebook.png"></li>
-
-            <li class="email"><img src="images/email.png"></li>
+            <a id="share_twitter"><li class="twitter"><img src="images/twitter.png"></li></a>
+            <a id="share_facebook"><li class="facebook"><img src="images/facebook.png"></li></a>
+            <a id="share_email"><li class="email"><img src="images/email.png"></li></a>
 
         </ul>
 
@@ -107,10 +88,36 @@ include_once("footer.php");
 ?>
 
 <!-- Script -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.0.min.js"></script>
+
+<!--- Typekit --->
+<script src="//use.typekit.net/ykc6jnz.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+<script id="configScript"></script>
+<script src="js/loadConfig.js"></script>
+<script src="js/addSubscriber.js"></script>
+<script src="js/YB.js"></script>
+
 <script src="js/modalEffects.js"></script>
 <script src="js/retina.js"></script>
 <script src="js/classie.js"></script>
 <script src="js/modernizr.custom.js"></script>
+
+<script>
+    $(document).ready(function() {
+        var email = "<?php if (isset($_POST["email"])) { echo($_POST["email"]); } ?>";
+        var ref = "<?php if (isset($_POST["ref"])) { echo($_POST["ref"]); } ?>";
+
+        console.log(email);
+        console.log(ref);
+        $(window).load(function() {
+            // this code will run after all other $(document).ready() scripts
+            // have completely finished, AND all page elements are fully loaded.
+            signup(email, ref);
+        });
+    });
+</script>
 
 </body>
 

@@ -6,7 +6,7 @@
  * Time: 2:18 PM
  */
 
-$env = "beta"; // local, beta, prod
+$env = "local"; // local, beta, prod
 
 if($env == "local"){
     require_once('local/config.php');

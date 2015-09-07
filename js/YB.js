@@ -35,6 +35,7 @@ function signup(email, reference){
 function populateRefPage(info, newSubscription){
 
     // populate heading message
+    /*
     var shareMessageHeading = document.getElementById('signup_heading');
     if(newSubscription == true){
         shareMessageHeading.innerHTML = "Thanks For Signing Up";
@@ -42,11 +43,17 @@ function populateRefPage(info, newSubscription){
     else{
         shareMessageHeading.innerHTML = "Welcome Back, Check Your Progress";
     }
-
+    */
 
     // populate reference field
     var refCodeField = document.getElementById('uniqueURL');
     refCodeField.value = yellowBirdURL +"?ref="+ info.refCode;
+
+    var refCodeField = document.getElementById('uniqueURL');
+    refCodeField.value = yellowBirdURL +"?ref="+ info.refCode;
+    $("#uniqueURL").attr("style", "z-index: 99; width: 90%; display: none;");
+    $("#uniqueURLLoading").hide();
+    $("#uniqueURL").fadeIn();
 
     // populate Twitter share href
     var twitterBtn = document.getElementById('share_twitter');
@@ -76,5 +83,5 @@ function populateRefPage(info, newSubscription){
         totalReferences = info.refCount;
     }
     var joinedCount = document.getElementById('joined_count');
-    joinedCount.text = totalReferences;
+    //joinedCount.text = totalReferences;
 }
