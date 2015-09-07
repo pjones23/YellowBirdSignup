@@ -55,10 +55,11 @@ function populateRefPage(info, newSubscription){
     $("#uniqueURLLoading").hide();
     $("#uniqueURL").fadeIn();
 
+    var shareText = "YellowBird is making financial education mobile and fun. Reserve your spot... " +  yellowBirdURL + "?ref=" + info.refCode;
     // populate Twitter share href
     var twitterBtn = document.getElementById('share_twitter');
     twitterBtn.onclick = function(){
-        window.open('https://twitter.com/intent/tweet?url=' + yellowBirdURL + '?ref=' + info.refCode +';text=YellowBird+is+a+gamified+stock+market+education+platform.+Reserve+your+spot+today+at+' + yellowBirdURL + '?ref=' + info.refCode +'&amp;via=getyellowbird', '_blank', 'width=550,height=500');
+        window.open('https://twitter.com/intent/tweet?url=' + yellowBirdURL + '?ref=' + info.refCode +';text=' + encodeURIComponent(shareText) + '&amp;via=getyellowbird', '_blank', 'width=550,height=500');
     };
 
     // populate Facebook share href
@@ -72,9 +73,8 @@ function populateRefPage(info, newSubscription){
 
     mailBtn.onclick = function () {
         var subject = "Stock market education—gamified!";
-        var body = "YellowBird is a free educational platform that teaches users how to invest in the stock market. " + yellowBirdURL + "?ref=" + info.refCode;
         // brings up default mail client
-        document.location.href = "mailto:?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+        document.location.href = "mailto:?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(shareText);
     }
 
     // populate the number of friends who have joined using the supplied reference code
