@@ -106,6 +106,8 @@ include_once("footer.php");
 
 <script>
     $(document).ready(function() {
+        $("#referralBtn").prop("disabled",true);
+
         var email = "<?php if (isset($_POST["email"])) { echo($_POST["email"]); } ?>";
         var ref = "<?php if (isset($_POST["ref"])) { echo($_POST["ref"]); } ?>";
 

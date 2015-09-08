@@ -30,6 +30,8 @@ function signup(email, reference){
 
     }
 
+        // create the cookie
+
 }
 
 function populateRefPage(info, newSubscription){
@@ -77,11 +79,17 @@ function populateRefPage(info, newSubscription){
         document.location.href = "mailto:?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(shareText);
     }
 
+    populateReferralsBtn(info);
+}
+
+
+function populateReferralsBtn(info){
     // populate the number of friends who have joined using the supplied reference code
     var totalReferences = 0;
     if(info.refCount != null && info.refCount != undefined){
         totalReferences = info.refCount;
     }
-    var joinedCount = document.getElementById('joined_count');
-    //joinedCount.text = totalReferences;
+    var referralBtn = document.getElementById('referralBtn');
+    console.log("here");
+    referralBtn.innerText = totalReferences + " INVITES";
 }

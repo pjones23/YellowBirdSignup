@@ -21,7 +21,8 @@
 
     </nav>
 
-    <button class="small call-to-action md-trigger" data-modal="modal-1">Early Access</button>
+    <button id="referralBtn" class="small call-to-action md-trigger" data-modal="modal-1">Early Access</button>
+
 
 </header>
 </html>
