@@ -39,47 +39,53 @@ include_once("header.php");
 
     <!-- Main Information Section -->
     <article class="about-main">
+        
+            <h2>1 | How This Works</h2>
+        
+            <p>We will release the app in batches. So invite your friends and jump the line.
+The more friends sign up, the faster you'll get in.</p>
+        
+            <article class="spot-container">
+        
+                <!-- People in front of you -->
+                <aside class="people-front">
+                
+                    <h5 class="green">234</h5>
+                    <p>Your Spot</p>
+                    
+                </aside>
+                
+                <!-- People in line behind you -->
+                <aside class="people-behind">
+                
+                    <h5 class="grey">0</h5>
+                    <p>Behind You</p>
 
-        <h2>1 | How This Works</h2>
+                </aside>
+                
+            </article>
+            
+        
+             <!-- Start sharing with your friends -->
+            <h2>2 | Now, Start Sharing!</h2>
+            
+            <p>Below is your unique url code. You can click and copy it or share via social media and/or email!</p>
+            
+            <!-- The unique URL -->
+            <img id="uniqueURLLoading" src="images/loading.gif" />
+            <input id="uniqueURL" style="z-index: 99; display: none" placeholder="yellowbird.io/?ref=" disabled type="text">
 
-        <p>The more of your friends that sign up, the more benefits you get.</p>
+            <ul class="social-media-links">
 
+                <a id="share_twitter"><li class="twitter"><img src="images/twitter.png"></li></a>
+                <a id="share_facebook"><li class="facebook"><img src="images/facebook.png"></li></a>
+                <a id="share_email"><li class="email"><img src="images/email.png"></li></a>
 
-        <!-- Invite list and how it works -->
-        <li><span class="light">3</span>  <strong>INVITES</strong> ::
-            First group access</li>
-        <li><span class="medium">5</span> <strong>INVITES</strong> ::
-            Beta group access, something else</li>
-        <li><span class="dark">10</span> <strong>INVITES</strong> ::
-            Beta group access, exclusive T-shirt.
-        </li>
-        <br>
+            </ul>
 
-        <!-- Start sharing with your friends -->
-        <h2>2 | Now, Start Sharing!</h2>
+        </article>
+    </section>
 
-        <p>Below is your unique url code. You can click and copy it or share via social media and/or email!</p>
-
-        <!-- The unique URL -->
-        <img id="uniqueURLLoading" src="images/loading.gif" />
-        <input id="uniqueURL" style="z-index: 99; display: none" placeholder="yellowbird.io/?ref=" disabled type="text">
-
-        <ul class="social-media-links">
-
-            <a id="share_twitter"><li class="twitter"><img src="images/twitter.png"></li></a>
-            <a id="share_facebook"><li class="facebook"><img src="images/facebook.png"></li></a>
-            <a id="share_email"><li class="email"><img src="images/email.png"></li></a>
-
-        </ul>
-
-    </article>
-</section>
-
-<!-- Sign up for early access modal
---------------------------------------------->
-<?php
-include_once("early-access-modal.php");
-?>
 
 <!-- Footer
 ---------------------------------------------->
