@@ -24,14 +24,11 @@ function signup(email, reference){
         sendAddConfirmEmail(email, info.refCode);
 
     }
-    else{
+    else {
         // Check if the user already exists and open up a modal showing the refCode and round number
         populateRefPage(info, false);
 
     }
-
-        // create the cookie
-
 }
 
 function populateRefPage(info, newSubscription){
@@ -47,12 +44,18 @@ function populateRefPage(info, newSubscription){
     }
     */
 
+
+    // populate the user's position
+    var position = getPosition(info.email);
+    if(position.status = "SUCCESS"){
+        var positionField = document.getElementById('your_spot');
+        positionField.innerText = (Number(position.position) + 1000).toString();
+    }
+
     // populate reference field
     var refCodeField = document.getElementById('uniqueURL');
     refCodeField.value = yellowBirdURL +"?ref="+ info.refCode;
 
-    var refCodeField = document.getElementById('uniqueURL');
-    refCodeField.value = yellowBirdURL +"?ref="+ info.refCode;
     $("#uniqueURL").attr("style", "z-index: 99; width: 90%; display: none;");
     $("#uniqueURLLoading").hide();
     $("#uniqueURL").fadeIn();
@@ -90,6 +93,5 @@ function populateReferralsBtn(info){
         totalReferences = info.refCount;
     }
     var referralBtn = document.getElementById('referralBtn');
-    console.log("here");
     referralBtn.innerText = totalReferences + " INVITES";
 }
