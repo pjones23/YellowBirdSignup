@@ -125,18 +125,6 @@ li.topics {
         padding-top: 5px;
         border-radius: 3px;
     }
-    
-    .light {
-        background-color: #fff166;
-    }
-
-    .medium {
-        background-color: #b2d6ae;
-    }
-
-    .dark {
-        background-color: #65baf7;
-    }
 
     ul.social-media-links {
         margin-top: 10px;
@@ -177,6 +165,20 @@ li.topics {
     background-color: white;
     border-top: 1px solid #eaeaea;
 }
+
+.spot-container {
+    width: 100%;
+    padding: 20px 0 0 ;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin: 10px 0 20px;
+}
+    
+    .people-front,
+    .people-back {
+        width: 50%;
+        float: left;
+    }
 
 div.center {
     text-align: center;
@@ -300,10 +302,12 @@ input {
     width: 100%;
     padding: 12px 10px;
     border: none;
-    border-bottom: 1px solid #ccc;
     margin-bottom: 15px;
     font-size: 1em;
     text-align: center;
+    background-color: #d2f1f9;
+    border-radius: 5px;
+    color: #666;
 }
 
 input.transparent {
@@ -595,7 +599,7 @@ input.transparent {
 /* Typography
 ------------------------------------------- */
 
-a, p, h1, h2, h3, h4, li, button, input {
+a, p, h1, h2, h3, h4, h5, li, button, input {
     line-height: 130%;
     text-align: center;
     font-family: "proxima-nova-soft", sans-serif;
@@ -608,7 +612,7 @@ p {
     margin-bottom: 20px;
 }
 
-h1 {
+h1, h5 {
     font-size: 1.75em;
     letter-spacing: -0.0125em;
     margin-bottom: 5px;
@@ -633,6 +637,14 @@ h4 {
     margin-bottom: 30px;
     line-height: 1;
     margin-top: -5px;
+}
+
+.green {
+    color: #46dc96;
+}
+
+.grey {
+    color: #ccc;
 }
 
 li {
@@ -965,6 +977,11 @@ button {
         text-align: left;
         line-height: 1.25em;
         margin-top: 6px;
+    }
+    
+    h5 {
+        text-align: left;
+        font-size: 2.5em;
     }
     
     article.about h3 {
