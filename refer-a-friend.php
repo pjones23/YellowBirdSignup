@@ -50,7 +50,7 @@ The more friends sign up, the faster you'll get in.</p>
                 <!-- People in front of you -->
                 <aside class="people-front">
                 
-                    <h5 class="green">234</h5>
+                    <h5 id="your_spot" class="green">-</h5>
                     <p>Your Spot</p>
                     
                 </aside>

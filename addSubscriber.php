@@ -39,6 +39,16 @@ if (isset($_POST['action'])) {
             echo json_encode(array('status' => 'FAILURE', 'message' => 'POST data (refcode) not set'));
         }
     }
+    elseif($action == "position"){
+        if (isset($_POST['email'])) {
+            $email = (string)$_POST['email'];
+            $response = getSignupPosition($email);
+            echo json_encode($response);
+        }
+        else{
+            echo json_encode(array('status' => 'FAILURE', 'message' => 'POST data (email) not set'));
+        }
+    }
 
     $conn->close();
 }
@@ -214,6 +224,36 @@ function incrementRefCount($refCode)
     } while ($conn->more_results() && $conn->next_result());
 
     return $success;
+}
+
+function getSignupPosition($email){
+    /*
+    Get subscriber's signup position
+    */
+    $status = "SUCCESS";
+    $position = null;
+    global $conn;
+    $email = $conn->real_escape_string($email);
+    $query = sprintf("CALL getPosition('%s')", $email);
+    if (!($conn->multi_query($query))) {
+        echo "CALL failed: (" . $conn->errno . ") " . $conn->error;
+    }
+    do {
+        if ($res = $conn->store_result()) {
+            if ($res->num_rows > 0) {
+                $result = $res->fetch_assoc();
+                $position = $result["position"];
+            }
+            $res->free();
+        } else {
+            if ($conn->errno) {
+                echo "Store failed: (" . $conn->errno . ") " . $conn->error;
+                $status = "FAILURE";
+            }
+        }
+    } while ($conn->more_results() && $conn->next_result());
+
+    return array("Status" => $status,"position" => $position);
 }
 
 ?>
