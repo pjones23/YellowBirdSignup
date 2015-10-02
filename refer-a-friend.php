@@ -55,14 +55,6 @@ The more friends sign up, the faster you'll get in.</p>
                     
                 </aside>
                 
-                <!-- People in line behind you -->
-                <aside class="people-behind">
-                
-                    <h5 class="grey">0</h5>
-                    <p>Behind You</p>
-
-                </aside>
-                
             </article>
             
         
